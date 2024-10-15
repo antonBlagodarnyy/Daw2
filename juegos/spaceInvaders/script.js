@@ -53,13 +53,14 @@ class Ball {
     this.x = x;
     this.y = y;
     this.color = color;
-    this.dx = 5;
-    this.dy = 5;
+    this.dx = 3;
+    this.dy = 3;
+    this.radius=10;
   }
   draw() {
     c.fillStyle = this.color;
     c.beginPath();
-    c.arc(this.x, this.y, 10, 0, 2 * Math.PI);
+    c.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
     c.fill();
   }
   update() {
@@ -80,13 +81,17 @@ class Ball {
       this.x > player.x &&
       this.x < player.x2
     ) {
+      console.log("hit");
       this.dy = -this.dy;
     }
   }
 }
 
+// Global unique ID counter
+let uniqueBrickId = 0;
 class Brick {
   constructor(x, y, color, width, height) {
+    this.id = uniqueBrickId++;
     this.x = x;
     this.y = y;
     this.color = color;
@@ -98,6 +103,16 @@ class Brick {
     c.beginPath();
     c.rect(this.x, this.y, this.width, this.height);
     c.fill();
+  }
+  update(){
+    this.draw();
+ 
+    if(checkCollision(ball,this)){
+      ball.dy = -ball.dy;  // Reflect ball upon hit
+      
+      // Remove the hit brick from the bricks array
+      bricks = bricks.filter(brick => brick.id !== this.id);
+    }
   }
 }
 // Implementation
@@ -130,7 +145,7 @@ function animate() {
   ball.update();
 
   bricks.forEach(brick => {
-    brick.draw();
+    brick.update();
   });
 }
 
@@ -150,4 +165,19 @@ function distance(x1, y1, x2, y2) {
   const yDist = y2 - y1;
 
   return Math.sqrt(Math.pow(xDist, 2) + Math.pow(yDist, 2));
+}
+function checkCollision(circle, rect) {
+  // Find the closest point on the rectangle to the circle's center
+  let closestX = Math.max(rect.x, Math.min(circle.x, rect.x + rect.width));
+  let closestY = Math.max(rect.y, Math.min(circle.y, rect.y + rect.height));
+
+  // Calculate the distance between the circle's center and this closest point
+  let distanceX = circle.x - closestX;
+  let distanceY = circle.y - closestY;
+
+  // Calculate the squared distance (to avoid using slow Math.sqrt())
+  let distanceSquared = distanceX * distanceX + distanceY * distanceY;
+
+  // Check if the distance is less than or equal to the radius squared
+  return distanceSquared <= (circle.radius * circle.radius);
 }
