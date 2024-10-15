@@ -1,5 +1,6 @@
 let tablero = document.getElementById("tablero");
 
+
 let celda1 = document.querySelector("#cell1");
 let celda2 = document.querySelector("#cell2");
 let celda3 = document.querySelector("#cell3");
@@ -10,6 +11,7 @@ let celda7 = document.querySelector("#cell7");
 let celda8 = document.querySelector("#cell8");
 let celda9 = document.querySelector("#cell9");
 
+
 //Inicializamos tablero
 let cells = [
     [" ", " ", " "],
@@ -17,8 +19,18 @@ let cells = [
     [" ", " ", " "]
 ];
 
+
 //Booleano para escoger al jugador
 let player = true;
+
+//Boton de reset
+let resetBtn = document.querySelector("#restartBtn");
+resetBtn.addEventListener("click", function(){
+    limpiarTablero();
+});
+
+//Resultado display
+let resultado = document.querySelector("#resultado");
 
 //Interaccion con click
 celda1.addEventListener("click", function () {
@@ -186,7 +198,8 @@ function checkStatus() {
         || cells[0][1] == "X" && cells [1][1] == "X" && cells [2][1] == "X"
         || cells[0][2] == "X" && cells [1][2] == "X" && cells [2][2] == "X"
     ) {
-        console.log("Han ganado las X");
+        resultado.innerHTML = "<p>Han ganado las X!</p>";
+        resetBtn.style.display = "block";
     }
     //Ganado las O
     if (cells[0][0] == "O" && cells[0][1] == "O" && cells[0][2] == "O"
@@ -198,9 +211,50 @@ function checkStatus() {
         || cells[0][1] == "O" && cells [1][1] == "O" && cells [2][1] == "O"
         || cells[0][2] == "O" && cells [1][2] == "O" && cells [2][2] == "O"
     ) {
-        console.log("Han ganado las O");
+        resultado.innerHTML = "<p>Han ganado las O!</p>";
+        resetBtn.style.display = "block";
+    }
+    if(checkEmpate()){
+        console.log("empate");
+        resultado.innerHTML = "<p>Empate</p>";
+        resetBtn.style.display = "block";
     }
 }
+function checkEmpate(){
+    let empate = true; // Assume it's a tie
 
+    for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+            // Check if any cell is neither "X" nor "O" (i.e., empty or other value)
+            if (cells[i][j] != "X" && cells[i][j] != "O") {
+                empate = false; // It's not a tie, as there's an empty spot
+                break; // Exit the inner loop
+            }
+        }
+        if (!empate) break; // Exit the outer loop if it's not a tie
+    }
+
+    return empate;
+}
+
+
+function limpiarTablero(){
+    cells = [
+        [" ", " ", " "],
+        [" ", " ", " "],
+        [" ", " ", " "]
+    ];
+    celda1.innerHTML = " ";
+    celda2.innerHTML = " ";
+    celda3.innerHTML = " ";
+    celda4.innerHTML = " ";
+    celda5.innerHTML = " ";
+    celda6.innerHTML = " ";
+    celda7.innerHTML = " ";
+    celda8.innerHTML = " ";
+    celda9.innerHTML = " ";
+    resetBtn.style.display= "none";
+    resultado.innerHTML = " ";
+}
 
 
