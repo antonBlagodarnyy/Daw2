@@ -1,0 +1,14 @@
+*{
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: large;
+    font-style: bold;
+}
+#lista {
+    margin:50px;
+}
+ .ul-lista li{
+    color:blue;
+    
+}
