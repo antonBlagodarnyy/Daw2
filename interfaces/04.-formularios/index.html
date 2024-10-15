@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularios</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <fieldset>
+        <form action="" method="POST">
+            <!--usuario-->
+            <div class="casilla">
+                <label for="usuario">Usuario:</label><br>
+                <input type="text" id="usuario" name="usuario" required><br>
+            </div>
+
+
+            <!--clave-->
+            <div class="casilla">
+                <label for="clave">Clave:</label><br>
+                <input type="password" id="clave" name="clave" required><br>
+            </div>
+
+            <!--Radio buttons-->
+            <div class="casilla" id="netType">
+                <input type="radio" id="intranet" name="intranet" value="intranet" />
+                <label for="intranet">Intranet</label>
+
+
+                <input type="radio" id="extranet" name="extranet" value="extranet" />
+                <label for="extranet">Extranet</label>
+            </div>
+
+
+
+            <!--Asignaturas-->
+            <div class="casilla">
+                <h3>Modulos en los que se matricula</h2>
+                    <input type="checkbox" id="DIW" name="DIW" value="DIW">
+                    <label for="DIW">Desarrollo Interfaces Web</label><br>
+
+                    <input type="checkbox" id="DWC" name="DWC" value="DWC">
+                    <label for="DWC">Desarrollo Web Entorno Cliente</label><br>
+
+                    <input type="checkbox" id="DWS" name="DWS" value="DWS">
+                    <label for="DWS">Desarrollo Web Entorno Servidor</label><br>
+            </div>
+
+            <div class="casilla" id="comentarios">
+                <input type="textArea" id="comentarios" name="comentarios" value="Comentarios" cols="80" rows="40" />
+            </div>
+
+            <div id="casilla">
+                <!--Enviar-->
+                <button type="submit">Enviar</button>
+                <!--Reset-->
+                <button type="reset">Resetear</button>
+            </div>
+        </form>
+    </fieldset>
+</body>
+
+</html>
