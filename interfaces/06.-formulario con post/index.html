@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularios</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <fieldset>
+        <form action="formulario.php" method="POST">
+            <!--usuario-->
+            <div class="casilla">
+                <label for="usuario"><!-- Usuario: --></label><br>
+                <input type="text" id="usuario" name="usuario" placeholder="Usuario"><br>
+            </div>
+
+
+            <!--clave-->
+            <div class="casilla">
+                <label for="clave"><!-- Clave: --></label><br>
+                <input type="password" id="clave" name="clave"placeholder="Clave" required><br>
+            </div>
+
+            <!--Radio buttons-->
+            <div class="casilla" id="netType">
+                <label for="intranet">Intranet</label>
+                <input type="radio" id="intranet" name="intranet" value="intranet" />
+              
+
+                <label for="extranet">Extranet</label>
+                <input type="radio" id="extranet" name="extranet" value="extranet" />
+                
+            </div>
+
+
+            <!--Asignaturas-->
+            <div class="casilla">
+                <h3>Modulos en los que se matricula</h2>
+                    <label for="DIW">Desarrollo Interfaces Web</label>
+                    <input type="checkbox" id="DIW" name="DIW" value="DIW">
+                    
+                    <label for="DWC">Desarrollo Web Entorno Cliente</label>
+                    <input type="checkbox" id="DWC" name="DWC" value="DWC">
+                    
+                    <label for="DWS">Desarrollo Web Entorno Servidor</label>
+                    <input type="checkbox" id="DWS" name="DWS" value="DWS">
+                    
+            </div>
+
+            <div class="casilla" id="comentarios">
+                <input type="textArea" id="comentarios" name="comentarios" value="Comentarios" cols="50" rows="4" />
+            </div>
+
+            <div class="casilla" >
+                <select name="asignatura" multiple>
+                    <optgroup label="DAW2">
+                        <option>Desarrollo web Cliente</option>
+                        <option>Desarrollo web Servidor</option>
+                        <option>Diseño de interfaces</option>
+
+                    </optgroup>
+
+                    <optgroup label="DAW1">
+                        <option>Entorno de desarrollo</option>
+                        <option>Base de datos</option>
+                        <option>Programacion</option>
+
+                    </optgroup>
+                    
+                </select>
+            </div>
+
+
+            <div id="casilla">
+                <!--Enviar-->
+                <button type="submit">Enviar</button>
+                <!--Reset-->
+                <button type="reset">Resetear</button>
+            </div>
+        </form>
+    </fieldset>
+</body>
+
+</html>

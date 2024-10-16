@@ -1,0 +1,47 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+* {
+    font-family: "Roboto";
+}
+
+fieldset {
+    margin: 50px 50px;
+    padding: 50px;
+    border-radius: 10px;
+    background-color: #98FB98;
+    border: none;
+}
+
+form {
+    border-radius: 10px;
+    background-color: #3CB371;
+    position: relative;
+    margin: 0 auto;
+    text-align: center;
+}
+
+form label {
+    display: block;
+    text-align: center;
+    margin: 10px 0;
+    /* Optional: Adds spacing between the label and input */
+}
+
+form input {
+    width: 80%;
+    height: 30px;
+    border: none;
+    padding: 15px;
+}
+
+button {
+    padding: 10px 30px;
+    margin: 30px;
+    border: none;
+}
+
+.casilla {
+    text-align: center;
+    margin: 10px;
+    padding: 20px;
+}
