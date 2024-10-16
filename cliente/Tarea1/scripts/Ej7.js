@@ -4,6 +4,7 @@ let segundos;
 do {
   segundos = parseInt(prompt("Introduzca los segundos"));
 } while (isNaN(segundos) || segundos <= 0);
+
 let horas = Math.floor(segundos / 3600);
 let minutos;
 
@@ -12,6 +13,10 @@ if (horas > 0) {
 } else {
   minutos = Math.floor(segundos / 60);
 }
-if (minutos > 0) segundos = segundos % 60;
+if (minutos > 0 || horas>0) {
+  segundos = Math.floor(segundos % 60);
+}
 
-alert(`Horas: ${horas} Minutos: ${minutos} Segundos ${segundos}`);
+
+
+alert(`Horas: ${number.padStart(horas,'0')} Minutos: ${minutos} Segundos ${segundos}`);
