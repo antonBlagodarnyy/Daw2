@@ -1,0 +1,12 @@
+*{
+    margin:0;
+    padding: 0;
+    /* background-color: black; */
+}
+#restartBtn {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color:black;
+  }
