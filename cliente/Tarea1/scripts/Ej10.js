@@ -34,6 +34,24 @@ do {
 
 alert(`Bienvenido ${usuario.login}.`)
 
+  if(!usuario.admin){
+    let eleccion = 0;
+  do{
+    eleccion = menuUsuario();
+
+    switch(eleccion){
+      case 1 :
+        alert(`Usuario: ${usuario.login}. Admin: ${usuario.admin}`);
+        break;
+      case 2 :
+      //CambiarContrasenia();
+      break;
+      Default:
+      alert()
+    }
+  }while (eleccion != 0); 
+  }
+
 function menuUsuario(){
     let eleccion;
     do {
@@ -42,5 +60,6 @@ function menuUsuario(){
             2.-Cambiar contrasenia
             3.-Salir`));
 
-      } while (isNaN(eleccion)|| eleccion!= 1 || eleccion != );
+      } while (isNaN(eleccion)|| eleccion<0 || eleccion > 3 );
+      return eleccion;
 }
