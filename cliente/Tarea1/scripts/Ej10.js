@@ -28,7 +28,7 @@ do {
   if (eleccionPrincipal == 1) {
     login();
   } else if (eleccionPrincipal == 2) {
-    //registrarse();
+    registrarse();
   } else alert(`Adios!`);
 } while (eleccionPrincipal != 3);
 
