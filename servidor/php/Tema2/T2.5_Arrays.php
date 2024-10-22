@@ -22,10 +22,10 @@
             echo "<p>" . $num . "</p>";
             $tabla = range(0, $num * 10, $num);
 
-            
+
             var_dump($tabla);
 
-            echo"<p>Minimo: " . min($tabla) . " Maximo: " . max($tabla);
+            echo "<p>Minimo: " . min($tabla) . " Maximo: " . max($tabla);
             ?>
         </div>
     </div>
@@ -33,7 +33,7 @@
     <div class="container">
         <div class="enunciado">
             <h1>Ejercicio 2</h1>
-            <p>Dadas las siguientes tablas con nombre y edad de los alumnos de dos clases diferentes: --  Crea dos arrays independientes para guardar los datos de cada una de las tablas
+            <p>Dadas las siguientes tablas con nombre y edad de los alumnos de dos clases diferentes: -- Crea dos arrays independientes para guardar los datos de cada una de las tablas
                 anteriores y muestra por pantalla la información de ambas.
                 A continuación une ambas tablas en una sóla y muestra los datos de esta nueva
                 tabla.</p>
@@ -61,10 +61,47 @@
                 "Juan" => 24,
             ];
 
-            $clases = array_push($primero, $segundo);
+            $clases = [];
 
-            var_dump($clases);
+            array_push($clases, $primero);
+            array_push($clases, $segundo);
 
+            echo "<table>";
+            echo "<th><td>Alumnos</td></th>";
+            foreach ($clases as $index => $clase) {
+
+                foreach ($clase as $name => $age) {
+                    echo "<tr><td>" . $name . "</td><td>" . $age . "</td></tr>";
+                }
+            }
+            echo "</table>";
+            
+            ?>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="enunciado">
+            <h1>Ejercicio 3</h1>
+            <p>Escribe un programa que genere 6 números aleatorios de 1 al 6 y los guarde en un array.
+                Una vez generado el array:
+
+                <br>Mostrar cuántas veces aparece cada uno de los valores, del 1 al 6, en el array
+                generado.
+                Obtener otro número al azar entre 1 y 6. Con ese número obtenido comprobar si se encuentra en el array generado y en caso de que así sea mostrar todos los índices donde aparezca ese número.
+                <br>Mostrar el array original ordenada de mayor a menor.
+                <br>Mostrar el array sin valores duplicados y sin huecos en los índices.
+            </p>
+        </div>
+        <div class="ejercicio">
+            <?php 
+            $arr = [];   
+        for($i = 0; $i<6; $i++){
+            array_push($arr,rand(0,6));
+            }
+            echo "<pre>";
+            var_dump($arr);
+            echo "</pre>";
             ?>
         </div>
     </div>
