@@ -21,7 +21,7 @@
             <!--clave-->
             <div class="casilla">
                 <label for="clave"><!-- Clave: --></label><br>
-                <input type="password" id="clave" name="clave"placeholder="Clave" required><br>
+                <input type="password" id="clave" name="clave"placeholder="Clave"><br>
             </div>
 
             <!--Radio buttons-->
@@ -73,8 +73,13 @@
                 </select>
             </div>
 
+            <div class="casilla">
+                <h3>Patrones</h3>
 
-            <div id="casilla">
+                <input type="text" pattern="[0-9]{4} [A-Z]{3}" name="matricula_patron" value="Matricula">
+            </div>
+
+            <div class="casilla">
                 <!--Enviar-->
                 <button type="submit">Enviar</button>
                 <!--Reset-->
