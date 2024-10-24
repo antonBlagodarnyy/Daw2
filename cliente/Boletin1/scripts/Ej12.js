@@ -23,6 +23,7 @@ class Vehiculo {
         alert(`Ha estado ${this.tiempoTranscurrido} segundos. 
         Debe de pagar ${this.importe}`);
     }
+
     datosVehiculo() {
         let datosVehiculo = `Matricula: ${this.matricula}
     Tipo: ${this.tipo}
@@ -33,7 +34,6 @@ class Vehiculo {
 
 
 //Main
-//menu();
 let salir = false;
 do {
     switch (menu()) {
