@@ -95,9 +95,7 @@
         </div>
         <div class="ejercicio">
             <?php
-
             $arr = [];
-
             for ($i = 0; $i < 6; $i++) {
                 array_push($arr, rand(0, 6));
             }
@@ -147,6 +145,16 @@
             var_dump(array_unique($arr));
             echo "</pre>";
             ?>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="enunciado">
+            <h1>Ejercicio 4</h1>
+            <p>
+                Escribe un programa php que muestre una página con un desplegable que muestre el "idioma origen" y otro el "idioma destino". Al pulsar el botón traducir, debe mostrar Una tabla con dos columnas, una con los meses en idioma de origen, y otra, traducido.
+                Puedes usar también un encabezado para toda la tabla.
+            </p>
         </div>
     </div>
 </body>
