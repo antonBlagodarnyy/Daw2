@@ -99,8 +99,50 @@
             for ($i = 0; $i < 6; $i++) {
                 array_push($arr, rand(0, 6));
             }
+
+            echo "Array de 6 numeros aleatorios del 0 al 6:<br>";
             echo "<pre>";
             var_dump($arr);
+            echo "</pre>";
+
+            echo "Numero de ocurrencias de cada elemento del array:<br>";
+            echo "<pre>";
+            var_dump(array_count_values($arr));
+            echo "</pre>";
+
+            echo "Numero aleatorio:<br>";
+            $num = rand(0, 6);
+            echo $num . "<br>";
+
+
+            $indicesDeNum = [];
+            if (in_array($num, $arr)) {
+
+
+                foreach ($arr as $key => $value) {
+                    if ($value == $num) {
+                        array_push($indicesDeNum, $key);
+                    }
+                }
+
+                echo "Indices en los que se encuentra el " . $num . ": ";
+
+                echo '<pre>';
+                print_r($indicesDeNum);
+                echo '</pre>';
+            } else {
+                echo "Num no se encuentra en el array";
+            }
+
+            rsort($arr);
+            echo "Array ordenado de mayor a menor:<br>";
+            echo "<pre>";
+            var_dump($arr);
+            echo "</pre>";
+
+            echo "Array sin duplicados:<br>";
+            echo "<pre>";
+            var_dump(array_unique($arr));
             echo "</pre>";
             ?>
         </div>

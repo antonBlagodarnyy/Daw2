@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario actividad</title>
+    <style>
+        table {
+            width: 100%;
+        }
+
+        th {
+            color: rgb(34, 158, 199)
+        }
+
+        table td {
+            width: 10%;
+        }
+
+        input {
+            width: 90%;
+        }
+
+        select {
+            width: 90%;
+        }
+
+        input[type="checkbox"] {
+            vertical-align: middle;
+        }
+    </style>
+    <script>
+        function initForm() {
+            // establece el campo "fechaHoy" con la fecha actual
+            document.getElementById("fechaHoy").valueAsDate = new Date();
+        }
+
+        function calculateAge(elementDate) {
+            // obtener la fecha de nacimiento del campo "fechaHoy"
+            let fechaNacimiento = new Date(elementDate.value);
+            // obtener la fecha actual
+            let fechaActual = new Date();
+            // calcular la diferencia de años entre la fecha actual y la fecha de nacimiento
+            let edad = fechaActual.getFullYear() - fechaNacimiento.getFullYear();
+            // establecer el campo "edad" con la edad calculada
+            document.getElementById("edad").value = edad;
+        }
+        function fillApellidosNombre(elementText) {
+            // obtener el campo "nombre"
+            let nombre = document.getElementById("nombre").value;
+            // obtener el campo "apellido1"
+            let apellido1 = document.getElementById("primerApellido").value;
+            // obtener el campo "apellido2"
+            let apellido2 = document.getElementById("segundoApellido").value;
+            // calcular nombre
+            let nombreApellidos = nombre + " " + apellido1 + " " + apellido2;
+            // establecer el campo "nombreApellidos" con el nombre y apellidos
+            document.getElementById("nombreApellidos").innerHTML = nombreApellidos;
+        }
+        function loadImage(elementFile) {
+            // obtener el fichero seleccionado
+            let file = elementFile.files[0];
+            // crear un objeto FileReader
+            let reader = new FileReader();
+            // establecer el evento "onload" del objeto FileReader
+            reader.onload = function (e) {
+                // establecer la imagen seleccionada en el campo "imagen"
+                document.getElementById("imagen").src = e.target.result;
+            };
+            // leer el fichero seleccionado
+            reader.readAsDataURL(file);
+            
+        }
+        
+    </script>
+
+</head>
+
+<body>
+    <form>
+        <table>
+            <thead>
+                <th>
+                    Datos identificativos
+                </th>
+            </thead>
+            <tbody>
+                <tr>
+
+                    <td><img  id="imagen" src="1.png" width="100px"></td>
+                    <td>
+                        <label id="nombreApellidos">Nombre Apellido1 Apellido2</label><br>
+                        <label>Edad:32 años</label><br>
+                        <button type="file" id="fichero" name="fihero" accept="image/*" onchange="loadImage(this)">Editar foto</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <label for="tipoDocumento">*Tipo de identificador del alumno:</label><br>
+                        <select width="100px" name="tipoDocumento" id="tipoDocumento" value="DNI/NIF/NIE" required>
+                            <option>DNI</option>
+                            <option>NIF</option>
+                            <option>NIE</option>
+                    </td>
+                    <td>
+                        <label for="dni/pasaporte">*DNI/Pasaporte:</label><br>
+                        <input type="text" id="dni/pasaporte" name="dni/pasaporte"
+                            pattern="[0-9]{8}[A-Z]|[A-Z]{3}[0-9]{6}" required />
+                    </td>
+                    <td>
+                        <label for="fechaAlta">*Fecha alta:</label><br>
+                        <input type="date" id="fechaAlta" name="fechaAlta" required />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="nombre">*Nombre:</label><br>
+                        <input type="text" id="nombre" name="nombre" required onchange="fillApellidosNombre(this)" />
+                    </td>
+                    <td>
+                        <label for="primerApellido">*Primer apellido:</label><br>
+                        <input type="text" id="primerApellido" name="primerApellido" required
+                            onchange="fillApellidosNombre(this)" />
+                    </td>
+                    <td>
+                        <label for="segundoApellido">Segundo apellido:</label><br>
+                        <input type="text" id="segundoApellido" name="segundoApellido"
+                            onchange="fillApellidosNombre(this)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <label for="nacionalidad">*Nacionalidad:</label><br>
+                        <select name="nacionalidad" id="nacionalidad" value="nacionalidad" required>
+                            <option>Española</option>
+                            <option>Alemana</option>
+                            <option>Rusa</option>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <label for="numSeguridadSocial">Numero de la seguridad social:</label><br>
+                        <input type="number" id="numSeguridadSocial" name="numSeguridadSocial" pattern="[0-9]{12}" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <label for="telefono">Tfno. personal del/de la alumno/a:</label><br>
+                        <input type="number" id="telefono" name="telefono" pattern="[69][0-9]{8}" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <label for="correoElectronico">Correo electronico personal del/de la alumno/a</label><br>
+                        <input type="number" id="correoElectronico" name="correoElectronico"
+                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
+        <table>
+            <thead>
+                <th>
+                    Datos de nacimiento
+                </th>
+                <th></th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="2">
+                        <label for="fechaNacimiento">*Fecha nacimiento:</label><br>
+                        <input type="date" id="fechaNacimiento" name="fechaNacimiento" required />
+                    </td>
+                    <td>
+                        <label for="edad">Edad:</label><br>
+                        <input type="number" id="edad" name="edad" />
+                    </td>
+                    <td>
+                        <label for="sexo">*Sexo:</label><br>
+                        <label for="sexo">Hombre</label> <input type="checkbox" id="sexo" name="sexo" value="hombre"
+                            required><br>
+                        <label for="sexo">Mujer</label><input type="checkbox" id="sexo" name="sexo" value="Mujer">
+                    </td>
+                    <td>
+                        <label for="emancipado">Alumno emancipado:</label>
+                        <input type="radio" id="emancipado" name="emancipado" value="emancipado" />
+                    </td>
+
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <label for="pais">*Pais:</label><br>
+                        <select name="pais" id="pais" value="pais" required>
+                            <option>España</option>
+                            <option>Alemania</option>
+                            <option>Rusia</option>
+                    </td>
+                    <td>
+                        <label for="pais">*Provincia:</label><br>
+                        <select name="nacionalidad" id="nacionalidad" value="nacionalidad" required>
+                            <option>Sevilla</option>
+                            <option>Cordoba</option>
+                            <option>Granada</option>
+                    </td>
+                    <td>
+                        <label for="pais">*Municipio:</label><br>
+                        <select name="nacionalidad" id="nacionalidad" value="nacionalidad" required>
+                            <option>Aguadulce</option>
+                            <option>Albanis</option>
+                            <option>Algámitas</option>
+                    </td>
+                    <td>
+                        <label for="pais">*Localidad:</label><br>
+                        <select name="nacionalidad" id="nacionalidad" value="nacionalidad" required>
+                            <option>Aguadulce</option>
+                            <option>Albanis</option>
+                            <option>Algámitas</option>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="via">*Tipo vía:</label><br>
+                        <select name="via" id="via" value="via" required>
+                            <option>Avenida</option>
+                            <option>Calle</option>
+                            <option>Travesia</option>
+                    </td>
+                    <td colspan="4">
+                        <label for="direccion">*Direccion:</label><br>
+                        <input type="text" id="direccion" name="direccion" required />
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <label for="numero">*Nº:</label><br>
+                        <input type="number" id="numero" name="numero" pattern="[0-9]{2}" required />
+                    </td>
+                    <td>
+                        <label for="escalera">Escaleraº:</label><br>
+                        <input type="number" id="escalera" name="escalera" pattern="[0-9]" />
+                    </td>
+                    <td>
+                        <label for="piso">Piso:</label><br>
+                        <input type="number" id="piso" name="piso" />
+                    </td>
+                    <td>
+                        <label for="letra">Letra:</label><br>
+                        <input type="texto" id="letra" name="letra" />
+                    </td>
+                    <td>
+                        <label for="cPostal">*C.P:</label><br>
+                        <input type="number" id="cPostal" name="cPostal" required />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <label for="observaciones">Observaciones:</label>
+                        <input type="textArea" id="comentarios" name="comentarios" cols="50" rows="4" />
+
+                    </td>
+                </tr>
+    </form>
+</body>
+
+</html>
