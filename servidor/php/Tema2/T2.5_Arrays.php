@@ -156,6 +156,52 @@
                 Puedes usar también un encabezado para toda la tabla.
             </p>
         </div>
+        <form action="" method="POST">
+            <label for="origen">Idioma origen:</label><br>
+            <select name="origen" id="origen" value="origen" required>
+                <option></option>
+                <option value="es">Español</option>
+                <option value="en">Ingles</option>
+                <option value="al">Aleman</option>
+                <option value="fr">Frances</option>
+            </select><br>
+            <label for="traducido">Idioma traducido:</label><br>
+            <select name="traducido" id="traducido" value="traducido" required>
+            <option></option>
+                <option value="es">Español</option>
+                <option value="en">Ingles</option>
+                <option value="al">Aleman</option>
+                <option value="fr">Frances</option>
+            </select>
+            <input name="submit" type="submit">
+        </form>
+
+        <div class="ejercicio">
+            <?php
+            $paises = [
+                "es" => ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+                "en" => ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+                "al" => ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"],
+                "fr" => ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"]
+            ];
+            if ($_SERVER["REQUEST_METHOD"] == "POST" && isset( $_POST["submit"] )) {
+                $origen = $_POST['origen'];
+                $traducido = $_POST['traducido'];
+
+                if (isset($paises[$origen])) {
+
+                   echo "<table>
+                   <thead><th>Idioma origen</th><th>Idioma traducido</th></thead>
+                   <tbody>";
+                    for ($i = 0; $i < 12; $i++) {
+                        echo "<tr><td>".$paises[$origen][$i]."</td><td>".$paises[$traducido][$i]."</td></tr>";
+                    }
+
+                    echo "</tbody></table>";
+                }
+            }
+            ?>
+        </div>
     </div>
 </body>
 
