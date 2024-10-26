@@ -1,40 +1,111 @@
-const importeEletrico = 15;
-const importeCombustion = 20;
+const importeEletrico = 0.0015;
+const importeCombustion = 0.0020;
 parking = [];
 
 class Vehiculo {
     constructor(matricula, tipo,
-        // horaEntrada
     ) {
         this.matricula = matricula;
         this.tipo = tipo;
-        // this.horaEntrada = horaEntrada;
+        this.horaEntrada = new Date();
     }
-    /* calcularCoste(horaSalida) {
-        if (this.tipo == "cocheElectrico") {
-            this
-        } 
-    }*/
+
+    calcularCoste() {
+        this.horaSalida = new Date();
+        this.tiempoTranscurrido = (this.horaSalida - this.horaEntrada) / 1000;
+
+        if (this.tipo == "electrico") {
+            this.importe = this.tiempoTranscurrido * importeEletrico;
+        } else {
+            this.importe = this.tiempoTranscurrido * importeCombustion;
+        }
+
+        alert(`Ha estado ${this.tiempoTranscurrido} segundos. 
+        Debe de pagar ${this.importe}`);
+    }
+
+    datosVehiculo() {
+        let datosVehiculo = `Matricula: ${this.matricula}
+    Tipo: ${this.tipo}
+    Hora de entrada: ${this.horaEntrada}`
+        return datosVehiculo;
+    }
 }
 
 
-//Opciones del menu:
-//1.-Ver vehiculos estacionados
-//2.-Estacionar vehiculo
-//3.-Sacar vehiculo
+//Main
+let salir = false;
+do {
+    switch (menu()) {
+        case 1:
+            imprimirTodosLosVehiculos();
+            break;
+        case 2:
+            registrarVehiculo(prompt(`Introduzca la matricula del vehiculo`))
+            break;
+        case 3:
+            sacarVehiculo(prompt(`Introduzca la matricula del vehiculo que sale`));
+            break;
+        case 4:
+            salir = true;
+            alert(`Adios`);
+            break;
+            Default:
+            alert(`Valor fuera de rango`);
+            ;
+    }
+} while (!salir);
 
-function menu(){
-    
+
+function imprimirTodosLosVehiculos() {
+    let datos = ``;
+    parking.forEach(vehiculo => {
+        datos += vehiculo.datosVehiculo();
+    });
+    alert(datos);
 }
 
-function registrarVehiculo() {
+function menu() {
+    let eleccionMenu;
+    do {
+        eleccionMenu = eleccion(1, 4, `
+            +++++++++++++PARKING++++++++++
+            Seleccione una accion:
+            1.-Ver vehiculos estacionados.
+            2.-Estacionar un vehiculo.
+            3.-Sacar un vehiculo.
+            4.-Salir.
+            `)
+    } while (isNaN(eleccionMenu));
 
+    return eleccionMenu;
 
-    parking.push(new Vehiculo(matricula, tipo,
-        //    horaEntrada
-    ));
 }
 
+function registrarVehiculo(matricula) {
+    let tipo
+    do {
+        tipo = prompt(`Introduzca el tipo de vehiculo`);
+        if (tipo !== "electrico" && tipo !== "combustion") {
+            alert(`Tipo de vehiculo no valido.`)
+        }
+    } while (tipo !== "electrico" && tipo !== "combustion");
+
+    parking.push(new Vehiculo(matricula, tipo));
+}
+
+function sacarVehiculo(matricula) {
+    vehiculoExistente = parking.some((vehiculo) => vehiculo.matricula === matricula);
+
+    if (vehiculoExistente) {
+        let vehiculoASacar = parking.find(vehiculo => vehiculo.matricula = matricula);
+        vehiculoASacar.calcularCoste()
+        parking = parking.filter((vehiculo) => vehiculo.matricula != matricula);
+        alert(`Vehiculo eliminado.`);
+    } else {
+        alert(`No se encuentra el vehiculo`);
+    }
+}
 //Funcionalidades
 function eleccion(numMinimo, numMaximo, mensaje) {
     let eleccion;
