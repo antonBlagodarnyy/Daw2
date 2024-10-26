@@ -156,6 +156,30 @@
                 Puedes usar también un encabezado para toda la tabla.
             </p>
         </div>
+        <div class="ejercicio">
+            <form>
+                <label for="idioma origen">Idioma origen:</label>
+                <select name="idioma origen">
+                    <option>Ingles</option>
+                    <option>Español</option>
+                    <option>Frances</option>
+                    <option>Aleman</option>
+
+                    <label for="idioma traducido">Idioma traducido:</label>
+                <select name="idioma traducido">
+                    <option>Ingles</option>
+                    <option>Español</option>
+                    <option>Frances</option>
+                    <option>Aleman</option>
+            </form>
+
+            <?php
+                $meses = [
+                    "es" => ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"],
+                    "en" => 
+                ]
+            ?>
+        </div>
     </div>
 </body>
 
