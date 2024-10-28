@@ -160,6 +160,83 @@
             ?>
 
         </div>
+    </div>
+    <div class="container">
+        <div class="enunciado">
+            <h1>Ejercicio 4</h1>
+            <p>
+                Escriba un programa:
+
+                Que muestre primero un grupo de entre 5 y 15 cartas de corazones numeradas del 1
+                al 10 al azar (carpeta cartas).
+                Que muestre de nuevo el grupo inicial, pero habiendo eliminado del grupo los valores
+                repetidos.
+
+
+            </p>
+        </div>
+        <div class="ejercicio">
+            <?php
+            $veces = rand(5, 15);
+
+            $cartas = [];
+
+            for ($i = 0; $i < $veces; $i++)
+                array_push($cartas, rand(1, 10));
+
+            echo "<p>Entre estas {$veces} cartas corazones...</p>";
+
+            imprimirCartas($cartas);
+
+            $cartasDistintas = array_unique($cartas);
+            $numCartas = count($cartasDistintas);
+            echo "<p>... hay $numCartas cartas corazones distintas.</p>";
+
+            imprimirCartas($cartasDistintas);
+
+            function imprimirCartas($cartas)
+            {
+                foreach ($cartas as $k => $v) {
+                    switch ($v) {
+                        case 1:
+                            echo "<img  width= 100px src=\"cartas/c1.svg\">";
+                            break;
+                        case 2:
+                            echo "<img width= 100px src=\"cartas/c2.svg\">";
+                            break;
+                        case 3:
+                            echo "<img width= 100px src=\"cartas/c3.svg\">";
+                            break;
+                        case 4:
+                            echo "<img width= 100px src=\"cartas/c4.svg\">";
+                            break;
+                        case 5:
+                            echo "<img width= 100px src=\"cartas/c5.svg\">";
+                            break;
+                        case 6:
+                            echo "<img width= 100px src=\"cartas/c6.svg\">";
+                            break;
+                        case 7:
+                            echo "<img width= 100px src=\"cartas/c7.svg\">";
+                            break;
+                        case 8:
+                            echo "<img width= 100px src=\"cartas/c8.svg\">";
+                            break;
+                        case 9:
+                            echo "<img width= 100px src=\"cartas/c9.svg\">";
+                            break;
+                        case 10:
+                            echo "<img width= 100px src=\"cartas/c10.svg\">";
+                            break;
+                        default:
+                            echo "error en switch
+                                            valor:  $v";
+                    }
+                }
+            }
+            ?>
+        </div>
+    </div>
 </body>
 
 </html>
