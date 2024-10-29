@@ -13,11 +13,11 @@ class Vehiculo {
     this.horaSalida = new Date();
     this.tiempoTranscurrido = (this.horaSalida - this.horaEntrada) / 1000;
 
-    if (this.tipo == "electrico") {
+    if (this.tipo == "electrico") 
       this.importe = this.tiempoTranscurrido * importeEletrico;
-    } else {
+     else 
       this.importe = this.tiempoTranscurrido * importeCombustion;
-    }
+    
 
     alert(`Ha estado ${this.tiempoTranscurrido} segundos. 
         Debe de pagar ${this.importe}`);
@@ -82,7 +82,7 @@ function menu() {
 
 function registrarVehiculo(matricula) {
   let tipo;
-  do {
+  do {2
     tipo = prompt(`Introduzca el tipo de vehiculo`);
     if (tipo !== "electrico" && tipo !== "combustion") {
       alert(`Tipo de vehiculo no valido.`);
