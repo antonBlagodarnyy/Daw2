@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ej12</title>
     <script src="scripts/Ej12.js"></script>
+<style>
+    body { font-family: Arial, sans-serif; text-align: center; }
+    .container { margin: 0 auto; width: 80%; max-width: 500px; }
+    button { margin: 5px; padding: 10px 20px; font-size: 16px; }
+    #output { white-space: pre-line; border: 1px solid #ddd; padding: 10px; margin-top: 20px; }
+</style>
 </head>
 <body>
     <!--12. Desarrolla un sistema para gestionar los vehículos que
@@ -21,6 +27,15 @@ propiedades (matrícula, tipo, y hora de entrada).
 ● Usa estructuras de control (if, while, switch), así como
 operaciones lógicas para tomar decisiones en función de los
 tipos de vehículos.-->
+<div class="container">
+    <h1>Parking Manager</h1>
+    <button onclick="imprimirTodosLosVehiculos()">Ver Vehículos Estacionados</button>
+    <button onclick="registrarVehiculo()">Estacionar Vehículo</button>
+    <button onclick="sacarVehiculo()">Sacar Vehículo</button>
+    <button onclick="salir()">Salir</button>
+    <div id="output"></div>
+</div>
+
 
 </body>
 </html>
