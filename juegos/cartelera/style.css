@@ -18,6 +18,8 @@ body {
 	overflow-x: scroll;
 	padding: 20px 0;
 	scroll-behavior: smooth;
+	cursor: grab;
+	overflow: hidden;
 }
 
 .movie-cover {
@@ -34,4 +36,9 @@ body {
 }
 img {
 	width: 100%;
+}
+.cover-flow.active {
+	
+	user-select: none;
+    cursor: grabbing;
 }

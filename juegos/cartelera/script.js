@@ -1,28 +1,48 @@
-const slider = document.querySelector('#drag');
+const coverFlow = document.getElementById("drag");
 
+let isDragging = false;
+let startX;
+let scrollLeft;
 
- let mouseDown = false;
- let startX, scrollLeft;
- 
- let startDragging = function (e) {
-     mouseDown = true;
-     startX = e.pageX - slider.offsetLeft;
-     scrollLeft = slider.scrollLeft;
- };
+coverFlow.addEventListener("mousedown", (e) => {
+    isDragging = true;
+    coverFlow.classList.add("active");
+    startX = e.pageX - coverFlow.offsetLeft;
+    scrollLeft = coverFlow.scrollLeft;
+});
 
- let stopDragging = function (event) {
-     mouseDown = false;
- };
+coverFlow.addEventListener("mouseleave", () => {
+    isDragging = false;
+    coverFlow.classList.remove("active");
+});
 
- slider.addEventListener('mousemove', (e) => {
-     e.preventDefault();  if(!mouseDown) {
-         return;
-     }
-     const x = e.pageX - slider.offsetLeft;
-     const scroll = x - startX;
-     slider.scrollLeft = scrollLeft - scroll;
- });
+coverFlow.addEventListener("mouseup", () => {
+    isDragging = false;
+    coverFlow.classList.remove("active");
+});
 
- slider.addEventListener('mousedown', startDragging, false);
- slider.addEventListener('mouseup', stopDragging, false);
- slider.addEventListener('mouseleave', stopDragging, false);
+coverFlow.addEventListener("mousemove", (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.pageX - coverFlow.offsetLeft;
+    const walk = (x - startX) * 2; // Adjust scroll speed by changing the multiplier
+    coverFlow.scrollLeft = scrollLeft - walk;
+});
+
+// Support for touch devices
+coverFlow.addEventListener("touchstart", (e) => {
+    isDragging = true;
+    startX = e.touches[0].pageX - coverFlow.offsetLeft;
+    scrollLeft = coverFlow.scrollLeft;
+});
+
+coverFlow.addEventListener("touchend", () => {
+    isDragging = false;
+});
+
+coverFlow.addEventListener("touchmove", (e) => {
+    if (!isDragging) return;
+    const x = e.touches[0].pageX - coverFlow.offsetLeft;
+    const walk = (x - startX) * 2;
+    coverFlow.scrollLeft = scrollLeft - walk;
+});
