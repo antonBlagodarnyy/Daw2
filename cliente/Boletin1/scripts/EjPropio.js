@@ -18,7 +18,7 @@ lista.forEach(element => {
 listaHtml.innerHTML = lista.join('');  */
 
 //Ejercicio propio
- let listaHtml = document.getElementById('lista');
+/*  let listaHtml = document.getElementById('lista');
 let lista= [`<ul class= "ul-lista">`];
 
 var iteraciones = NaN;
@@ -33,4 +33,14 @@ for (let i = 0; i < iteraciones; i++) {
 lista.push('</ul>');
 
 
-listaHtml.innerHTML = lista.join(''); 
+listaHtml.innerHTML = lista.join('');  */
+
+/* const alCuadrado = x => {
+    console.log('Hola mundo');
+    return x * x;
+}
+
+console.log(alCuadrado(2)); */
+
+const vector = [10, 20, 30].map(e => e / 2);
+console.log(vector);
