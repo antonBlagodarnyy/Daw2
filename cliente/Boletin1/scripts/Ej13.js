@@ -1,4 +1,5 @@
 var inventario = [];
+
 const output = document.getElementById("output");
 
 //Clase principal
@@ -58,11 +59,7 @@ function pedirCategoria() {
 }
 //Metodos principales
 function verListadoDeProductos() {
-  let listado = ``;
-  inventario.forEach((producto) => {
-    listado += `<p>${imprimirObjeto(producto)}</p>`;
-  });
-  output.innerHTML = listado;
+  output.innerHTML = tablaDeObjetosEnArray(inventario);
 }
 
 function verProductosDisponibles() {
@@ -70,12 +67,9 @@ function verProductosDisponibles() {
     (producto) => producto.disponibilidad == true
   );
 
-  let listado = ``;
-  productosDisponibles.forEach((producto) => {
-    listado += `<p>${imprimirObjeto(producto)}</p>`;
+  let listado = tablaDeObjetosEnArray(productosDisponibles);
 
-    output.innerHTML = listado;
-  });
+  output.innerHTML = listado;
 }
 
 function incrementarPreciosEnUnaCategoria() {
@@ -100,10 +94,9 @@ function incrementarPreciosEnUnaCategoria() {
 
   //Imprimimos los datos. structuredClone no copia metodos.
   //Asi que tengo que hacer "imprimirObjeto()" un metodo de fuera de la clase
-  let datos = `<p>Valores temporales: </p>`;
-  productosIncrementados.forEach((producto) => {
-    datos += ` <p>${imprimirObjeto(producto)} </p>`;
-  });
+  let datos = `<p>Valores temporales:</p>${tablaDeObjetosEnArray(
+    productosIncrementados
+  )}`;
 
   output.innerHTML = datos;
 }
@@ -135,12 +128,8 @@ function filtrarPorCategoria() {
     (producto) => producto.categoria === categoriaEscogida
   );
 
-  let datos = ``;
-  inventarioCategoria.forEach((producto) => {
-    datos += ` <p>${imprimirObjeto(producto)} </p>`;
-  });
 
-  output.innerHTML = datos;
+  output.innerHTML = tablaDeObjetosEnArray(inventarioCategoria);
 }
 
 function comprobarDisponibilidadCategoria() {
@@ -150,7 +139,7 @@ function comprobarDisponibilidadCategoria() {
     (producto) => producto.categoria === categoriaEscogida
   );
 
-  inventarioCategoria.every(e => e.disponibilidad)
+  inventarioCategoria.every((e) => e.disponibilidad)
     ? (output.innerHTML = `Todos los productos de esa categoria estan disponibles.`)
     : (output.innerHTML = `Existen productos fuera de stock.`);
 }
@@ -204,6 +193,14 @@ function eliminarProducto() {
 }
 
 //Funcionalidades
+/**Pide al usuario un numero entero y lo valida correctamente,
+ * asegurandose que este entre el numMinimo y el numMaximo.
+ *
+ * @param {number} numMinimo
+ * @param {number} numMaximo
+ * @param {string} mensaje
+ * @returns {number} Integer validada
+ */
 function eleccion(numMinimo, numMaximo, mensaje) {
   let eleccion;
   do {
@@ -211,11 +208,37 @@ function eleccion(numMinimo, numMaximo, mensaje) {
   } while (isNaN(eleccion) || eleccion < numMinimo || eleccion > numMaximo);
   return eleccion;
 }
-//TODO imprimir objetos en una tabla
+
+/**Recibe un array de objetos iguales y devuelve una tabla HTML
+ * que muestra las propiedades de los objetos
+ *
+ * @param {Object[]} array
+ * @returns {string} Tabla HTML template literal
+ */
+function tablaDeObjetosEnArray(array) {
+  let tabla = `<table>
+  <thead>`;
+
+  let objeto = array[0];
+  for (let propt in objeto) {
+    tabla += `<th>${propt}</th>`;
+  }
+
+  tabla += `</thead>
+  <tbody>`;
+
+  array.forEach((objeto) => {
+    tabla += `<tr>${imprimirObjeto(objeto)}</tr>`;
+  });
+
+  tabla += `</tbody></table>`;
+
+  return tabla;
+}
 function imprimirObjeto(objeto) {
   let datos = ``;
   for (let propt in objeto) {
-    datos += `${propt}: ${objeto[propt]} | `;
+    datos += `<td>${objeto[propt]}</td>`;
   }
   return datos;
 }

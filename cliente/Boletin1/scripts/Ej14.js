@@ -63,7 +63,7 @@ function pedirCategoria() {
   switch (
     eleccion(
       1,
-      3,
+      4,
       `Escoja la categoria:
       1.-Ficcion.
       2.-No ficcion.
@@ -92,14 +92,14 @@ function pedirCategoria() {
 
 //Metodos principales
 function verLibros() {
-  imprimirArray(biblioteca);
+  output.innerHTML = tablaDeObjetosEnArray(biblioteca);
 }
 
 function verLibrosDisponibles() {
   let librosDisponibles = structuredClone(
     biblioteca.filter((libro) => libro.disponible)
   );
-  imprimirArray(librosDisponibles);
+  output.innerHTML = tablaDeObjetosEnArray(librosDisponibles);
 }
 
 function verTitulosPorCategoria() {
@@ -128,13 +128,7 @@ function verLibrosPublicadosDespuesDeAnio() {
   const anio = parseInt(prompt(`Introduzca el anio de corte.`));
   const librosFiltrados = biblioteca.filter((libro) => libro.anio > anio);
 
-  let datos = ``;
-
-  librosFiltrados.forEach((libro) => {
-    datos += `<p>Libro: ${libro.titulo} | Autor: ${libro.autor}</p>`;
-  });
-
-  output.innerHTML = datos;
+  output.innerHTML = tablaDeObjetosEnArray(librosFiltrados);
 }
 
 function verificarDisponibilidadSegunAutor() {
@@ -183,4 +177,37 @@ function imprimirArray(arr) {
     datos += `<p>${imprimirObjeto(libro)}</p>`;
   });
   output.innerHTML = datos;
+}
+/**Recibe un array de objetos iguales y devuelve una tabla HTML
+ * que muestra las propiedades de los objetos
+ *
+ * @param {Object[]} array
+ * @returns {string} Tabla HTML template literal
+ */
+function tablaDeObjetosEnArray(array) {
+  let tabla = `<table>
+  <thead>`;
+
+  let objeto = array[0];
+  for (let propt in objeto) {
+    tabla += `<th>${propt}</th>`;
+  }
+
+  tabla += `</thead>
+  <tbody>`;
+
+  array.forEach((objeto) => {
+    tabla += `<tr>${imprimirObjeto(objeto)}</tr>`;
+  });
+
+  tabla += `</tbody></table>`;
+
+  return tabla;
+}
+function imprimirObjeto(objeto) {
+  let datos = ``;
+  for (let propt in objeto) {
+    datos += `<td>${objeto[propt]}</td>`;
+  }
+  return datos;
 }
