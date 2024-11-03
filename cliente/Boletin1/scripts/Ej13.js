@@ -211,7 +211,6 @@ function eleccion(numMinimo, numMaximo, mensaje) {
   } while (isNaN(eleccion) || eleccion < numMinimo || eleccion > numMaximo);
   return eleccion;
 }
-
 //TODO imprimir objetos en una tabla
 function imprimirObjeto(objeto) {
   let datos = ``;
