@@ -5,19 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arrays II</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="container">
         <div class="enunciado">
             <h1>Ejercicio 1</h1>
-            <p>
-                Ejercicio 1 - Gestos de manos
-                Escriba un programa que muestre un emoji de un gesto de manos al azar, con diferentes tonos de piel. Las entidades numéricas para los distintos emoji son: 128070, 128071, 128072, 128073, 128074, 128075, 128076, 128077, 128078, 128079, 128080, 128133, 128170, 128400, 128405, 128406, 128588, 128591, 129295, 129304, 129305, 129306, 129307, 129308, 129310, 129311, 129330.
-                Los tonos de color de piel se consiguen con los modificadores Fitzpatrick &#127995; &#127996; &#127997; &#127998; y &#127999; Hay varias formas de combinar los modificadores Fitzpatrick con emojis. En este ejercicio aparecen las secuencias más simples, en las que el modificador se escribe a continuación del carácter del emoji. Ejemplo:
+            <h2>Gestos de manos</h2>
+            <p>Escriba un programa que muestre un emoji de un gesto de manos al azar, con diferentes tonos de piel.</p><br>
+            <p>Las entidades numéricas para los distintos emoji son:</p>
+            <p> 128070, 128071, 128072, 128073, 128074, 128075, 128076, 128077, 128078, 128079, 128080, 128133, 128170, 128400, 128405, 128406, 128588, 128591, 129295, 129304, 129305, 129306, 129307, 129308, 129310, 129311, 129330.</p><br>
+            <p>Los tonos de color de piel se consiguen con los modificadores Fitzpatrick & #127995; & #127996; & #127997; & #127998; y & #127999;</p><br>
 
-                echo "
-            <p>span style=\"font-size: 8em\">&#númeroEmoji;&#númeroPiel/span>/p>";
+            <p> Hay varias formas de combinar los modificadores Fitzpatrick con emojis. En este ejercicio aparecen las secuencias más simples, en las que el modificador se escribe a continuación del carácter del emoji. </p>
+            <p> Ejemplo: echo "span style=\"font-size: 8em\">&#númeroEmoji;&#númeroPiel/span>/p>";
             </p>
         </div>
         <div class="ejercicio">
@@ -33,6 +35,7 @@
     <div class="container">
         <div class="enunciado">
             <h1>Ejercicio 2</h1>
+            <h2>Negacion de bits</h2>
             <p>
                 Actualice la página para mostrar una secuencia aleatoria de bits y su complementaria.</p>
         </div>
@@ -40,11 +43,15 @@
             <?php
 
             $bits = [];
+            $output = '';
 
             for ($i = 0; $i < 10; $i++)
                 array_push($bits, rand(0, 1));
 
-            var_dump($bits);
+                foreach ($bits as $bit)
+                $output .= $bit;
+
+            echo '<p>Secuencia de bits:</p>'.$output.'<br>';
 
             for ($i = 0; $i < count($bits); $i++) {
                 if ($bits[$i] == 0) {
@@ -54,7 +61,12 @@
                 }
             }
 
-            var_dump($bits);
+            $output = '';
+
+            foreach ($bits as $bit)
+            $output .= $bit;
+
+        echo '<br><p>Secuencia de bits negada:</p>'.$output;
 
             ?>
         </div>
@@ -63,10 +75,11 @@
     <div class="container">
         <div class="enunciado">
             <h1>Ejercicio 3</h1>
-            <p>
-                Escriba un programa que enfrente a dos jugadores tirando una serie de dados al azar entre 3 y 9 e indique el resultado. Los dados se comparan en orden (el primero con el primero, el segundo con el segundo, etc.) y gana el jugador que obtenga el número más alto.
-                Mostrar un resumen con cuántas veces ha ganado cada jugador y en conjunto qué jugador ha ganado.
-                NOTA: A la hora de mostrar los dados de cada jugador utiliza la estructura foreach
+            <h2>Partida de dados</h2>
+            <p>Escriba un programa que enfrente a dos jugadores tirando una serie de dados al azar entre 3 y 9 e indique el resultado.</p>
+            <p>Los dados se comparan en orden (el primero con el primero, el segundo con el segundo, etc.) y gana el jugador que obtenga el número más alto.</p><br>
+            <p>Mostrar un resumen con cuántas veces ha ganado cada jugador y en conjunto qué jugador ha ganado.</p><br>
+            <p>NOTA: A la hora de mostrar los dados de cada jugador utiliza la estructura foreach</p>
             </p>
         </div>
         <div class="ejercicio">
@@ -164,13 +177,12 @@
     <div class="container">
         <div class="enunciado">
             <h1>Ejercicio 4</h1>
+            <h2>Eliminar valores repetidos</h2>
             <p>
-                Escriba un programa:
-
-                Que muestre primero un grupo de entre 5 y 15 cartas de corazones numeradas del 1
-                al 10 al azar (carpeta cartas).
-                Que muestre de nuevo el grupo inicial, pero habiendo eliminado del grupo los valores
-                repetidos.
+                Escriba un programa: Que muestre primero un grupo de entre 5 y 15 cartas de corazones numeradas del 1
+                al 10 al azar (carpeta cartas).</p><br>
+            <p>Muestra de nuevo el grupo inicial, pero habiendo eliminado del grupo los valores
+                repetidos.</p>
 
 
             </p>

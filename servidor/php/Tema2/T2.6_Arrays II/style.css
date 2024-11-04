@@ -1,0 +1,18 @@
+*{
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+h2{
+    margin-bottom: 10px;
+}
+.container{
+    padding:20px;
+  
+}
+.enunciado{
+    border-radius: 10px;
+    padding:5px 15px;
+    margin-bottom: 20px;
+    background-color: rgb(205, 247, 250);
+    border: solid 5px rgb(152, 224, 248);
+}
