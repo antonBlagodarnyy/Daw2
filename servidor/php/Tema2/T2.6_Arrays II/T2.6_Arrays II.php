@@ -48,10 +48,10 @@
             for ($i = 0; $i < 10; $i++)
                 array_push($bits, rand(0, 1));
 
-                foreach ($bits as $bit)
+            foreach ($bits as $bit)
                 $output .= $bit;
 
-            echo '<p>Secuencia de bits:</p>'.$output.'<br>';
+            echo '<p>Secuencia de bits:</p>' . $output . '<br>';
 
             for ($i = 0; $i < count($bits); $i++) {
                 if ($bits[$i] == 0) {
@@ -64,9 +64,9 @@
             $output = '';
 
             foreach ($bits as $bit)
-            $output .= $bit;
+                $output .= $bit;
 
-        echo '<br><p>Secuencia de bits negada:</p>'.$output;
+            echo '<br><p>Secuencia de bits negada:</p>' . $output;
 
             ?>
         </div>
@@ -248,6 +248,168 @@
             }
             ?>
         </div>
+    </div>
+
+    <div class="container">
+        <div class="enunciado">
+            <h1>Ejercicio 5</h1>
+            <h2> Eliminar dado</h2>
+            <p>Escriba un programa:</p><br>
+            <ul>
+                <li>Que muestre primero una tirada de un número de dados al azar (número de tiradas aleatorio: mínimo 1, máximo 10).</li>
+                <li>Que muestre a continuación un dado al azar.</li>
+                <li>Que muestre de nuevo la tirada inicial, pero habiendo eliminado de la tirada los
+                    dados que coincidan con el dado suelto (si hay alguno).</li>
+                NOTA: A la hora de mostrar los dados utiliza la estructura foreach.
+            </ul>
+
+            </p>
+        </div>
+        <div class="ejercicio">
+            <?php
+            $tiradas = rand(1, 10);
+
+            $dados = [];
+
+            for ($i = 0; $i < $tiradas; $i++)
+                array_push($dados, rand(1, 6));
+
+            echo '<h2>Tirada de ' . $tiradas . ' dados</h2>';
+
+            mostrarTirada(($dados));
+
+            $dado = rand(1, 6);
+
+            echo '<h2>Dado a eliminar</h2>';
+            switch ($dado) {
+                case 1:
+                    echo "<img src=\"dados/1.svg\">";
+                    break;
+                case 2:
+                    echo "<img src=\"dados/2.svg\">";
+                    break;
+                case 3:
+                    echo "<img src=\"dados/3.svg\">";
+                    break;
+                case 4:
+                    echo "<img src=\"dados/4.svg\">";
+                    break;
+                case 5:
+                    echo "<img src=\"dados/5.svg\">";
+                    break;
+                case 6:
+                    echo "<img src=\"dados/6.svg\">";
+                    break;
+                default:
+                    echo "error en switch
+                                    valor:  $dado";
+            }
+
+            $dadosRestantes = array_diff($dados, [$dado]);
+
+            echo '<h2>Dados restantes</h2>';
+            mostrarTirada($dadosRestantes);
+
+            function mostrarTirada($dados)
+            {
+                foreach ($dados as $k => $v) {
+                    switch ($v) {
+                        case 1:
+                            echo "<img src=\"dados/1.svg\">";
+                            break;
+                        case 2:
+                            echo "<img src=\"dados/2.svg\">";
+                            break;
+                        case 3:
+                            echo "<img src=\"dados/3.svg\">";
+                            break;
+                        case 4:
+                            echo "<img src=\"dados/4.svg\">";
+                            break;
+                        case 5:
+                            echo "<img src=\"dados/5.svg\">";
+                            break;
+                        case 6:
+                            echo "<img src=\"dados/6.svg\">";
+                            break;
+                        default:
+                            echo "error en switch
+                                            valor:  $v";
+                    }
+                }
+            }
+            ?>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="enunciado">
+            <h1>Ejercicio 6</h1>
+            <h2>Contar cartas</h2>
+            <p>Escriba un programa:</p><br>
+
+            <ul>
+                <li>Que muestre primero un grupo de entre 10 y 20 cartas de corazones numeradas del 1 al 10 al azar.</li>
+                <li>Que indique cuántas veces ha aparecido cada una de las cartas.</li>
+            </ul>
+        </div>
+        <?php
+        $veces = rand(10, 20);
+
+        $cartas = [];
+
+        for ($i = 0; $i < $veces; $i++)
+            array_push($cartas, rand(1, 10));
+
+        echo "<h2>{$veces} cartas de corazones...</h2>";
+
+        imprimirCartas($cartas);
+
+        $frecuencias = array_count_values($cartas);
+
+        echo '<h2>Conteo</h2>';
+
+        foreach ($frecuencias as $k => $v) {
+            echo '<h3>' . $v . '-';
+            switch ($k) {
+                case 1:
+                    echo "<img  width= 100px src=\"cartas/c1.svg\"></h3>";
+                    break;
+                case 2:
+                    echo "<img width= 100px src=\"cartas/c2.svg\"></h3>";
+                    break;
+                case 3:
+                    echo "<img width= 100px src=\"cartas/c3.svg\"></h3>";
+                    break;
+                case 4:
+                    echo "<img width= 100px src=\"cartas/c4.svg\"></h3>";
+                    break;
+                case 5:
+                    echo "<img width= 100px src=\"cartas/c5.svg\"></h3>";
+                    break;
+                case 6:
+                    echo "<img width= 100px src=\"cartas/c6.svg\"></h3>";
+                    break;
+                case 7:
+                    echo "<img width= 100px src=\"cartas/c7.svg\"></h3>";
+                    break;
+                case 8:
+                    echo "<img width= 100px src=\"cartas/c8.svg\"></h3>";
+                    break;
+                case 9:
+                    echo "<img width= 100px src=\"cartas/c9.svg\"></h3>";
+                    break;
+                case 10:
+                    echo "<img width= 100px src=\"cartas/c10.svg\"></h3>";
+                    break;
+                default:
+                    echo "error en switch
+                                    valor:  $v";
+
+                    echo '<br>';
+            };
+        };
+        ?>
     </div>
 </body>
 

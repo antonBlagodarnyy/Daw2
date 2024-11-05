@@ -106,8 +106,8 @@ function verProductosCaros() {
   let cantidad = parseInt(prompt(`Introduzca la cantidad de corte.`));
   let caro = (element) => element.precio > cantidad;
   inventario.some(caro)
-    ? (output.innerHTML = `Existen productos mas caros de esa cantidad.`)
-    : (output.innerHTML = `No existen productos tan caros`);
+    ? (output.innerHTML = `<p>Existen productos mas caros de esa cantidad.</p>`)
+    : (output.innerHTML = `<p>No existen productos tan caros</p>`);
   return caro;
 }
 
@@ -238,7 +238,11 @@ function tablaDeObjetosEnArray(array) {
 function imprimirObjeto(objeto) {
   let datos = ``;
   for (let propt in objeto) {
-    datos += `<td>${objeto[propt]}</td>`;
+    if (typeof objeto[propt] === "boolean") {
+      datos += `<td>${objeto[propt] ? "Si" : "No"}</td>`;
+    } else {
+      datos += `<td>${objeto[propt]}</td>`;
+    }
   }
   return datos;
 }

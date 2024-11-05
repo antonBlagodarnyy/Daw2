@@ -5,34 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script async src="scripts/Ej13.js"></script>
+    <link rel="stylesheet" href="css/plantilla2.css" />
   </head>
 
   <body>
     <h1>Inventario</h1>
-    <h2>Seleccione una opcion</h2>
 
-    <button onClick="verListadoDeProductos()">
-      Ver listado de de productos
-    </button>
-
-    <button onClick="verProductosDisponibles()">
-      Ver productos disponibles
-    </button>
-    <button onClick="incrementarPreciosEnUnaCategoria()">
-      Incrementar precio en una categoria
-    </button>
-    <button onClick="verProductosCaros()">Ver si hay productos caros.</button>
-    <button onClick="calcularValorStock()">Calcular valor del stock.</button>
-    <button onClick="filtrarPorCategoria()">
-      Filtrar productos por categoria.
-    </button>
-    <button onClick="comprobarDisponibilidadCategoria()">
-      Comprobar disponibilidad en categoria.
-    </button>
-
-    <button onClick="aniadirProducto()">Aniadir producto</button>
-    <button onClick="eliminarProducto()">Eliminar producto</button>
-    
+    <ul>
+      <li>
+        <button onClick="verListadoDeProductos()">
+          Ver listado de de productos
+        </button>
+      </li>
+      <li>
+        <button onClick="verProductosDisponibles()">
+          Ver productos disponibles
+        </button>
+      </li>
+      <li>
+        <button onClick="incrementarPreciosEnUnaCategoria()">
+          Incrementar precio en una categoria
+        </button>
+      </li>
+      <li>
+        <button onClick="verProductosCaros()">
+          Ver si hay productos caros.
+        </button>
+      </li>
+      <li>
+        <button onClick="calcularValorStock()">
+          Calcular valor del stock.
+        </button>
+      </li>
+      <li>
+        <button onClick="filtrarPorCategoria()">
+          Filtrar productos por categoria.
+        </button>
+      </li>
+      <li>
+        <button onClick="comprobarDisponibilidadCategoria()">
+          Comprobar disponibilidad en categoria.
+        </button>
+      </li>
+      <li>
+        <button onClick="aniadirProducto()">Aniadir producto</button>
+      </li>
+      <li>
+        <button onClick="eliminarProducto()">Eliminar producto</button>
+      </li>
+    </ul>
     <div id="output"></div>
   </body>
 </html>

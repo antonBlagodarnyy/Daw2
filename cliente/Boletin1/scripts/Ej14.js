@@ -120,7 +120,7 @@ function verTitulosPorCategoria() {
 function contarLibrosPrestadors() {
   const librosPrestados = biblioteca.filter((libro) => !libro.disponible);
 
-  output.innerHTML = librosPrestados.length;
+  output.innerHTML = `<p>Libros prestados: ${librosPrestados.length}</p>`;
 }
 
 function verLibrosPublicadosDespuesDeAnio() {
@@ -138,8 +138,8 @@ function verificarDisponibilidadSegunAutor() {
   let librosDeAutor = biblioteca.filter((libro) => libro.autor === autor);
 
   librosDeAutor.every((libro) => libro.disponible)
-    ? (output.innerHTML = `Todos los libros de ese autor estan disponibles.`)
-    : (output.innerHTML = `Existen libros de ese autor no disponibles.`);
+    ? (output.innerHTML = `<p>Todos los libros de ese autor estan disponibles.</p>`)
+    : (output.innerHTML = `<p>Existen libros de ese autor no disponibles.</p>`);
 }
 
 function listarAutoresUnicos() {
@@ -207,7 +207,11 @@ function tablaDeObjetosEnArray(array) {
 function imprimirObjeto(objeto) {
   let datos = ``;
   for (let propt in objeto) {
-    datos += `<td>${objeto[propt]}</td>`;
+    if (typeof objeto[propt] === "boolean") {
+      datos += `<td>${objeto[propt] ? "Si" : "No"}</td>`;
+    } else {
+      datos += `<td>${objeto[propt]}</td>`;
+    }
   }
   return datos;
 }
