@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meter&Progress</title>
+</head>
+
+<body>
+    <progress id="barra" value="100" max="100"></progress>
+    <button onclick="initProgress()">Click me</button>
+    <div id="boom" style="display: none"><img src="https://cdn-icons-png.flaticon.com/512/9933/9933280.png" /></div>
+    <script>
+
+        // variables gloables
+        var completed;
+        var value;
+        let interval;
+        const boom = document.getElementById("boom");
+        
+        // inicialización de la barra de progreso
+        function initProgress() {
+            completed = document.getElementById("barra");
+            boom.setAttribute("style", "display:none");
+            completed.setAttribute("value", "100");
+            value = completed.value;
+
+            if (interval) clearInterval(interval);
+            
+            // contador de segundos
+             interval = setInterval(decrement, 100);
+        }
+
+        // decremento de la barra de progreso (tiempo)
+        function decrement() {
+            value--;
+
+            if (completed)
+                completed.value = value;
+
+            if (value == 0) {
+                boom.setAttribute("style", "display:block");
+                clearInterval(interval);
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
