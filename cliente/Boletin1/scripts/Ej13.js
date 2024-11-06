@@ -33,14 +33,14 @@ inventario.push(new Producto("Sofa ", 0, 200.99, Categoria.Hogar));
 function pedirCategoria() {
   let categoriaEscogida;
   switch (
-    eleccion(
-      1,
-      3,
-      `Escoja la categoria:
+  eleccion(
+    1,
+    3,
+    `Escoja la categoria:
     1.-Electronica.
     2.-Ropa.
     3.-Hogar.`
-    )
+  )
   ) {
     case 1:
       categoriaEscogida = Categoria.Electronica;
@@ -150,14 +150,14 @@ function aniadirProducto() {
   let precio = parseFloat(prompt(`Introduzca el precio del producto.`));
   let categoria;
   switch (
-    eleccion(
-      1,
-      3,
-      `Escoja la categoria:
+  eleccion(
+    1,
+    3,
+    `Escoja la categoria:
     1.-Electronica.
     2.-Ropa.
     3.-Hogar.`
-    )
+  )
   ) {
     case 1:
       categoria = Categoria.Electronica;

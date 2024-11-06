@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apartado 1</title>
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+
+            background-color: yellow;
+        }
+
+        h1 {
+            color: aqua;
+        }
+
+        textarea {
+            margin-top: 10px;
+        }
+
+        ul {
+            list-style: none;
+        }
+        ul li a{
+            border-radius: 10px;
+            color:white;
+            padding: 10px;
+            background-color: black;
+            transition: 0.2s;
+        }
+        ul li a:hover{
+            background-color: grey;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Tema 1</h1>
+    <div class="apartado">
+        <ol>
+            <li><b>Los invertebrados.</b><br>
+            Los invertebrados son como los vertebrados pero blablabla</li>
+
+            <li><b>Tabla de animales</b></li>
+        </ol>
+
+            <table>
+                <thead>
+                    <tr>
+                    <th>Nombre</th>
+                    <th>Longitud media</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Caracol</td>
+                        <td>5 cm</td>
+                    </tr>
+                    <tr>
+                        <td>Lombriz de tierra</td>
+                        <td>20 cm</td>
+                    </tr>
+                </tbody>
+            </table>
+       
+    </div>
+    <div class="apartado">
+        <h2>Puede enviar un email:</h2>
+        <form>
+            <label for="asunto">Asunto:</label>
+            <input type="text" name="asunto" id="asunto"><br>
+
+            <label for="desplegable">Desplegable</label>
+            <select name="desplegable" id="desplegable">
+                <option value="valor1">valor1</option>
+                <option value="valor2">valor2</option>
+                <option value="valor3">valor3</option>
+            </select><br>
+
+            <textarea rows="4" name="contenido">Contenido: </textarea><br>
+
+            <input type="submit">
+            </form>
+    </div>
+
+    <footer>
+        <ul>
+            <li><a href="2.html">Siguiente</a></li>
+        </ul>
+    </footer>
+</body>
+
+</html>

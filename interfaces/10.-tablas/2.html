@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apartado 2</title>
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+        }
+
+    
+        table {
+            text-align: center;
+            margin: auto;
+
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        ul {
+            display: flex;
+            list-style: none;
+        }
+        ul li{
+            margin: 10px;
+        }
+        ul li a{
+            border-radius: 10px;
+            color:white;
+            padding: 10px;
+            background-color: black;
+            transition: 0.2s;
+        }
+        ul li a:hover{
+            background-color: grey;
+        }
+    </style>
+</head>
+
+<body>
+
+        <table>
+            <caption>
+                <b>Estimacion de ventas</b>
+            <thead style="background-color: rgb(255, 255, 162)">
+                <tr>
+                <th>Nombre</th>
+                <th>Unidades</th>
+                <th>Previsión 2013</th>
+                <th>Previsión 2014</th>
+                </tr>
+                </thead>
+            <tbody>
+                <tr>
+                    <td>Art. 1</td>
+                    <td style="color: blue;">6000</td>
+                    <td>4000</td>
+                    <td>1500</td>
+                </tr>
+                <tr>
+                    <td>Art. 2</td>
+                    <td>50</td>
+                    <td style="color:red" colspan="2">0</td>
+                </tr>
+                <tr>
+                    <td>Art. 3</td>
+                    <td>10</td>
+                    <td>15</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>Art. 4</td>
+                    <td>300</td>
+                    <td colspan="2"><b>210</b></td>
+                </tr>
+                <tr>
+                    <td>Art. 5</td>
+                    <td>90</td>
+                    <td rowspan="2"><b>100</b></td>
+                    <td>120</td>
+                <tr>
+                    <td>Art. 6</td>
+                    <td>80</td>
+                    <td>110</td>
+                </tr>
+            </tbody>
+
+        </table>
+
+    <footer>
+        <ul>
+            <li><a href="1.html">Anterior</a></li>
+            <li><a href="3.html">Siguiente</a></li>
+        </ul>
+    </footer>
+</body>
+
+</html>
