@@ -36,6 +36,14 @@ function getLayers() {
 			console.log("cleared");
 		}
 	}, 10);
+
+    if(shadows)
+        // Accumulate shadow layers
+        shadows += (shadows ? ", " : "") + newShadow;
+        
+        // Apply the accumulated shadows directly to text's textShadow property
+        text.style.textShadow = shadows;
+        
 }
 
 function getRandomColor() {
@@ -47,8 +55,3 @@ function getRandomColor() {
 	return color;
 }
 
-// Accumulate shadow layers
-shadows += (shadows ? ", " : "") + newShadow;
-
-// Apply the accumulated shadows directly to text's textShadow property
-text.style.textShadow = shadows;
