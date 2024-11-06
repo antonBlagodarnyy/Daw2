@@ -9,6 +9,91 @@
 </head>
 
 <body>
+
+    <?php
+    //Funcionalidades
+    //Cartas
+    function imprimirCartas($cartas)
+    {
+        foreach ($cartas as $k => $v) {
+            imprimirCarta($v);
+        }
+    }
+    function imprimirCarta($carta)
+    {
+        switch ($carta) {
+            case 1:
+                echo "<img  width= 100px src=\"cartas/c1.svg\">";
+                break;
+            case 2:
+                echo "<img width= 100px src=\"cartas/c2.svg\">";
+                break;
+            case 3:
+                echo "<img width= 100px src=\"cartas/c3.svg\">";
+                break;
+            case 4:
+                echo "<img width= 100px src=\"cartas/c4.svg\">";
+                break;
+            case 5:
+                echo "<img width= 100px src=\"cartas/c5.svg\">";
+                break;
+            case 6:
+                echo "<img width= 100px src=\"cartas/c6.svg\">";
+                break;
+            case 7:
+                echo "<img width= 100px src=\"cartas/c7.svg\">";
+                break;
+            case 8:
+                echo "<img width= 100px src=\"cartas/c8.svg\">";
+                break;
+            case 9:
+                echo "<img width= 100px src=\"cartas/c9.svg\">";
+                break;
+            case 10:
+                echo "<img width= 100px src=\"cartas/c10.svg\">";
+                break;
+            default:
+                echo "error en switch
+                            valor:  " . $carta;
+        }
+    }
+
+    //Dados
+    function mostrarTirada($dados)
+    {
+        foreach ($dados as $k => $v) {
+            mostrarDado($v);
+        }
+    }
+    function mostrarDado($dado)
+    {
+        switch ($dado) {
+            case 1:
+                echo "<img src=\"dados/1.svg\">";
+                break;
+            case 2:
+                echo "<img src=\"dados/2.svg\">";
+                break;
+            case 3:
+                echo "<img src=\"dados/3.svg\">";
+                break;
+            case 4:
+                echo "<img src=\"dados/4.svg\">";
+                break;
+            case 5:
+                echo "<img src=\"dados/5.svg\">";
+                break;
+            case 6:
+                echo "<img src=\"dados/6.svg\">";
+                break;
+            default:
+                echo "error en switch
+                                valor:  $dado";
+        }
+    }
+    ?>
+
+    <!--Ejercicios-->
     <div class="container">
         <div class="enunciado">
             <h1>Ejercicio 1</h1>
@@ -206,46 +291,7 @@
 
             imprimirCartas($cartasDistintas);
 
-            function imprimirCartas($cartas)
-            {
-                foreach ($cartas as $k => $v) {
-                    switch ($v) {
-                        case 1:
-                            echo "<img  width= 100px src=\"cartas/c1.svg\">";
-                            break;
-                        case 2:
-                            echo "<img width= 100px src=\"cartas/c2.svg\">";
-                            break;
-                        case 3:
-                            echo "<img width= 100px src=\"cartas/c3.svg\">";
-                            break;
-                        case 4:
-                            echo "<img width= 100px src=\"cartas/c4.svg\">";
-                            break;
-                        case 5:
-                            echo "<img width= 100px src=\"cartas/c5.svg\">";
-                            break;
-                        case 6:
-                            echo "<img width= 100px src=\"cartas/c6.svg\">";
-                            break;
-                        case 7:
-                            echo "<img width= 100px src=\"cartas/c7.svg\">";
-                            break;
-                        case 8:
-                            echo "<img width= 100px src=\"cartas/c8.svg\">";
-                            break;
-                        case 9:
-                            echo "<img width= 100px src=\"cartas/c9.svg\">";
-                            break;
-                        case 10:
-                            echo "<img width= 100px src=\"cartas/c10.svg\">";
-                            break;
-                        default:
-                            echo "error en switch
-                                            valor:  $v";
-                    }
-                }
-            }
+
             ?>
         </div>
     </div>
@@ -281,63 +327,15 @@
             $dado = rand(1, 6);
 
             echo '<h2>Dado a eliminar</h2>';
-            switch ($dado) {
-                case 1:
-                    echo "<img src=\"dados/1.svg\">";
-                    break;
-                case 2:
-                    echo "<img src=\"dados/2.svg\">";
-                    break;
-                case 3:
-                    echo "<img src=\"dados/3.svg\">";
-                    break;
-                case 4:
-                    echo "<img src=\"dados/4.svg\">";
-                    break;
-                case 5:
-                    echo "<img src=\"dados/5.svg\">";
-                    break;
-                case 6:
-                    echo "<img src=\"dados/6.svg\">";
-                    break;
-                default:
-                    echo "error en switch
-                                    valor:  $dado";
-            }
+
+            mostrarDado($dado);
 
             $dadosRestantes = array_diff($dados, [$dado]);
 
             echo '<h2>Dados restantes</h2>';
             mostrarTirada($dadosRestantes);
 
-            function mostrarTirada($dados)
-            {
-                foreach ($dados as $k => $v) {
-                    switch ($v) {
-                        case 1:
-                            echo "<img src=\"dados/1.svg\">";
-                            break;
-                        case 2:
-                            echo "<img src=\"dados/2.svg\">";
-                            break;
-                        case 3:
-                            echo "<img src=\"dados/3.svg\">";
-                            break;
-                        case 4:
-                            echo "<img src=\"dados/4.svg\">";
-                            break;
-                        case 5:
-                            echo "<img src=\"dados/5.svg\">";
-                            break;
-                        case 6:
-                            echo "<img src=\"dados/6.svg\">";
-                            break;
-                        default:
-                            echo "error en switch
-                                            valor:  $v";
-                    }
-                }
-            }
+
             ?>
         </div>
     </div>
@@ -371,46 +369,104 @@
 
         foreach ($frecuencias as $k => $v) {
             echo '<h3>' . $v . '-';
-            switch ($k) {
-                case 1:
-                    echo "<img  width= 100px src=\"cartas/c1.svg\"></h3>";
-                    break;
-                case 2:
-                    echo "<img width= 100px src=\"cartas/c2.svg\"></h3>";
-                    break;
-                case 3:
-                    echo "<img width= 100px src=\"cartas/c3.svg\"></h3>";
-                    break;
-                case 4:
-                    echo "<img width= 100px src=\"cartas/c4.svg\"></h3>";
-                    break;
-                case 5:
-                    echo "<img width= 100px src=\"cartas/c5.svg\"></h3>";
-                    break;
-                case 6:
-                    echo "<img width= 100px src=\"cartas/c6.svg\"></h3>";
-                    break;
-                case 7:
-                    echo "<img width= 100px src=\"cartas/c7.svg\"></h3>";
-                    break;
-                case 8:
-                    echo "<img width= 100px src=\"cartas/c8.svg\"></h3>";
-                    break;
-                case 9:
-                    echo "<img width= 100px src=\"cartas/c9.svg\"></h3>";
-                    break;
-                case 10:
-                    echo "<img width= 100px src=\"cartas/c10.svg\"></h3>";
-                    break;
-                default:
-                    echo "error en switch
-                                    valor:  $v";
-
-                    echo '<br>';
-            };
+            imprimirCarta($k);
+            echo '</h3>';
         };
         ?>
     </div>
+
+    <div class="container">
+        <div class="enunciado">
+            <h1>Ejercicio 7</h1>
+            <h2>Repartir cartas</h2>
+
+            <p>Escriba un programa:</p><br>
+
+            <ul>
+                <li>Que muestre un número par de cartas de corazones, entre 4 y 10, al azar y no
+                    repetidas.</li>
+                <li>Que reparta las cartas entre dos jugadores, al azar.
+                <li>Quien más sume, gana.</li>
+            </ul>
+        </div>
+        <div class="ejercicio">
+            <?php
+            //Logica de la baraja
+            $veces = 0;
+
+            do {
+                $veces = rand(4, 10);
+            } while ($veces % 2 !== 0);
+
+            $cartas = [];
+
+            for ($i = 0; $i < $veces; $i++)
+                array_push($cartas, rand(1, 10));
+
+            echo '<h3>Las ' . $veces . ' cartas a repartir</h3>';
+
+            imprimirCartas($cartas);
+
+            //Logica del reparto
+            $jugador1 = [];
+            $jugador2 = [];
+
+            $keys = [];
+            $k = 0;
+            //Recorremos todas las cartas
+            for ($i = 0; $i < count($cartas); $i++) {
+
+
+                do {
+                    $loop = true;
+                    //Buscamos una carta aleatoria que no haya salido todavia
+                    $k = rand(0, count($cartas) - 1);
+
+                    //La almacenamos
+                    if (!in_array($k, $keys)) {
+                        array_push($keys, $k);
+                        $loop = false;
+                    }
+                } while ($loop);
+
+
+
+                //La agregamos a un jugador variante
+                if ($i % 2 ==  0 || $i == 0)
+                    array_push($jugador1, $cartas[$k]);
+                else
+                    array_push($jugador2, $cartas[$k]);
+            }
+
+            echo '<h3>Jugador 1:</h3>';
+            imprimirCartas($jugador1);
+
+            echo '<h3>Jugador 2:</h3>';
+            imprimirCartas($jugador2);
+
+            //Logica de la puntuacion
+            $puntosJ1 = 0;
+            $puntosJ2 = 0;
+
+            foreach ($jugador1 as $indice => $carta) {
+                $puntosJ1 += $carta;
+            }
+
+            foreach ($jugador2 as $indice => $carta) {
+                $puntosJ2 += $carta;
+            }
+
+            echo '<h3>Puntuacion:</h3><h4>Jugador1: ' . $puntosJ1 . '</h4><h4>Jugador2: ' . $puntosJ2 . '</h4>';
+
+            if ($puntosJ1 > $puntosJ2)
+                echo '<h4>Ha ganado el jugador 1!!</h4>';
+            else if ($puntosJ1 > $puntosJ2)
+                echo '<h4>Ha ganado el jugador 2!!</h4>';
+            else
+                echo '<h4>Empate!</h4>'
+
+            ?>
+        </div>
 </body>
 
 </html>
