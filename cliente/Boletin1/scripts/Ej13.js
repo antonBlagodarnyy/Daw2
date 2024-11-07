@@ -57,6 +57,7 @@ function pedirCategoria() {
   }
   return categoriaEscogida;
 }
+
 //Metodos principales
 function verListadoDeProductos() {
   output.innerHTML = tablaDeObjetosEnArray(inventario);
@@ -114,9 +115,7 @@ function verProductosCaros() {
 function calcularValorStock() {
   let valorStock = 0;
 
-  inventario
-    .filter((e) => e.disponibilidad)
-    .map((e) => (valorStock += e.precio * e.stock));
+  inventario.filter((e) => e.disponibilidad).map((e) => (valorStock += e.precio * e.stock));
 
   output.innerHTML = `Valor del stock: ${valorStock}€.`;
 }

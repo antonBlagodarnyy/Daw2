@@ -82,8 +82,9 @@ function menu() {
 
 function registrarVehiculo(matricula) {
   let tipo;
-  do {2
+  do {
     tipo = prompt(`Introduzca el tipo de vehiculo`);
+    
     if (tipo !== "electrico" && tipo !== "combustion") {
       alert(`Tipo de vehiculo no valido.`);
     }
