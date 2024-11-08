@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ej15</title>
+    <link rel="stylesheet" href="css/plantilla2.css" />
+  </head>
+  <body>
+    <header>
+    <h1>Analizador de comentarios</h1>
+
+    <ul>
+      <li>
+        <button onclick="contarLongitud()">Contar longitud</button>
+      </li>
+      <li>
+        <button onclick="buscarPalabraClave()">
+          Buscar palabras clave específicas.
+        </button>
+      </li>
+      <li>
+        <button onclick="cortarComentario()">
+          Cortar y mostrar solo un fragmento del comentario.
+        </button>
+      </li>
+      <li>
+        <button onclick="corregirComentario()">Corregir comentario</button>
+      </li>
+      <li>
+        <button onclick="contarPalabras()">
+          Contar palabras
+        </button>
+      </li>
+    </ul>
+</header>
+    <div class="wrapper">
+      <textarea id="comentario" name="comentario" rows="4" cols="50">Comentario</textarea>
+    
+
+    <div id="output"></div>
+    </div>
+    <script src="scripts/Ej15.js"></script>
+  </body>
+</html>

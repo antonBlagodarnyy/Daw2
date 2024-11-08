@@ -8,8 +8,8 @@ h1 {
   color: rgb(0, 146, 100);
 }
 
-p{
-    margin: 10px;
+p {
+  text-align: center;
 }
 
 table {
@@ -47,4 +47,11 @@ button {
 }
 button:hover {
   font-weight: bold;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+textarea {
+  margin: auto;
 }
