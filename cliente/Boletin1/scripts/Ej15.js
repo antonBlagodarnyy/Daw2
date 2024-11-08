@@ -11,13 +11,15 @@ function buscarPalabraClave() {
   let palabra = prompt(`Introduzca la palabra que desea buscar`);
 
   //Sacamos la expresion regular
-  const regex = new RegExp(`${palabra}\\s|$`);
+  const regex = new RegExp(`${palabra}(\\s|$)`);
   //La buscamos en el texto
-  const resultado = regex.exec(texto);
+  const resultado = regex.test(texto);
 
-  //Imprimimos el resultado en funcion de si el resultado es nulo o no.
+console.log(resultado);
+
+  //Imprimimos el resultado en funcion de si el resultado es true o false.
   output.innerHTML = `<p>La palabra ${palabra} ${
-    resultado != null ? "si" : "no"
+    resultado  ? "si" : "no"
   } se encuentra en el texto.</p>`;
 }
 
