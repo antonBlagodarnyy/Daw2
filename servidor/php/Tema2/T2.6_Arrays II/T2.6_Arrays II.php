@@ -411,24 +411,23 @@
             $jugador1 = [];
             $jugador2 = [];
 
+
+            //Valores para encontrar un numero al azar no repetido
             $keys = [];
             $k = 0;
             //Recorremos todas las cartas
             for ($i = 0; $i < count($cartas); $i++) {
 
-
+                //Buscamos una carta aleatoria que no haya salido todavia
                 do {
                     $loop = true;
-                    //Buscamos una carta aleatoria que no haya salido todavia
                     $k = rand(0, count($cartas) - 1);
-
                     //La almacenamos
                     if (!in_array($k, $keys)) {
                         array_push($keys, $k);
                         $loop = false;
                     }
                 } while ($loop);
-
 
 
                 //La agregamos a un jugador variante
