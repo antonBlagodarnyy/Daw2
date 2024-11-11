@@ -35,5 +35,11 @@ function mostrarDado($dado)
 
 function generarTirada($veces): array {
 
+$tirada = [];
+
+    for ($i = 0; $i < $veces; $i++)
+    array_push($tirada, rand(1, 6));
+
+    return $tirada;
     
 }

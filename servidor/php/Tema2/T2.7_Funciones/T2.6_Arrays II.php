@@ -40,7 +40,7 @@
             ?>
         </div>
     </div>
-    
+
     <div class="container">
         <div class="enunciado">
             <h1>Ejercicio 2</h1>
@@ -96,14 +96,11 @@
             <?php
             $veces = rand(3, 9);
 
-            $jugador1 = [];
+            $jugador1 = generarTirada($veces);
 
-            for ($i = 0; $i < $veces; $i++)
-                array_push($jugador1, rand(1, 6));
 
-            $jugador2 = [];
-            for ($i = 0; $i < $veces; $i++)
-                array_push($jugador2, rand(1, 6));
+            $jugador2 = generarTirada($veces);
+
 
             $ganaJ1 = 0;
             $ganaJ2 = 0;
@@ -119,58 +116,12 @@
             }
 
             echo "<p>Jugado 1:</p>";
-            foreach ($jugador1 as $k => $v) {
-                switch ($v) {
-                    case 1:
-                        echo "<img src=\"dados/1.svg\">";
-                        break;
-                    case 2:
-                        echo "<img src=\"dados/2.svg\">";
-                        break;
-                    case 3:
-                        echo "<img src=\"dados/3.svg\">";
-                        break;
-                    case 4:
-                        echo "<img src=\"dados/4.svg\">";
-                        break;
-                    case 5:
-                        echo "<img src=\"dados/5.svg\">";
-                        break;
-                    case 6:
-                        echo "<img src=\"dados/6.svg\">";
-                        break;
-                    default:
-                        echo "error en switch
-                                    valor:  $v";
-                }
-            }
+            mostrarTirada($jugador1);
 
             echo "<p>Jugado 2:</p>";
-            foreach ($jugador2 as $k => $v) {
-                switch ($v) {
-                    case 1:
-                        echo "<img src=\"dados/1.svg\">";
-                        break;
-                    case 2:
-                        echo "<img src=\"dados/2.svg\">";
-                        break;
-                    case 3:
-                        echo "<img src=\"dados/3.svg\">";
-                        break;
-                    case 4:
-                        echo "<img src=\"dados/4.svg\">";
-                        break;
-                    case 5:
-                        echo "<img src=\"dados/5.svg\">";
-                        break;
-                    case 6:
-                        echo "<img src=\"dados/6.svg\">";
-                        break;
-                    default:
-                        echo "error en switch
-                                    valor:  $v";
-                }
-            }
+            mostrarTirada($jugador2);
+
+
             echo "<p>El jugador 1 ha ganado {$ganaJ1} veces, el jugador 2 ha ganado {$ganaJ2} veces y los jugadores han empatado {$empate} veces.</p>";
 
             if ($ganaJ1 > $ganaJ2)
@@ -200,10 +151,8 @@
             <?php
             $veces = rand(5, 15);
 
-            $cartas = [];
+            $cartas = generarBaraja($veces);
 
-            for ($i = 0; $i < $veces; $i++)
-                array_push($cartas, rand(1, 10));
 
             echo "<p>Entre estas {$veces} cartas corazones...</p>";
 
@@ -239,10 +188,7 @@
             <?php
             $tiradas = rand(1, 10);
 
-            $dados = [];
-
-            for ($i = 0; $i < $tiradas; $i++)
-                array_push($dados, rand(1, 6));
+            $dados = generarTirada($tiradas);
 
             echo '<h2>Tirada de ' . $tiradas . ' dados</h2>';
 
@@ -278,10 +224,7 @@
         <?php
         $veces = rand(10, 20);
 
-        $cartas = [];
-
-        for ($i = 0; $i < $veces; $i++)
-            array_push($cartas, rand(1, 10));
+        $cartas = generarBaraja($veces);
 
         echo "<h2>{$veces} cartas de corazones...</h2>";
 
@@ -322,11 +265,8 @@
                 $veces = rand(4, 10);
             } while ($veces % 2 !== 0);
 
-            $cartas = [];
-
-            for ($i = 0; $i < $veces; $i++)
-                array_push($cartas, rand(1, 10));
-
+            $cartas = generarBaraja($veces);
+            
             echo '<h3>Las ' . $veces . ' cartas a repartir</h3>';
 
             imprimirCartas($cartas);

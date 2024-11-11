@@ -43,3 +43,12 @@ function imprimirCarta($carta)
                             valor:  " . $carta;
     }
 }
+
+function generarBaraja($veces) :array{
+    $cartas = [];
+    
+    for ($i = 0; $i < $veces; $i++)
+    array_push($cartas, rand(1, 10));
+
+    return $cartas;
+}
