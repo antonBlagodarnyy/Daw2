@@ -124,12 +124,7 @@
 
             echo "<p>El jugador 1 ha ganado {$ganaJ1} veces, el jugador 2 ha ganado {$ganaJ2} veces y los jugadores han empatado {$empate} veces.</p>";
 
-            if ($ganaJ1 > $ganaJ2)
-                echo "En conjunto ha ganado el jugador 1.";
-            else if ($ganaJ2 > $ganaJ1)
-                echo "En conjunto ha ganado el jugador 2.";
-            else
-                echo "En conjunto, los jugadores han empatado."
+            partida($jugador1,$jugador2);
             ?>
 
         </div>
@@ -321,12 +316,7 @@
 
             echo '<h3>Puntuacion:</h3><h4>Jugador1: ' . $puntosJ1 . '</h4><h4>Jugador2: ' . $puntosJ2 . '</h4>';
 
-            if ($puntosJ1 > $puntosJ2)
-                echo '<h4>Ha ganado el jugador 1!!</h4>';
-            else if ($puntosJ1 > $puntosJ2)
-                echo '<h4>Ha ganado el jugador 2!!</h4>';
-            else
-                echo '<h4>Empate!</h4>'
+            partida($puntosJ1,$puntosJ2);
 
             ?>
         </div>

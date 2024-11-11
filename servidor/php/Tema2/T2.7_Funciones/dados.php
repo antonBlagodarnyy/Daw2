@@ -43,3 +43,12 @@ $tirada = [];
     return $tirada;
     
 }
+
+function partida($jugador1, $jugador2){
+    if ($jugador1 > $jugador2)
+                echo "<h4>En conjunto ha ganado el jugador 1.</h4>";
+            else if ($jugador2 > $jugador1)
+                echo "<h4>En conjunto ha ganado el jugador 2.</h4>";
+            else
+                echo "<h4>En conjunto, los jugadores han empatado.</h4>";
+}
