@@ -35,7 +35,7 @@ function cortarComentario() {
 
 function corregirEspaciados() {
   const texto = document.getElementById("comentario").value;
-
+//TODO
 }
 
 function contarPalabras() {
