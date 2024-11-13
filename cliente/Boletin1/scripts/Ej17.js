@@ -1,5 +1,7 @@
 const output = document.getElementById("output");
 
+
+
 const texto = `
 Nombre: Juan Pérez
 Número de cuenta: 1234-5678-9876-5432-1234
@@ -38,10 +40,22 @@ function validarCorreo() {
     output.innerHTML = correoReg.test(texto) ? "<p>Correo valido.</p>" : "<p>Correo no valido.</p>"
 }
 
-function sumarTransacciones(){
-const transaccionReg = /Transacción\s\d+:\s(\d+)€/g;
+function sumarTransacciones() {
+    const transaccionReg = /Transacción\s\d+:\s\d+/g;
 
-let transaccionObj = texto.match(transaccionReg);
+    let transaccionObj = texto.match(transaccionReg);
+    let sumatorio = 0;
 
-console.log(transaccionObj)
+    transaccionObj.forEach(element => {
+        sumatorio += parseInt(element.slice("Transacción\s\d:".length))
+    });
+    console.log(sumatorio)
+}
+
+function contarPalabraTransaccion() {
+    const transaccionPalabraReg = /Transacción/g;
+
+    let transaccionPalabraObj = texto.match(transaccionPalabraReg);
+
+    console.log(transaccionPalabraObj.length)
 }
