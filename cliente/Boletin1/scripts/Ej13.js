@@ -148,15 +148,7 @@ function verProductosCaros() {
 function calcularValorStock() {
   let valorStock = 0;
 
-<<<<<<< HEAD
   inventario.filter((e) => e.disponibilidad).map((e) => (valorStock += e.precio * e.stock));
-=======
-  //Primero filtramos el inventario segun los productos disponibles
-  inventario
-    .filter((e) => e.disponibilidad)
-    //Por cada elemento del array filtrado, sumamos el precio multiplicado por el stock
-    .map((e) => (valorStock += e.precio * e.stock));
->>>>>>> 487b81c336d072606ef744e3f3418afb6e5eeeee
 
   //Lo imprimimos
   output.innerHTML = `Valor del stock: ${valorStock}€.`;
