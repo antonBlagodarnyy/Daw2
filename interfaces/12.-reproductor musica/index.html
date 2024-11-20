@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reproductor de musica</title>
+    <style>
+        * {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        table {
+            width: 100%;
+
+        }
+
+        img {
+            width: 200px;
+            object-fit: cover;
+        }
+    </style>
+    <script>
+        function changeTrack(item) {
+            var player = document.getElementById("player");
+            var track = "musica/" + item.getElementsByTagName("img")[0].getAttribute("data-track");
+            player.src = track;
+            player.play;
+        }
+    </script>
+</head>
+
+<body>
+    <!--Tabla catálogo-->
+    <table>
+        <tr>
+            <td><a href="#" onclick="changeTrack(this)"><img src="images/afghanistan.jpg"
+                        data-track="Afghanistan.mp3"></a></td>
+            <td>
+                <a href="#" onclick="changeTrack(this)"><img src="images/highway patrol.jpg"
+                        data-track="Highway Patrol (Feat. bladee).mp3"></a>
+            </td>
+            <td><a href="#" onclick="changeTrack(this)"><img src="images/kyoto.jpg"></a></td>
+        </tr>
+        <tr>
+            <td><a href="cancioneshtml/Afghanistan.html" target="player">Afghanistan</a></td>
+            <td><a href="cancioneshtml/Highway.html" target="player">Highway patrol</a></td>
+            <td><a href="cancioneshtml/Kyoto.html" target="player">Kyoto</a></td>
+        </tr>
+        <tr>
+            <td><a href="cancioneshtml/Ginseng.html" target="player"><img src="images/ginseng.jpg"></a></td>
+            <td><a href="cancioneshtml/Red bottom sky.html" target="player"><img src="images/red bottom sky.jpg"></a>
+            </td>
+            <td><a href="cancioneshtml/Yoshi city.html" target="player"><img src="images/yoshi city.jpg"></a></td>
+        </tr>
+        <tr>
+            <td><a href="cancioneshtml/Ginseng.html" target="player">Ginseng</a></td>
+            <td><a href="cancioneshtml/Red bottom sky.html" target="player">Red bottom sky</a></td>
+            <td><a href="cancioneshtml/Yoshi city.html" target="player">Yoshi city</a></td>
+        </tr>
+    </table>
+
+    <audio style="width: 100%" id="player" name="player" controls autoplay>
+        <source src="musica/Afghanistan.mp3">
+        Tu navegador no soporta la etiqueta de audio.
+    </audio>
+
+</body>
+
+</html>
