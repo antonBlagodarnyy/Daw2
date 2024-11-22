@@ -23,6 +23,8 @@ tu saldo es 950€ y la próxima transacción es de
 function extraerNombreCliente() {
   let nombreObj = nombreReg.exec(texto);
 
+  console.log(nombreObj);
+
   let nombre = `${nombreObj[1]} ${nombreObj[2]}`;
 
   output.innerHTML = `<p>${nombre}</p>`;
@@ -73,7 +75,7 @@ function cifrarNumeroCuenta() {
   output.innerHTML = `<p>Numero cuenta cifrado: ${numCuenta}</p>`;
 }
 
-function contarPalabraTransaccion(){
-    let transaccionObj = texto.match(transaccionPalabraReg);
-    output.innerHTML = `<p>La palabra transaccion aparece ${transaccionObj.length} veces.</p>`
+function contarPalabraTransaccion() {
+  let transaccionObj = texto.match(transaccionPalabraReg);
+  output.innerHTML = `<p>La palabra transaccion aparece ${transaccionObj.length} veces.</p>`
 }
