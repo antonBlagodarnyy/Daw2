@@ -28,8 +28,16 @@ class Vehiculo
     //Sets
     function set_marca($marca)
     {
-        if ($marca > 0)
-            $this->marca = $marca;
+        $this->marca = $marca;
+    }
+    function set_color($color)
+    {
+        $this->color = $color;
+    }
+    function set_plazas(int $plazas)
+    {
+        if ($plazas > 0)
+            $this->plazas = $plazas;
     }
 
     function aparcar()
@@ -51,6 +59,6 @@ class Vehiculo
         return "Marca: " . $this->marca . "<br>" .
             "Color: " . $this->color . "<br>" .
             "Plazas: "  . $this->plazas . "<br>" .
-            "Aparcado: " . $this->aparcado . "<br>";
+            "Aparcado: " . ($this->isAparcado() ? 'Yes' : 'No')  . "<br>";
     }
 }
