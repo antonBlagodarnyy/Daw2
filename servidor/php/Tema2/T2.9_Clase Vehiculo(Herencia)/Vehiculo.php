@@ -6,9 +6,15 @@ class Vehiculo
     private $plazas;
     private $aparcado = true;
 
-    function __construct(int $plazas = 0)
+    function __construct(string $marca, string $color, $plazas = 0)
     {
-        $this->plazas = $plazas;
+        $this->marca = $marca;
+        $this->color = $color;
+
+        if ($plazas >= 0 && is_int($plazas))
+            $this->plazas = $plazas;
+        else
+            throw new Exception("Plazas negativas");
     }
 
     //Gets

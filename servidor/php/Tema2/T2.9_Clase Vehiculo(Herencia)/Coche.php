@@ -5,8 +5,9 @@ class Coche extends Vehiculo
     private $matricula;
     private $kilometros = 0;
 
-    function __construct($matricula = "")
+    function __construct(string $marca, string $color, $plazas, $matricula = "")
     {
+        parent::__construct($marca, $color, $plazas);
 
         if ($matricula === "") {
             $this->matricula = $matricula; // Cadena vacía por defecto

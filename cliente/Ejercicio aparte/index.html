@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ej17</title>
+    <link rel="stylesheet" href="plantilla2.css">
+</head>
+
+<body>
+    <header>
+        <h1>Sistema de Evaluación de Cursos</h1>
+
+        <ul>
+            <li>
+                <button onclick="verCursos()">Ver cursos</button>
+            </li>
+            <li>
+                <button onclick="obtenerCursosPopulares()">Obtener cursos populares</button>
+            </li>
+            <li>
+                <button onclick="incrementarCalificaciones()">Incrementar calificaciones</button>
+            </li>
+            <li>
+                <button onclick="calcularDuracionTotalDeUnaCategoria()">Calcular la duración total de una
+                    categoría</button>
+            </li>
+            <li>
+                <button onclick="verificarCursosDestacados()">Verificar cursos destacados</button>
+            </li>
+            <li>
+                <button onclick="obtenerCursosInactivos()">
+                    Obtener nombres de cursos inactivos
+                </button>
+            </li>
+            <li>
+                <button onclick="determinarSiTodosLosCursosDeUnaCategoriaEstanActivos()">
+                    Determinar si todos los cursos en una categoría están activos
+                </button>
+            </li>
+            <li>
+                <button onclick="calcularElPromedioDeEstudiantesEnUnCurso()">
+                    Calcular el promedio de estudiantes por curso
+                </button>
+            </li>
+            <li>
+                <button onclick="listarCategoriasUnicas()">
+                    Lista de categorías únicas
+                </button>
+            </li>
+        </ul>
+    </header>
+    <div class="wrapper">
+        <div id="output"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
