@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestor de ventas</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Gestión de Ventas de una Tienda Online</h1>
+
+      <ul>
+        <li>
+          <button onclick="verVentas()">Ver ventas</button>
+        </li>
+        <li>
+          <button onclick="totalIngresosDiarios()">
+            Total de ingresos diarios
+          </button>
+        </li>
+        <li>
+          <button onclick="productosMasVendidos()">
+            Productos más vendidos
+          </button>
+        </li>
+        <li>
+          <button onclick="promedioDeVentasPorProducto()">
+            Promedio de ventas por producto
+          </button>
+        </li>
+        <li>
+          <button onclick="ventasPorIntervaloDeFechas()">
+            Ventas por intervalo de fechas
+          </button>
+        </li>
+        <li>
+          <button onclick="deteccionVentasSospechosas()">
+            Detección de ventas sospechosas
+          </button>
+        </li>
+        <li>
+          <button onclick="resumenDeVentas()">Resumen de ventas</button>
+        </li>
+      </ul>
+    </header>
+    <div class="wrapper">
+      <div id="output"></div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
