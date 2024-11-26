@@ -92,12 +92,63 @@ function calcularDuracionTotalDeUnaCategoria() {
     output.innerHTML = "<p>" + duracionTotal + "</p>";
 }
 
-function verificarCursosDestacados(){
-const notaCorte = 4.5;
-const estudiantesCorte = 100;
-    let existenCursosDestacados = cursos.some((curso)=> curso.calificacionPromedio>=notaCorte, (curso)=> curso.estudiantes >= estudiantesCorte);
+function verificarCursosDestacados() {
+    const notaCorte = 4.5;
+    const estudiantesCorte = 100;
+    let existenCursosDestacados = cursos.some((curso) => curso.calificacionPromedio >= notaCorte, (curso) => curso.estudiantes >= estudiantesCorte);
 
- existenCursosDestacados ? output.innerHTML = `<p>Existen cursos destacados</p>` : output.innerHTML = `No existen cursos destacados`;
+    existenCursosDestacados ? output.innerHTML = `<p>Existen cursos destacados</p>` : output.innerHTML = `No existen cursos destacados`;
+}
+
+function obtenerCursosInactivos() {
+    // Filtrar cursos inactivos y obtener nombres
+    const nombresInactivos = cursos
+        .filter(curso => !curso.activo) // Selecciona solo los cursos inactivos
+        .map(curso => curso.título);   // Obtén solo los títulos de esos cursos
+
+    console.log(nombresInactivos)
+    output.innerHTML = nombresInactivos;
+}
+
+function determinarSiTodosLosCursosDeUnaCategoriaEstanActivos() {
+    let categoriaElegida;
+    do {
+        categoriaElegida = prompt("Introduzca una categoria valida")
+    } while (categoriaElegida != "programación" && categoriaElegida != "diseño");
+
+    let cursosCategoria = cursos.filter((curso) => curso.categoría == categoriaElegida);
+
+    cursosCategoria.some((curso) => !curso.activo) ? output.innerHTML = `No todos los cursos de la categoria ${categoriaElegida} estan activos` : output.innerHTML = `Todos los cursos de la categoria ${categoriaElegida} estan activos`;
+}
+
+function calcularElPromedioDeEstudiantes() {
+    let total = cursos.reduce((acumulador, currentValue) => acumulador += currentValue.estudiantes, 0);
+    let promedio = Math.round(total / cursos.length);
+
+    output.innerHTML = `<p>Promedio de estudiantes: ${promedio}</p>`;
+}
+
+function listarCategoriasUnicas() {
+    let categorias = Array.from(cursos, (curso) => curso.categoría);
+
+    //Funcion "filtro". Devuelve un booleano en funcion de si
+    //el primer indice del elemento en el array es igual al ultimo
+    let esUnico = (valor, indice, array) => {
+        return array.indexOf(valor) === array.lastIndexOf(valor);
+    };
+
+    //Filtramos el array
+    let categoriasUnicas = categorias.filter(esUnico);
+
+    //Lo imprimimos
+    let datos = ``;
+
+    categoriasUnicas.forEach((categoria) => {
+        datos += `<p>${categoria}</p>`;
+    });
+
+    output.innerHTML = datos;
+
 }
 
 //Funcionalidades

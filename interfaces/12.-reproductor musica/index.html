@@ -21,44 +21,64 @@
         }
     </style>
     <script>
-        function changeTrack(item) {
+        let canciones = [
+            "Afghanistan",
+            "Highway Patrol",
+            "Kyoto",
+            "ginseng strip",
+            "red bottom sky",
+            "yoshi city"
+        ]
+
+
+        function changeTrack(index) {
             var player = document.getElementById("player");
-            var track = "musica/" + item.getElementsByTagName("img")[0].getAttribute("data-track");
+            var track = "musica/" + canciones[index] + ".mp3";
             player.src = track;
             player.play;
         }
+
+        function init() {
+            const MAX_COLS = 3;
+
+            let tabla = document.getElementById("catalogo");
+
+            if (canciones != null && (canciones.length > 0)) {
+                let fila;
+
+                for (let i = 0; i < canciones.length; i++) {
+                    if (i % MAX_COLS == 0) {
+                        fila = document.createElement("tr");
+                        tabla.appendChild(fila);
+                    }
+
+                    let celda = document.createElement("td");
+                    celda.onclick = function(){
+                        changeTrack(i);
+                    };
+
+                    fila.appendChild(celda);
+
+                    let img = document.createElement("img");
+                    img.alt = canciones[i];
+                    img.src = "images/" + canciones[i] + ".jpg";
+
+                    celda.appendChild(img);
+
+                    let span = document.createElement("div");
+                    span.innerHTML = canciones[i]
+                    celda.appendChild(span);
+                }
+                console.log(fila)
+            }
+        }
+
     </script>
 </head>
 
-<body>
+<body onLoad="init()">
     <!--Tabla catálogo-->
-    <table>
-        <tr>
-            <td><a href="#" onclick="changeTrack(this)"><img src="images/afghanistan.jpg"
-                        data-track="Afghanistan.mp3"></a></td>
-            <td>
-                <a href="#" onclick="changeTrack(this)"><img src="images/highway patrol.jpg"
-                        data-track="Highway Patrol (Feat. bladee).mp3"></a>
-            </td>
-            <td><a href="#" onclick="changeTrack(this)"><img src="images/kyoto.jpg"
-                data-track="Kyoto.mp3"></a></td>
-        </tr>
-        <tr>
-            <td><a href="cancioneshtml/Afghanistan.html" target="player">Afghanistan</a></td>
-            <td><a href="cancioneshtml/Highway.html" target="player">Highway patrol</a></td>
-            <td><a href="cancioneshtml/Kyoto.html" target="player">Kyoto</a></td>
-        </tr>
-        <tr>
-            <td><a href="cancioneshtml/Ginseng.html" target="player"><img src="images/ginseng.jpg"></a></td>
-            <td><a href="cancioneshtml/Red bottom sky.html" target="player"><img src="images/red bottom sky.jpg"></a>
-            </td>
-            <td><a href="cancioneshtml/Yoshi city.html" target="player"><img src="images/yoshi city.jpg"></a></td>
-        </tr>
-        <tr>
-            <td><a href="cancioneshtml/Ginseng.html" target="player">Ginseng</a></td>
-            <td><a href="cancioneshtml/Red bottom sky.html" target="player">Red bottom sky</a></td>
-            <td><a href="cancioneshtml/Yoshi city.html" target="player">Yoshi city</a></td>
-        </tr>
+    <table id="catalogo" name="catalogo">
     </table>
 
     <audio style="width: 100%" id="player" name="player" controls autoplay>

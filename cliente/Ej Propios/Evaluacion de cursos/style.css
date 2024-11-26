@@ -5,7 +5,7 @@
 }
 
 h1 {
-  color: rgb(0, 146, 100);
+  color: rgb(21, 67, 96);
 }
 
 p {
@@ -27,7 +27,7 @@ td {
   padding: 5px;
 }
 ul {
-  background-color: rgb(175, 233, 214);
+  background-color: rgb(84, 153, 199 );
   display: flex;
 
   list-style-type: none;

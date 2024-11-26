@@ -14,8 +14,6 @@ class Venta {
   }
 }
 
-
-
 Ventas.push(new Venta("Silla", 25, 10, "2024-11-26"), 
 new Venta("Sofa",23.50,15,"2024-11-24"),
 new Venta("Monitor",99.89,5,"2024-11-20"));
@@ -36,7 +34,25 @@ output.innerHTML = `Ingresos del dia ${fechaEscogida}: ${ingresos}.`
 }
 
 function productosMasVendidos(){
-    
+  let productoMasVendido;
+  let cantidad = 0;
+  Ventas.forEach(venta => {
+      if (cantidad< venta.cantidad){
+        productoMasVendido = venta;
+        cantidad = venta.cantidad;
+      }
+    });
+
+    output.innerHTML= `Producto mas vendido: ${productoMasVendido.nombre}`;
+
+}
+
+function promedioDeVentasPorProducto(){
+
+}
+
+function ventasPorIntervaloDeFechas(){
+
 }
 
 //Funcionalidades
