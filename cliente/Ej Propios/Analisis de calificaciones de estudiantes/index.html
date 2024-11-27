@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analisis de calificaciones de estudiantes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Analisis de calificaciones de estudiantes</h1>
+
+        <ul>
+            <li>
+                <button onclick="verCalificaciones()">Ver calificaciones</button>
+            </li>
+            <li>
+                <button onclick="AniadirPromedioDeCalificaciones()">Añadir promedio de calificaciones</button>
+            </li>
+            <li>
+                <button onclick="calcularPromedioGeneral()">Calcular el promedio general del grupo</button>
+            </li>
+            <li>
+                <button onclick="estudiantesAprobados()">Identificar a los estudiantes aprobados</button>
+            </li>
+            <li>
+                <button onclick="mejorEstudiante()">Mejor estudiante</button>
+            </li>
+            <li>
+                <button onclick="ajustarCalificaciones()">Ajustar calificaciones</button>
+            </li>
+            <li>
+                <button onclick="numeroTotalCalificaciones()">Numero total de calificaciones</button>
+            </li>
+            <li>
+                <button onclick="sumaTotalCalificaciones()">Suma de todas las calificaciones</button>
+            </li>
+            <li>
+                <button onclick="calificacionMasAlta()">Calificación más alta registrada </button>
+            </li>
+            
+        </ul>
+    </header>
+    <div class="wrapper">
+        <div id="output"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
