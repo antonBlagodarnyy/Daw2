@@ -2,33 +2,31 @@
 Imagina que estás desarrollando un sistema de gestión de tareas pendientes para un equipo de trabajo. Cada tarea tiene las siguientes propiedades: id, descripcion, prioridad (alta, media, baja), completada (booleano), y fechaLimite (fecha en formato YYYY-MM-DD).
 
 Funcionalidad a implementar:
-Agregar una nueva tarea:
 
+-Agregar una nueva tarea:X
 Debes agregar una nueva tarea a un array de tareas.
 Cada tarea debe tener un id único, por lo que deberás generar uno de manera automática basado en el tamaño del array de tareas o utilizando Date.now().
-Filtrar tareas por estado (completada o no completada):
 
+-Filtrar tareas por estado (completada o no completada):X
 Usa el método filter para devolver solo las tareas que estén completas o incompletas, según el valor de completada.
-Filtrar tareas por prioridad:
 
+-Filtrar tareas por prioridad:X
 Usa filter nuevamente para filtrar las tareas por su prioridad (alta, media, baja).
-Actualizar el estado de una tarea:
 
+-Actualizar el estado de una tarea:X
 Usa find para localizar la tarea por su id y luego cambia su estado de completada a false o true.
-Ordenar las tareas por fecha límite:
 
+-Ordenar las tareas por fecha límite:X
 Usa sort para ordenar las tareas por su fecha límite (fechaLimite), de la más cercana a la más lejana.
-Contar el total de tareas pendientes y completadas:
 
+-Contar el total de tareas pendientes y completadas:X
 Usa reduce para contar cuántas tareas están completadas y cuántas no lo están.
-Eliminar tareas completadas:
 
-Usa filter para eliminar las tareas que ya están marcadas como completadas. Devuelve un nuevo array con solo las tareas pendientes.
-Mostrar la tarea más urgente:
 
+-Mostrar la tarea más urgente:
 Usa reduce para encontrar la tarea con la fecha límite más cercana. Esta será la tarea más urgente.
-Mostrar tareas próximas a vencer:
 
+-Mostrar tareas próximas a vencer:
 Filtra y muestra las tareas que vencen en los próximos 7 días utilizando el método filter y la comparación de fechas con el método Date.parse().
 -->
 <!DOCTYPE html>
@@ -52,8 +50,27 @@ Filtra y muestra las tareas que vencen en los próximos 7 días utilizando el m�
             <li>
                 <button onclick="agregarTarea()">Agregar tarea nueva</button>
             </li>
-           
-            
+            <li>
+                <button onclick="mostrarCompletadas()">Mostrar tareas completadas</button>
+            </li>
+            <li>
+                <button onclick="mostrarIncompletas()">Mostrar tareas incompletas</button>
+            </li>
+            <li>
+                <button onclick="filtrarPorPrioridad()">Filtrar por prioridad</button>
+            </li>
+            <li>
+                <button onclick="actualizarTarea()">Actualizar tarea</button>
+            </li>
+            <li>
+                <button onclick="contarTareas()">Contar tareas</button>
+            </li>
+            <li>
+                <button onclick="ordenarPorFechaLimite()">Ordenar por fecha limite</button>
+            </li>
+            <li>
+                <button onclick="ordenarPorId()">Ordenar por Id</button>
+            </li>
         </ul>
     </header>
     <div class="wrapper">

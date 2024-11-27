@@ -1,0 +1,33 @@
+<!--Eres desarrollador en una empresa que maneja información de pedidos de clientes a través de un solo mensaje de entrada. Este mensaje incluye detalles como el nombre del cliente, el número de pedido, su correo electrónico, una lista de productos comprados (con precios) y un mensaje final. Implementa las siguientes funcionalidades:
+
+-Extrae el nombre del cliente.
+-Valida el formato del número de pedido (debe ser una cadena alfanumérica de 10 caracteres, por ejemplo: "A1234B6789").
+-Extrae y valida el correo electrónico.
+-Calcula el total de los precios de los productos.
+-Reemplaza el número de pedido por la primera letra seguida de asteriscos y los últimos 2 caracteres (por ejemplo: "A*******89").
+-Cuenta la cantidad de veces que aparece la palabra "producto" en el mensaje.-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analizar mensaje</title>
+    <link rel="stylesheet" href="css/plantilla2.css">
+  </head>
+  <body>
+    <header>
+      <h1>Analizar mensaje</h1>
+
+      <ul>
+        <li>
+          <button onclick="extraerNombreCliente()">Extraer nombre del cliente</button>
+        </li>
+       
+      </ul>
+    </header>
+    <div class="wrapper">
+      <div id="output"></div>
+    </div>
+    <script src="scripts/Ej17.js"></script>
+  </body>
+</html>

@@ -40,7 +40,7 @@ const tareas = [
 ];
 class Tarea {
   constructor(descripcion, prioridad, fechaLimite) {
-    this.id = tareas.length+1;
+    this.id = tareas.length + 1;
     this.descripcion = descripcion;
     this.prioridad = prioridad;
     this.completada = false;
@@ -49,62 +49,134 @@ class Tarea {
   }
 }
 const Prioridades = {
-    Alta: "alta",
-    Media: "media",
-    Baja: "baja",
-  };
-  
+  Alta: "alta",
+  Media: "media",
+  Baja: "baja",
+};
+
 //Metodos secundarios
 /**Le pide al usuario que escoja una categoria usando la constante y una funcionalidad
  *
  * @returns {String} categoriaEscogida
  */
 function pedirPrioridad() {
-    //Declaro la categoria que va a devolver
-    let categoriaEscogida;
-  
-    //Switch que llama a un metodo y que utiliza el valor que ese metodo devuelve
-    switch (
-      eleccion(
-        1,
-        3,
-        `Escoja la prioridad:
+  //Declaro la categoria que va a devolver
+  let categoriaEscogida;
+
+  //Switch que llama a un metodo y que utiliza el valor que ese metodo devuelve
+  switch (
+  eleccion(
+    1,
+    3,
+    `Escoja la prioridad:
       1.-Alta.
       2.-Media.
       3.-Baja.`
-      )
-    ) {
-      case 1:
-        categoriaEscogida = Prioridades.Alta;
-        break;
-      case 2:
-        categoriaEscogida = Prioridades.Media;
-        break;
-      case 3:
-        categoriaEscogida = Prioridades.Baja;
-        break;
-      default:
-        alert(`Error en switch`);
-        break;
-    }
-    return categoriaEscogida;
+  )
+  ) {
+    case 1:
+      categoriaEscogida = Prioridades.Alta;
+      break;
+    case 2:
+      categoriaEscogida = Prioridades.Media;
+      break;
+    case 3:
+      categoriaEscogida = Prioridades.Baja;
+      break;
+    default:
+      alert(`Error en switch`);
+      break;
   }
+  return categoriaEscogida;
+}
 
-  //Metodos principales
+function pedirId() {
+  let idEncontrado;
+  do {
+    idEncontrado = parseInt(prompt("Introduzca el id de una tarea existente"));
+  } while (!tareas.find((element) => element.id == idEncontrado));
+  return idEncontrado;
+}
+
+//Metodos principales
 function verTareas() {
   output.innerHTML = tablaDeObjetosEnArray(tareas);
 }
 
 function agregarTarea() {
-let prioridad = pedirPrioridad();
-let descripcion = prompt("Introduzca la descripcion de la tarea.")
-let fechaEscogida;
-do{
-    fechaEscogida=prompt("Introduzca una fecha limite en formato YYYY-MM-DD");
-}while (!regExFecha.test(fechaEscogida));
+  let prioridad = pedirPrioridad();
+  let descripcion = prompt("Introduzca la descripcion de la tarea.")
+  let fechaEscogida;
+  do {
+    fechaEscogida = prompt("Introduzca una fecha limite en formato YYYY-MM-DD");
+  } while (!regExFecha.test(fechaEscogida));
 
-new Tarea(descripcion,prioridad,fechaEscogida);
+  new Tarea(descripcion, prioridad, fechaEscogida);
 }
+
+function mostrarCompletadas() {
+  let completadas = tareas.filter((tarea) => tarea.completada);
+
+  output.innerHTML = tablaDeObjetosEnArray(completadas);
+}
+
+function mostrarIncompletas() {
+  let completadas = tareas.filter((tarea) => !tarea.completada);
+
+  output.innerHTML = tablaDeObjetosEnArray(completadas);
+}
+
+function filtrarPorPrioridad() {
+  let prioridadElegida = pedirPrioridad();
+  let tareasFiltradas = tareas.filter((tarea) => tarea.prioridad == prioridadElegida);
+
+  output.innerHTML = tablaDeObjetosEnArray(tareasFiltradas);
+}
+
+function actualizarTarea() {
+  let idSolicitado = pedirId();
+  let tarea = tareas.find((elemento) => elemento.id === idSolicitado);
+  tarea.completada = !tarea.completada;
+  output.innerHTML = `Tarea actualizada: ${imprimirObjeto(tarea)}`;
+}
+
+function contarTareas() {
+
+  let numCompletas = 0;
+  let numIncompletas = 0;
+  tareas.reduce((acumulador, valorActual) => {
+    if (valorActual.completada)
+      numCompletas++;
+    else
+      numIncompletas++;
+    return acumulador;
+  }, 0);
+
+  output.innerHTML = `<p>Tareas completadas: ${numCompletas}.</p>
+  <p>Tareas incompletas: ${numIncompletas}.</p>`
+}
+
+function ordenarPorFechaLimite() {
+  tareas.sort((a, b) => {
+    const fechaA = new Date(a.fechaLimite);
+    const fechaB = new Date(b.fechaLimite);
+    return fechaA - fechaB; // Orden ascendente: más cercana a más lejana
+  });
+  output.innerHTML = tablaDeObjetosEnArray(tareas);
+}
+function ordenarPorId() {
+  function compare(a, b) {
+    if (a.id < b.id)
+      return -1;
+    if (a.id > b.id)
+      return 1;
+    return 0;
+  }
+  tareas.sort(compare);
+  output.innerHTML = tablaDeObjetosEnArray(tareas);
+}
+
+
 
 //Funcionalidades
 /**Pide al usuario un numero entero y lo valida correctamente,
@@ -132,7 +204,7 @@ function eleccion(numMinimo, numMaximo, mensaje) {
 function tablaDeObjetosEnArray(array) {
   //Creo las etiquetas que abren la tabla de la tabla
   let tabla = `<table>
-        <thead>`;
+      <thead>`;
 
   //Saco el primer objeto del array para recorrer solo las propiedades
   let objeto = array[0];
@@ -142,7 +214,7 @@ function tablaDeObjetosEnArray(array) {
   }
   //Cierro la cabeza de la tabla y abro el body
   tabla += `</thead>
-        <tbody>`;
+      <tbody>`;
 
   //Recorro los objetos y por cada objeto abro una fila,
   //dentro de la fila llamo a la funcionalidad "imprimir objeto"
@@ -182,7 +254,7 @@ function imprimirObjeto(objeto) {
       datos += `<td>${imprimirObjeto(value)}</td>`;
     } else {
       // Para otros tipos, simplemente agregar el valor
-      datos += `<td>${value}</td>`;
+      datos += `<td> ${value} </td>`;
     }
   }
 
