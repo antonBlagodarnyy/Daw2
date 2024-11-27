@@ -47,13 +47,6 @@ function productosMasVendidos(){
 
 }
 
-function promedioDeVentasPorProducto(){
-
-}
-
-function ventasPorIntervaloDeFechas(){
-
-}
 
 //Funcionalidades
 /**Pide al usuario un numero entero y lo valida correctamente,
