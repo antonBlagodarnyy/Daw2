@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>examen</title>
+</head>
+<style>
+    * {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      
+      h1 {
+        color: rgb(21, 67, 96);
+      }
+      
+      p {
+        text-align: center;
+      }
+      
+      table {
+        margin: 20px;
+        width: 80%;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid;
+        border-collapse: collapse;
+        padding: 5px;
+      }
+      ul {
+        background-color: rgb(84, 153, 199 );
+        display: flex;
+      
+        list-style-type: none;
+        margin: 0;
+        margin-bottom: 20px;
+        padding: 0;
+      }
+      li {
+        margin: auto;
+      }
+      button {
+        padding: 10px;
+        margin: auto;
+        cursor: pointer;
+        border-color: transparent;
+        background-color: transparent;
+      }
+      button:hover {
+        font-weight: bold;
+      }
+      .wrapper {
+        display: flex;
+        flex-direction: column;
+      }
+      textarea {
+        margin: auto;
+      }
+      
+</style>
+<body>
+    <ul>
+        <li>
+            <button onclick="capacidadMediaPartidos()">Calcular la media de la capacidad de los estadios de la competicion</button>
+        </li>
+        <li>
+            <button onclick="estadioConMayorCapacidad()">Estadio con mayor capacidad</button>
+        </li>
+        <li>
+            <button onclick="equipoConMayorAsistencia()">Equipo con mayor asistencia</button>
+        </li>
+        
+    </ul>
+    <div id="output"></div>
+    <script src="script.js"></script>
+</body>
+</html>
