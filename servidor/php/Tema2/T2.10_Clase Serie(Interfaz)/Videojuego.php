@@ -19,7 +19,7 @@ class Videojuego implements iEntregable
     {
         return $this->titulo;
     }
-    function get_numTemporadas(): int
+    function get_horasEstimadas(): int
     {
         return $this->horasEstimadas;
     }
