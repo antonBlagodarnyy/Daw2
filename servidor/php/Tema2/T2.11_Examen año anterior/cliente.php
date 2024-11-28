@@ -13,7 +13,7 @@ class Cliente
         $this->producto = $producto;
         echo "<p>" . $this->nombre . "creado.</p>";
     }
-    public function __destruct(): void
+    public function __destruct()
     {
         self::$clientela--;
     }
