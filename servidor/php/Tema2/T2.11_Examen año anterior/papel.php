@@ -1,7 +1,7 @@
 <?php
 class Papel{
-    public $paginasGastadas;
-    public $paginasRecicladas;
+   static public $paginasGastadas;
+   static public $paginasRecicladas;
     private $dobleCara;
     private $alto;
     private $largo;
