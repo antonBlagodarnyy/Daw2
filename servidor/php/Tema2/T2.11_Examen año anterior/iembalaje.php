@@ -1,7 +1,7 @@
 <?php
-interface iembalaje {
-
+interface iembalaje
+{
     public const margen = 1;
-    
-public function embalar($unidades);
+
+    public function embalar($unidades);
 }

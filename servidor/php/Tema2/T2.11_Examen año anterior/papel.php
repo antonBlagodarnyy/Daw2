@@ -2,7 +2,7 @@
 class Papel{
    static public $paginasGastadas;
    static public $paginasRecicladas;
-    private $dobleCara;
+    protected $dobleCara;
     private $alto;
     private $largo;
 

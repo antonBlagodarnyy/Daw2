@@ -9,6 +9,10 @@ class fotocopia extends Papel
         parent::__construct($alto, $largo, $dobleCara);
         parent::$paginasGastadas++;
     }
+    public function calcularEspacio()
+    {
+        return $this->largo * $this->alto;
+    }
     public function __destruct()
     {
         parent::$paginasRecicladas++;
