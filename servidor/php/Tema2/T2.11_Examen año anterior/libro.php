@@ -1,13 +1,16 @@
 <?php
-require_once("papel.php");
+
 require_once("iembalaje.php");
 
 class libro extends papel implements iembalaje {
     public $libro;
     private $paginas;
-    private $ancho = $paginas/100;
-    public function __construct()
+    private $ancho ;
+    
+    public function __construct(int $alto, int $largo, bool $dobleCara = false)
     {
-        parent::$do
+        $this->ancho = $paginas/100;
+        parent::__construct($alto, $largo, $dobleCara);
+        
     }
 }
