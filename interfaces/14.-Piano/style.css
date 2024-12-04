@@ -1,0 +1,54 @@
+
+#wrapper{
+    position: relative;
+    margin: 50px;
+}
+
+#piano {
+    margin: 5px;
+    border: 1px solid black;
+    width: fit-content;
+}
+
+.blanca,
+.negra {
+    border: 1px solid black;
+    display: inline-block;
+}
+
+.blanca {
+    margin-left: -5px;
+    background-color: white;
+    padding-left: 25px;
+    padding-top: 150px;
+    height: 60px;
+    width: 30px;
+}
+
+.negra {
+    color: white;
+    background-color: black;
+    position: relative;
+    width: 20px;
+    padding-left: 10px;
+    padding-top: 110px;
+    margin-left: 20px;
+}
+
+#transparente{
+    border: none;
+    background-color: transparent;
+}
+
+#negras{
+    position:absolute;
+    left:20px;
+    top: 0%;
+}
+
+.negra:hover{
+    background-color: blue;
+}
+.blanca:hover{
+    background-color: blue;
+}
