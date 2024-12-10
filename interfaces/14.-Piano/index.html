@@ -94,13 +94,11 @@
 
             let key = keyMap[event.key.toUpperCase()];
 
+            let  noteElement = document.querySelector(`div[data-note="${key}"]`);
+
             let noteData = NOTES.find(n => n.note == key).data;
             player.stop();
             player.start(noteData);
-
-           let  noteElement = document.querySelector(`data-note="${key}"`);
-
-
             
             // Change the color of the key (during 1 second)
             noteElement.classList.remove("hover");
