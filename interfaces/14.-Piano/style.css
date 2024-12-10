@@ -52,3 +52,7 @@
 .blanca:hover{
     background-color: blue;
 }
+
+.clicked {
+    background-color: darkblue !important;
+}

@@ -1,38 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Piano</title>
     <link rel="stylesheet" href="style.css">
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@magenta/music@^1.0.0"></script>
+
+
+    <script>
+
+        // "Array" of notes
+        var NOTES = [
+            { note: 'C', data: { notes: [{ pitch: 60, startTime: 0.0, endTime: 0.5 }], totalTime: 0.5 } },
+            { note: 'D', data: { notes: [{ pitch: 62, startTime: 0.0, endTime: 0.5 }], totalTime: 0.5 } },
+            { note: 'E', data: { notes: [{ pitch: 64, startTime: 0.0, endTime: 0.5 }], totalTime: 0.5 } },
+            { note: 'F', data: { notes: [{ pitch: 65, startTime: 0.0, endTime: 0.5 }], totalTime: 0.5 } },
+            { note: 'G', data: { notes: [{ pitch: 67, startTime: 0.0, endTime: 0.5 }], totalTime: 0.5 } },
+            { note: 'A', data: { notes: [{ pitch: 69, startTime: 0.0, endTime: 0.5 }], totalTime: 0.5 } },
+            { note: 'B', data: { notes: [{ pitch: 71, startTime: 0.0, endTime: 0.5 }], totalTime: 0.5 } },
+            { note: 'C#', data: { notes: [{ pitch: 61, startTime: 0.0, endTime: 0.5 }], totalTime: 0.5 } },
+            { note: 'D#', data: { notes: [{ pitch: 63, startTime: 0.0, endTime: 0.5 }], totalTime: 0.5 } },
+            { note: 'F#', data: { notes: [{ pitch: 66, startTime: 0.0, endTime: 0.5 }], totalTime: 0.5 } },
+            { note: 'G#', data: { notes: [{ pitch: 68, startTime: 0.0, endTime: 0.5 }], totalTime: 0.5 } },
+            { note: 'A#', data: { notes: [{ pitch: 70, startTime: 0.0, endTime: 0.5 }], totalTime: 0.5 } }
+        ];
+
+
+
+        // Array de equivalencia entre notas musicales y teclas del piano
+        var notas = {
+            "C": "DO",
+            "C#": "DO Sostenido",
+            "D": "RE",
+            "D#": "RE Sostenido",
+            "E": "MI",
+            "F": "FA",
+            "F#": "FA Sostenido",
+            "G": "SOL",
+            "G#": "SOL Sostenido",
+            "A": "LA",
+            "A#": "LA Sostenido",
+            "B": "SI"
+        };
+
+        var keyMap = {
+            'A' : 'C',
+            'S' : 'D',
+            'D' : 'E',
+            'F' : 'F',
+            'G' : 'G',
+            'H' : 'A',
+            'J' : 'B',
+            'W' : 'C#',
+            'E' : 'D#',
+            'T' : 'F#',
+            'Y' : 'G#',
+            'U' : 'A#'
+        }
+
+
+        var player = new mm.Player();
+
+        function play(noteElement) {
+
+            let note = noteElement.getAttribute("data-note");
+
+            // Set the note english name and spanish name
+            document.getElementById("nota").innerHTML =
+                note + " -> " +
+                notas[note];
+
+            let noteData = NOTES.find(n => n.note == note).data;
+            player.stop();
+            player.start(noteData);
+
+
+            // Change the color of the key (during 1 second)
+            noteElement.classList.remove("hover");
+            noteElement.classList.add("clicked");
+            setTimeout(function () {
+                noteElement.classList.remove("clicked");
+            }, 1000);
+        }
+
+
+        document.addEventListener('keydown', function (event) {
+
+            // let key = event.key.toUpperCase();
+
+            let key = keyMap[event.key.toUpperCase()];
+
+            let noteData = NOTES.find(n => n.note == key).data;
+            player.stop();
+            player.start(noteData);
+
+           let  noteElement = document.querySelector(`data-note="${key}"`);
+
+
+            
+            // Change the color of the key (during 1 second)
+            noteElement.classList.remove("hover");
+            noteElement.classList.add("clicked");
+            setTimeout(function () {
+                noteElement.classList.remove("clicked");
+            }, 1000);
+        })
+    </script>
 </head>
 
 <body>
     <div id="wrapper">
-    <div id="piano">
-        <div id="blancas">
-            <div class="blanca">C</div>
-            <div class="blanca">D</div>
-            <div class="blanca">E</div>
-            <div class="blanca">F</div>
-            <div class="blanca">G</div>
-            <div class="blanca">A</div>
-            <div class="blanca">B</div>
+        <div id="piano">
+            <div id="blancas">
+                <div class="blanca" data-note="C" onclick="play(this)">C</div>
+                <div class="blanca" data-note="D" onclick="play(this)">D</div>
+                <div class="blanca" data-note="E" onclick="play(this)">E</div>
+                <div class="blanca" data-note="F" onclick="play(this)">F</div>
+                <div class="blanca" data-note="G" onclick="play(this)">G</div>
+                <div class="blanca" data-note="A" onclick="play(this)">A</div>
+                <div class="blanca" data-note="B" onclick="play(this)">B</div>
+            </div>
+
+            <div id="negras">
+                <div class="negra" data-note="C#" onclick="play(this)">C#</div>
+                <div class="negra" data-note="D#" onclick="play(this)">D#</div>
+                <div id="transparente" class="negra"></div>
+                <div class="negra" data-note="F#" onclick="play(this)">F#</div>
+                <div class="negra" data-note="G#" onclick="play(this)">G#</div>
+                <div class="negra" data-note="A#" onclick="play(this)">A#</div>
+
+            </div>
+
+            <div id="nota"></div>
+
         </div>
-        
-<div id="negras">
-    <div class="negra">C#</div>
-    <div class="negra">D#</div>
-    <div id="transparente" class="negra"></div>
-    <div class="negra">F#</div>
-    <div class="negra">G#</div>
-    <div class="negra">A#</div>
-
-</div>
-
-     
-       
-    </div>
     </div>
 </body>
+
 </html>
