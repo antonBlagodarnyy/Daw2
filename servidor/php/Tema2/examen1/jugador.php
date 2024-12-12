@@ -23,7 +23,7 @@ class jugador implements iCliente{
 
         echo "Creado $nombre";
 
-        array_push(self::$jugadores , [$dni,$this]  );
+        array_push(self::$jugadores[$dni] = $this   );
 
 
     }
