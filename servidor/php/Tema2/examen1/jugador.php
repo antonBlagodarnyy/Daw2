@@ -49,7 +49,7 @@ class jugador implements iCliente{
 
     public static function listarClientes(){
 
-        if(empty(self::$jugadores)==0){
+        if(empty(self::$jugadores)==1){
         echo "<h2>No hay jugadores</h2>";
         }else{
         foreach (self::$jugadores as $jugador) {
