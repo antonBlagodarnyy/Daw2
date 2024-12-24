@@ -1,67 +1,75 @@
 <?php
 require_once("iCliente.php");
 
-class jugador implements iCliente{
+class jugador implements iCliente
+{
     private static $jugadores = [];
-
-    //Para encontrar al jugador en el array
-    private static $contadorJugadores = 0;
-    private $posicion;
 
     public $dni;
     public $nombre;
     public $permitido;
     private $edad;
 
-    public function __constructor(string $dni, string $nombre, int $edad){
+    public function __construct(string $dni, string $nombre, int $edad= 0)
+    {
         $this->dni = $dni;
         $this->nombre = $nombre;
+        $this->set_edad($edad);
+
+        echo "<p>Creado $this->nombre</p>";
+
+        self::$jugadores[$dni] = $this;
+    }
+    public function __destruct()
+    {
+        unset(self::$jugadores[$this->dni]);
+        echo "Eliminado $this->nombre";
+    }
+
+    public function mayorDeEdad(int $edad)
+    {
+        return $edad >= iCliente::LIMITE_EDAD;
+    }
+
+    public function set_edad(int $edad)
+    {
         $this->edad = $edad;
-        
-        $this->posicion = self::$contadorJugadores;
-        $contadorJugadores++;
-
-        echo "Creado $nombre";
-
-        array_push(self::$jugadores[$dni] = $this   );
-
-
-    }
-    public function __destruct(){
-        array_diff(self::$jugadores,[$this->dni,$this]);
-    }
-
-    public function mayorDeEdad(int $edad){
-        return $edad >= 18;
-    }
-
-    public function set_edad(int $edad){
-        $this->edad = $edad;
-        if($this->edad >= 18)
+        if ($this->edad >= iCliente::LIMITE_EDAD)
             $this->permitido = true;
         else
             $this->permitido = false;
     }
 
-    public function __toString(){
-        return $this->nombre . ', con dni '. $this->dni . ', ' . $this->permitido ? 'esta permitido '. $this->$edad : 'no tiene permitido jugar.' . $this->edad;
+    public function __toString()
+    {
+        $respuesta= "<p>$this->nombre , con dni  $this->dni ,";
+       
+         $this->permitido ? $respuesta .= " tiene permitido  jugar ($this->edad años)</p>"
+         :  $respuesta .= " no tiene permitido jugar  ($this->edad años)</p>";
+         return  $respuesta;
     }
 
-    public static function listarClientes(){
+    public static function listarClientes()
+    {
 
-        if(empty(self::$jugadores)==1){
-        echo "<h2>No hay jugadores</h2>";
-        }else{
-        foreach (self::$jugadores as $jugador) {
-        echo $jugador;
+        if (empty(self::$jugadores) == 1) {
+            echo "<h2>No hay jugadores</h2>";
+        } else {
+            echo "<h2>Listado de jugadores</h2>";
+            foreach (self::$jugadores as $jugador) {
+                echo $jugador;
+            }
         }
     }
-        
+    public static function aforo()
+    {
+        echo "<p>Hay ".count(self::$jugadores)." jugadores</p>" ;
     }
-    public function aforo(){
-        echo array_count_values(self::$jugadores);
+
+    public static function ordenarDNI() {
+        sort(self::$jugadores);
     }
-        public function ordenarDNI(){}
-
-
+    public static function getJugadores():array{
+        return self::$jugadores;
+    }
 }

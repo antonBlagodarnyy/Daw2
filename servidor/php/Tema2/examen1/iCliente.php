@@ -2,7 +2,7 @@
 interface iCliente{
     const LIMITE_EDAD = 18;
     public static function listarClientes();
-    public function aforo();
-    public function ordenarDNI();
+    public static function aforo();
+    public static function ordenarDNI();
     
 }
