@@ -16,9 +16,9 @@ function crearPuntuacion(url, puntos) {
   else console.log("valores no validos");
 }
 const puntuaciones = [
-  new Puntuacion("https://example.com", 85),
-  new Puntuacion("http://miweb.org", 90),
-  new Puntuacion("https://sitio.net/blog", 78),
+  new Puntuacion("https://example.com", 4),
+  new Puntuacion("http://miweb.org", 2),
+  new Puntuacion("https://sitio.net/blog", 1),
 ];
 
 

@@ -24,8 +24,7 @@ jugador::listarClientes();
 jugador::aforo();
 
 $partidaDados = new dados(3);
-
-$partidaDados->tirar(jugador::getJugadores());
+$partidaDados =
 
 $partidaDados->mostrarJugada();
 

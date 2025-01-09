@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    width: 440px;
+    height: 440px;
+    gap: 20px 10px;
+
+
+    flex-wrap: wrap;
+    border: 1px solid black;
+    justify-content: flex-start;
+}
+
+.btn {
+    width: 200px;
+    height: 80px;
+}
