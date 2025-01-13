@@ -1,80 +1,82 @@
 let canvas;
 let ctx;
-
+let aumento = false;
 canvas = document.getElementById("canvas1");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 ctx = canvas.getContext("2d");
 
-let spirals = [];
+let dots = [];
 
-class Spiral {
+class Dot {
 
-    constructor(x, y, radius, increment) {
+    constructor(x, y, radius) {
         this.positionX = x;
         this.positionY = y;
-        this.endAngle = 0; // Start angle
-        this.angleIncrement = increment; // Increment for each frame
         this.radius = radius;
-        this.strokeStyle = getRandomColor()
+        this.strokeStyle = 'white';
     }
     draw() {
         ctx.strokeStyle = this.strokeStyle;
-        ctx.lineWidth = 10;
         ctx.beginPath();
-        ctx.arc(this.positionX, this.positionY, this.radius, 0, this.endAngle);
+        ctx.lineWidth=10;
+        ctx.arc(this.positionX, this.positionY, this.radius, 0, 2 * Math.PI);
         ctx.stroke();
     }
-
     animate() {
+        if(this.radius==1)
+            aumento = true;
+        else if(this.radius==20)
+            aumento = false;
+
+        if(!aumento)
+            this.radius--;
+            else
+            this.radius++;
+    
+
         this.draw();
-
-        this.endAngle += this.angleIncrement; // Increment the end angle for animation
-
-        // Reset the angle to create a looping effect
-        if (this.endAngle >= 1.57) {
-            this.strokeStyle = getRandomColor();
+        setInterval(() => {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            this.endAngle = 0; // Reset to 0 after a full circle
-        }
+        },10);
         requestAnimationFrame(this.animate.bind(this));
     }
 }
 
+function createDots() {
+    var x = 50;
+    var y = 50;
+    let numDots = 20;
 
+    for (let i = 0; i < numDots; i++) {
+        for (let j = 0; j < numDots; j++) {
+            dots.push(new Dot(x, y, 10));
+            x += 50;
 
-createSpirals(0, 0, 20, 0, 200);
-
-
-animateAll(spirals)
-
-function animateAll(spirals) {
-    spirals.forEach(spiral => {
-        spiral.animate();
-    });
-}
-
-function createSpirals(x, y, radiusIncrement, speedIncrement, nSpiral) {
-    let speed = 0.01;
-    let radius = 50;
-
-    for (let i = 0; i < nSpiral; i++) {
-
-        spirals.push(new Spiral(x, y, radius, speed));
-        radius += radiusIncrement;
-        speed += speedIncrement;
+        }
+        x = 50;
+        y += 50;
     }
 
 }
+
+createDots();
+
+
+dots.forEach(dot => {
+    dot.animate();
+    console.log(' running dots')
+});
+
 function getRandomColor() {
-    // Generate a random number between 0 and 255 for each RGB component
-    let letters = '0123456789ABCDEF';
-    let color = '#';
-    
-    for (let i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    
-    return color;
+  // Generate a random number between 0 and 255 for each RGB component
+  let letters = "0123456789ABCDEF";
+  let color = "#";
+
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+
+  return color;
 }
