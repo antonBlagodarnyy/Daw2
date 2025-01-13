@@ -9,6 +9,14 @@ ctx = canvas.getContext("2d");
 
 let dots = [];
 
+let mX;
+let mY;
+
+document.addEventListener('mousemove', function(event) {
+    console.log('Mouse X:', event.clientX, 'Mouse Y:', event.clientY);
+});
+
+
 class Dot {
 
     constructor(x, y, radius) {
