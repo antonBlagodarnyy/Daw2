@@ -51,6 +51,34 @@ function eliminarFavoritoTexto() {
   else alert(`No se encuentra un favorito con ese nombre.`);
 }
 
+function filtrarFavoritos(){
+  let minVisitas = pedirInt(`Introduzca el numero minimo de visitas.`)
+  favoritosFiltrados = favoritos.filter((e)= e.visitas>minVisitas);
+  favoritosFiltrados.forEach(element => {
+    console.log(element);
+  });
+}
+
+function obtenerMediaVisitas(){
+  let cantidad = favoritos.length;
+  let sumaTotal = favoritos.reduce((acumulador,valorActual)=>acumulador+valorActual.visitas,0);
+  let media = sumaTotal/cantidad;
+  console.log(`Media de visitas: ${media}`);
+}
+
+function obtenerUrlMasVisitada(){
+  let visitasContador=0;
+let urlMasVisitada = favoritos.map(favorito)=>{
+  if(visitasContador<favorito.visitas){
+
+  }
+}
+};
+
+
+
+}
+
 //Funcionalidades
 function pedirInt(mensaje) {
   let num;
