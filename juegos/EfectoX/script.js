@@ -1,6 +1,9 @@
 let canvas;
 let ctx;
 let aumento = false;
+let counterclockwise= 0;
+let endAngle=2*Math.PI;
+
 canvas = document.getElementById("canvas1");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
@@ -8,14 +11,6 @@ canvas.height = window.innerHeight;
 ctx = canvas.getContext("2d");
 
 let dots = [];
-
-let mX;
-let mY;
-
-document.addEventListener('mousemove', function(event) {
-    console.log('Mouse X:', event.clientX, 'Mouse Y:', event.clientY);
-});
-
 
 class Dot {
 
@@ -25,29 +20,39 @@ class Dot {
         this.radius = radius;
         this.strokeStyle = 'white';
     }
-    draw() {
+    draw(counterclockwise) {
         ctx.strokeStyle = this.strokeStyle;
         ctx.beginPath();
-        ctx.lineWidth=10;
-        ctx.arc(this.positionX, this.positionY, this.radius, 0, 2 * Math.PI);
+        ctx.lineWidth=3;
+        ctx.arc(this.positionX, this.positionY, this.radius,  0,counterclockwise);
         ctx.stroke();
+
     }
     animate() {
-        if(this.radius==1)
+        if(this.radius==10)
             aumento = true;
-        else if(this.radius==20)
+        else if(this.radius==100)
             aumento = false;
 
         if(!aumento)
             this.radius--;
             else
             this.radius++;
-    
 
-        this.draw();
+           
+                if(counterclockwise<2*Math.PI){
+                    counterclockwise+=0.001;
+                 } else{
+                    counterclockwise = 0;
+                 }
+             
+        
+
+        this.draw(counterclockwise,);
+   
         setInterval(() => {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-        },10);
+        },100);
         requestAnimationFrame(this.animate.bind(this));
     }
 }

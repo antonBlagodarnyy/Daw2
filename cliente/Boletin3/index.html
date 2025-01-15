@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios de JavaScript con Document</title>
+</head>
+<body>
+    <h1>Ejercicios de JavaScript con funciones del objeto Document</h1>
+    <ol id="exercise-list">
+        <li>
+            <p>Ejercicio 1: Cambia el texto del párrafo.</p>
+            <p id="exercise-1-text">Texto original</p>
+            <button onclick="ejercicio1()">Cambiar texto</button>
+        </li>
+        <li>
+            <p>Ejercicio 2: Oculta todos los párrafos.</p>
+            <div>
+                <p>Primer párrafo</p>
+                <p>Segundo párrafo</p>
+            </div>
+            <button onclick="ejercicio2()">Ocultar párrafos</button>
+        </li>
+        <li>
+            <p>Ejercicio 3: Cambia el color de los elementos con la clase 'color-box'.</p>
+            <div class="color-box">Caja 1</div>
+            <div class="color-box">Caja 2</div>
+            <button onclick="ejercicio3()">Cambiar color</button>
+        </li>
+        <li>
+            <p>Ejercicio 4: Muestra el valor de un input con nombre 'user-input'.</p>
+            <input type="text" name="user-input" placeholder="Escribe algo...">
+            <button onclick="ejercicio4()">Mostrar valor</button>
+        </li>
+        <li>
+            <p>Ejercicio 5: Selecciona el primer párrafo dentro de un div.</p>
+            <div>
+                <p>Primer párrafo en div</p>
+                <p>Segundo párrafo en div</p>
+            </div>
+            <button onclick="ejercicio5()">Seleccionar</button>
+        </li>
+        <li>
+            <p>Ejercicio 6: Cambia el texto de todos los elementos con la etiqueta 'h2'.</p>
+            <h2>Título 1</h2>
+            <h2>Título 2</h2>
+            <button onclick="ejercicio6()">Cambiar texto</button>
+        </li>
+        <li>
+            <p>Ejercicio 7: Cuenta los elementos con una clase específica.</p>
+            <div class="counter-item">Item 1</div>
+            <div class="counter-item">Item 2</div>
+            <div class="counter-item">Item 3</div>
+            <button onclick="ejercicio7()">Contar elementos</button>
+        </li>
+        <li>
+            <p>Ejercicio 8: Añade un borde a un elemento específico por ID.</p>
+            <div id="border-box">Caja sin borde</div>
+            <button onclick="ejercicio8()">Añadir borde</button>
+        </li>
+        <li>
+            <p>Ejercicio 9: Cambia el contenido HTML de un contenedor.</p>
+            <div id="html-container">
+                <p>Contenido inicial</p>
+            </div>
+            <button onclick="ejercicio9()">Cambiar contenido</button>
+        </li>
+        <li>
+            <p>Ejercicio 10: Busca y resalta palabras clave en un texto.</p>
+            <p id="search-text">JavaScript es genial y muy poderoso.</p>
+            <input type="text" id="keyword" placeholder="Palabra clave">
+            <button onclick="ejercicio10()">Resaltar palabra</button>
+        </li>
+    </ol>
+</body>
+<script src="script.js"></script>
+</html>
