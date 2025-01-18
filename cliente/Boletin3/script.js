@@ -3,7 +3,6 @@ function ejercicio1() {
 }
 
 function ejercicio2() {
-  //document.querySelector("li:nth-child(2)").style = "visibility: hidden";
   document.querySelector("div").style = "visibility: hidden";
 }
 
@@ -29,4 +28,50 @@ function ejercicio4() {
     //Si ya ha sido creado, lo machacamos
     li.lastChild.textContent= document.getElementsByName("user-input")[0].value;
   }
+}
+function ejercicio5(){
+ let divs = document.getElementsByTagName("div");
+
+ divs[3].querySelector("p").style.color ="blue";
+}
+
+function ejercicio6(){
+let hs = document.getElementsByTagName("h2");
+
+    for (let elem of hs){
+      elem.style.color = "red";
+    }
+}
+
+function ejercicio7(){
+  let items = document.getElementsByClassName("counter-item");
+
+  let container = document.querySelector("li:nth-of-type(7)")
+
+  let output = document.createElement("p");
+  output.innerText = items.length;
+
+  container.appendChild(output);
+}
+
+function ejercicio8(){
+  let elem = document.getElementById("border-box");
+  elem.style.border = "1px solid black";
+  elem.innerText = "Caja con border"
+}
+
+function ejercicio9(){
+let elem = document.getElementById("html-container");
+elem.innerHTML=`<p>Contenido cambiado</p>`;
+
+}
+
+function ejercicio10(){
+
+  let p = document.getElementById("search-text");
+  let palabraClave = document.getElementById("keyword").value;
+  console.log(palabraClave);
+  let regEx = new RegExp(palabraClave);
+  
+  p.innerHTML=p.innerText.replace(regEx,`<b>${palabraClave}</b>`);
 }

@@ -1,12 +1,14 @@
 const text = document.getElementById("text");
 
 function getLayers() {
-	const direction = Math.floor(Math.random() * 4);
-	const color = getRandomColor();
+	
+	
 	let shadowSize = 3;
     let shadows = "";  // Initialize an empty string for the shadow layers.
 
 	const interval = setInterval(() => {
+		let direction = Math.floor(Math.random() * 4);
+		let color = getRandomColor();
 		let newShadow;
 		switch (direction) {
 			case 0:
@@ -32,10 +34,10 @@ function getLayers() {
 		shadowSize += 30;
 
 		if (shadowSize > 300) {
-			clearInterval(interval);
-			console.log("cleared");
+			shadows = "";
+			shadowSize=0;
 		}
-	}, 10);
+	}, 100);
 
     if(shadows)
         // Accumulate shadow layers
