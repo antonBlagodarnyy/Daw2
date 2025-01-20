@@ -13,7 +13,7 @@ let rayasMaximas = 4000;
 let animationIds = [];
 let globalSpeed = 20;
 let globalLength =20;
-let strokeStyle = getRandomColor();
+let strokeStyle ='green';
 
 class Raya {
   constructor(x, y, speed, direction) {
@@ -64,7 +64,7 @@ class Raya {
       rayasGlobales.filter((raya) => raya.rayaId !== this.rayaId);
       animateOne(crearRaya(globalSpeed));
       animateOne(crearRaya(globalSpeed));
-      strokeStyle = getRandomColor();
+ 
     } else if (rayasGlobales.length > rayasMaximas) {
       restart();
     } else {
@@ -80,7 +80,7 @@ class Raya {
       rayasGlobales.filter((raya) => raya.rayaId !== this.rayaId);
       animateOne(crearRaya(globalSpeed));
       animateOne(crearRaya(globalSpeed));
-      strokeStyle = getRandomColor();
+
     } else if (rayasGlobales.length > rayasMaximas) {
       restart();
     } else {
@@ -96,7 +96,7 @@ class Raya {
       rayasGlobales.filter((raya) => raya.rayaId !== this.rayaId);
       animateOne(crearRaya(globalSpeed));
       animateOne(crearRaya(globalSpeed));
-      strokeStyle = getRandomColor();
+
     } else if (rayasGlobales.length > rayasMaximas) {
       restart();
     } else {
@@ -112,7 +112,7 @@ class Raya {
       rayasGlobales.filter((raya) => raya.rayaId !== this.rayaId);
       animateOne(crearRaya(globalSpeed));
       animateOne(crearRaya(globalSpeed));
-      strokeStyle = getRandomColor();
+
     } else if (rayasGlobales.length > rayasMaximas) {
       restart();
     } else {
