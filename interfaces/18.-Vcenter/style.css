@@ -1,0 +1,84 @@
+.padre {
+    background-color: aqua;
+    display: flex;
+    height: 10vw;
+    align-items: center;
+    justify-content: center;
+}
+
+.hijo {
+    background-color: aquamarine;
+}
+
+.padre2 {
+    background-color: antiquewhite;
+}
+
+.hijo2 {
+    line-height: 200px;
+    background-color: tomato;
+}
+
+.padre3 {
+    display: table;
+    background-color: blue;
+    height: 200px;
+}
+
+.hijo3 {
+    display: table-cell;
+    background-color: yellow;
+    vertical-align: middle;
+}
+
+.padre4 {
+    position: relative;
+    background-color: bisque;
+}
+
+.hijo4 {
+    background-color: violet;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 30%;
+    width: 50%;
+
+}
+
+.padre5 {
+    position: relative;
+    background-color: red;
+    height: 400px;
+}
+
+.hijo5 {
+    position: absolute;
+}
+
+.padre6 {
+    padding: 5% 0;
+    background-color: antiquewhite;
+}
+
+.hijo6 {
+    padding: 10% 0;
+}
+
+.padre7{
+    height:250px;
+    background-color: lightcoral;
+
+}
+.floater{
+    background-color: lightblue;
+    float:left;
+    height:50%;
+    width:100%;
+    margin-bottom: -50px;
+}
+.hijo7{
+    background-color: lightgreen;
+    clear:both;
+    height:100px;
+}

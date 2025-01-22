@@ -17,7 +17,7 @@ class Circle{
         this.positionX = x;
         this.positionY = y;
         this.radius = radius;
-        this.strokeStyle = 'white';
+        this.strokeStyle =  getRandomColor();
     }
     draw() {
         ctx.fillStyle = this.strokeStyle;
@@ -26,34 +26,38 @@ class Circle{
         ctx.arc(this.positionX, this.positionY, this.radius,  0,2*Math.PI);
         ctx.fill();
     }
-    animate() {
-       console.log("animating")
-        frame++
-        if (frame % frameLimit === 0) {
+    update() {
+       
+        setInterval(()=>{
             this.strokeStyle = getRandomColor();
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-        
-            this.draw();
+     
+        },10);
             
-        }
-       
+        this.draw();
         
             
-        requestAnimationFrame(this.animate.bind(this));
+        
     }
 }
 
 for (let i = 0; i < 10; i++) {
     for (let j = 0; j < 10; j++) {
-        circles.push(new Circle((innerWidth/2+i)-offset,(innerHeight/2+j)-offset,40));
+        circles.push(new Circle(i*100,j*100,40));
      
     }
  }
 
-circles.forEach(circle => {
-    circle.animate();
 
-});
+animate();
+
+function animate(){
+    circles.forEach(circle => {
+        circle.update();
+    
+    });
+    requestAnimationFrame(this.animate.bind(this));
+}
 
 function getRandomColor() {
     // Generate a random number between 0 and 255 for each RGB component
