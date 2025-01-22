@@ -1,4 +1,4 @@
-import * as THREE from 'three/src/Three.js';
+import * as THREE from "https://unpkg.com/three@0.142.0/build/three.module.js";
 
 let range = document.getElementById("rango");
 
