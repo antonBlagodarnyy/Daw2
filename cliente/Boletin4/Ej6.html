@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ej6</title>
+  </head>
+  <body>
+    <h1>Ejercicio6</h1>
+    <button onclick="cancelar()">Cancelar</button>
+  </body>
+  <script>
+    let cancelarBool = false;
+
+    function cancelar() {
+      cancelarBool = true;
+    }
+
+    document.querySelector("body").onload = () => {
+      setTimeout(() => {
+        if (!cancelarBool) {
+          let text = prompt(`Introduzca un texto`);
+          document.querySelector("h1").textContent = text;
+        }
+      }, 3000);
+    };
+  </script>
+</html>

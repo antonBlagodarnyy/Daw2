@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ej8</title>
+  </head>
+  <body>
+    <form method="dialog">
+      <label for="numero">Numero:</label>
+      <input type="number" id="number" />
+      <button onclick="validarDatos()">Crear tabla multiplicar</button>
+    </form>
+    <span id="error"></span>
+  </body>
+  <script>
+    function error() {
+      document.getElementById("error").textContent = "Valores no validos.";
+    }
+
+    function validarDatos() {
+      document.getElementById("number").value >= 0 &&
+      document.getElementById("number").value < 9 &&
+      document.getElementById("number").value != ""
+        ? multiplicacion()
+        : error();
+    }
+
+    function multiplicacion() {
+      document.querySelector("body").lastChild.id != "output"
+        ? inicializarTabla()
+        : reiniciarTabla();
+    }
+
+    function inicializarTabla() {
+      document.getElementById("error").textContent = "";
+      let output = document.createElement("div");
+      output.id = "output";
+      output.innerHTML = generarTabla(document.getElementById("number").value);
+      document.querySelector("body").append(output);
+    }
+
+    function reiniciarTabla() {
+      document.getElementById("error").textContent = "";
+      document.getElementById("output").innerHTML = generarTabla(
+        document.getElementById("number").value
+      );
+    }
+
+    function generarTabla(number) {
+      let output = `<table><tbody>`;
+      for (let i = 0; i <= 10; i++) {
+        output += `<tr>
+                <td>${number}</td>
+                <td>*</td>
+                <td>${i}</td>
+                <td>=</td>
+                <td>${i * number}</td>
+                </tr> `;
+      }
+      output += `</tbody></table>`;
+      return output;
+    }
+  </script>
+</html>

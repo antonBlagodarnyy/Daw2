@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ej3</title>
+  </head>
+  <body>
+    <form method="dialog">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" />
+
+      <label for="edad">Edad:</label>
+      <input type="number" min="0" max="100" id="edad" name="edad" />
+      <button onClick="mayorDeEdad()">Comprobar edad</button>
+    </form>
+    <div id="output"></div>
+  </body>
+  
+  <script>
+    const output = document.getElementById("output");
+
+    function mayorDeEdad() {
+      let edad = document.getElementById("edad").value;
+      let nombre = document.getElementById("nombre").value;
+
+      let text;
+      edad >= 18
+        ? (text = `${nombre} es mayor de edad.`)
+        : (text = `${nombre} no es mayor de edad.`);
+
+      edad >= 0 && edad < 100
+        ? (output.innerText = text)
+        : (output.innerText = `Introduzca un valor valido.`);
+    }
+  </script>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ej7</title>
+  </head>
+  <body>
+    <form method="dialog">
+      <label for="palabra">Escribe una palabra</label>
+      <input type="text" name="palabra" id="palabra" />
+      <button onClick="cambiarPalabra()">Mostrar encabezado</button>
+    </form>
+    <h1></h1>
+  </body>
+  <script>
+    function cambiarPalabra() {
+      document.querySelector("h1").textContent =
+        document.getElementById("palabra").value;
+    }
+  </script>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ej2</title>
+  </head>
+  <body></body>
+  <script>
+    let body = document.querySelector("body");
+
+    let nombre = "";
+
+    do {
+      nombre = prompt(`Como se llama?`);
+      if (nombre == null || nombre === "") alert(`Introduzca un valor valido`);
+    } while (nombre == null || nombre === "");
+
+    let encabezado1 = document.createElement("h1");
+    let encabezado2 = document.createElement("h2");
+
+    encabezado1.append(document.createTextNode(`Bienvenido ${nombre}`));
+    encabezado2.append(document.createTextNode(`${window.location.href}`));
+
+    body.append(encabezado1);
+
+    setTimeout(() => {
+      body.append(encabezado2);
+    }, 3000);
+  </script>
+</html>
