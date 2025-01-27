@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ej7</title>
+  </head>
+  <style>
+    .selected {
+      background-color: aquamarine;
+      letter-spacing: 2px;
+      text-decoration: line-through;
+    }
+  </style>
+  <body>
+    <ul>
+      <li>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam unde
+        iusto rerum ea quidem corrupti possimus dicta exercitationem sed
+        mollitia dolor, nobis ad minus corporis sit inventore velit eveniet
+        ratione.
+      </li>
+      <li>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat
+        delectus, debitis, alias vitae et aspernatur deleniti voluptate rerum
+        qui aperiam unde, magnam optio consequuntur! Et, molestias. Repudiandae
+        vitae assumenda nemo?
+      </li>
+      <li>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium
+        excepturi nihil tempora! Voluptas quo repellendus dicta voluptate modi
+        cumque nostrum minus earum officia veritatis architecto odio labore,
+        velit atque iure?
+      </li>
+      <li>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur
+        autem ab labore omnis, ipsa ut voluptas animi, cumque, illo magnam
+        fugiat inventore? Vel modi in, earum officiis amet fugiat error?
+      </li>
+      <li>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi
+        distinctio iure voluptatibus veritatis. Molestias error autem vel
+        tempore vitae laudantium, officiis doloribus? Pariatur repudiandae
+        officia, fugit est quibusdam reprehenderit adipisci!
+      </li>
+      <li>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam
+        temporibus iste, ratione quae dicta fugiat non facilis. Tempore pariatur
+        deserunt, doloremque, incidunt ab consequatur, non aspernatur eum
+        consequuntur labore asperiores?
+      </li>
+      <li>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus
+        illum quis voluptas nam consectetur! Aliquam magni repellendus vero amet
+        quia esse! Nisi asperiores est neque velit ab modi nostrum consequuntur.
+      </li>
+    </ul>
+  </body>
+  <script>
+    window.onload = () => {
+      document.querySelector("ul").addEventListener("click", (event) => {
+        //Elimino todas las "x" para insertarlas en el sitio correcto
+        let xs = document.getElementsByClassName("X");
+        for (const X of xs) {
+          X.remove();
+        }
+
+        //Cambio el css del li seleccionado
+        event.target.classList.toggle("selected");
+
+        //Recorro todos los seleccionados
+        let selecteds = document.getElementsByClassName("selected");
+        for (const selected of selecteds) {
+          //Creo el elemento "X"
+          let x = document.createElement("span");
+          x.setAttribute("class", "X");
+          x.textContent = "X";
+          //Lo inserto
+          document.querySelector("ul").insertBefore(x, selected);
+        }
+      });
+    };
+  </script>
+</html>

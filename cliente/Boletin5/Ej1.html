@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ej1</title>
+  </head>
+  <body>
+    <input oninput="comprobar()" type="text" />
+    <button style="display: none" onclick="calcular()">Calcular</button>
+  </body>
+
+  <script>
+    function comprobar() {
+      //Pillamos el valor
+      let valor = document.querySelector("input").value;
+
+      //Si no es una cadena de texto, no esta vacio y es un numero entero
+      if (
+        !valor.match(/[a-zA-Z]/) &&
+        valor != "" &&
+        Number.isInteger(Number(valor))
+      ) {
+        showDisplayButton();
+      } else hideDisplaybutton();
+    }
+
+    function pillarOutput() {
+      let output;
+      //Si no se se ha creado el output lo crea
+      if (document.querySelector("body").lastChild.id != "output") {
+        output = document.createElement("div");
+
+        output.setAttribute("id", "output");
+        document.querySelector("body").append(output);
+        //En caso contrario lo pilla
+      } else output = document.getElementById("output");
+
+      return output;
+    }
+
+    function calcular() {
+      pillarOutput().innerText = factorial(
+        document.querySelector("input").value
+      );
+    }
+
+    function factorial(valor) {
+      if (valor < 0) return -1;
+      else if (valor == 0) return 1;
+      else {
+        return valor * factorial(valor - 1);
+      }
+    }
+
+    function showDisplayButton() {
+      document.querySelector("button").style.display = "block";
+    }
+    function hideDisplaybutton() {
+      document.querySelector("button").style.display = "none";
+    }
+  </script>
+</html>

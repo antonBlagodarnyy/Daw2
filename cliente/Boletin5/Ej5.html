@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ej5</title>
+  </head>
+  <body>
+    <div class="contenedor">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </body>
+  <script>
+    function generarNumerosAleatorios() {
+      let nums = [];
+      let num;
+      let cantidad = 10;
+      for (let i = 0; i < cantidad; i++) {
+        do {
+          num = Math.floor(Math.random() * 10);
+        } while (nums.includes(num));
+        nums.push(num);
+      }
+      return nums;
+    }
+
+    window.onload = () => {
+      let nums = generarNumerosAleatorios();
+      let contenedores = document.getElementsByClassName("contenedor");
+
+      let divs = contenedores[0].querySelectorAll("div");
+
+      for (let i = 0; i < divs.length; i++) {
+        divs[i].textContent = nums[i];
+      }
+    };
+  </script>
+</html>

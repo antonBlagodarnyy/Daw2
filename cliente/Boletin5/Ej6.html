@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ej6</title>
+  </head>
+  <body>
+    <button onclick="apartado1()">Apartado 1</button>
+    <button onclick="apartado2()">Apartado 2</button>
+    <button onclick="apartado3()">Apartado 3</button>
+    <button onclick="apartado4()">Apartado 4</button>
+    <button onclick="apartado5()">Apartado 5</button>
+    <ul>
+      <li>a</li>
+      <li>b</li>
+      <li>c</li>
+      <li>d</li>
+      <li>e</li>
+      <li>f</li>
+      <li>g</li>
+    </ul>
+    <ol>
+      <li>111</li>
+      <li>222</li>
+      <li>333</li>
+      <li>444</li>
+      <li>555</li>
+      <li>666</li>
+      <li>777</li>
+    </ol>
+    <div class="ordenada"></div>
+  </body>
+  <script>
+    const div = document.querySelector("div");
+    const oLis = document.querySelector("ol").querySelectorAll("li");
+    const uLis = document.querySelector("ul").querySelectorAll("li");
+    const lis = document.querySelectorAll("li");
+    const fourthLi = document.querySelector('ul li:nth-child(4)');
+
+    function apartado1() {
+      let output = ``;
+      for (const li of oLis) {
+        output += li.textContent + " ";
+      }
+      div.textContent = output;
+    }
+
+    function apartado2() {
+      let output = ``;
+      let pares = [];
+      let impares = [];
+      let combinados;
+
+      for (let i = 0; i < oLis.length; i++) {
+        const li = oLis[i];
+        i % 2 == 0 ? impares.push(li) : pares.push(li);
+      }
+      combinados = pares.concat(impares);
+
+      for (const li of combinados) {
+        output += li.textContent + " ";
+      }
+      div.textContent = output;
+    }
+
+    function apartado3(){
+        let output = ``;
+        for (const li of lis) {
+        output += li.textContent + " ";
+      }
+      div.textContent = output;
+    }
+
+    function apartado4(){
+        div.textContent = fourthLi.textContent;
+    }
+    function apartado5(){
+        output = oLis[oLis.length-1].textContent 
+        output += uLis[uLis.length-1].textContent
+        div.textContent = output;
+    }
+  </script>
+</html>

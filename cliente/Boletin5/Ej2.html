@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ej2</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <style>
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+    }
+    .color {
+      width: 100px;
+      height: 100px;
+    }
+    #red {
+      background-color: red;
+    }
+    #green {
+      background-color: green;
+    }
+    #blue {
+      background-color: blue;
+    }
+    #yellow {
+      background-color: yellow;
+    }
+    #orange {
+      background-color: orange;
+    }
+    #pink {
+      background-color: pink;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="color" id="red"></div>
+      <div class="color" id="green"></div>
+      <div class="color" id="blue"></div>
+      <div class="color" id="yellow"></div>
+      <div class="color" id="orange"></div>
+      <div class="color" id="pink"></div>
+    </div>
+  </body>
+  <script>
+    let colores = document.getElementsByClassName("color");
+
+    for (const color of colores) {
+      color.addEventListener("click", function () {
+        document.querySelector("body").style.backgroundColor =
+          color.getAttribute("id");
+      });
+    }
+  </script>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ej4</title>
+  </head>
+  <body></body>
+  <script>
+    function generarCincoNumerosAleatorios() {
+      let nums = [];
+      let num;
+      let cantidad = 5;
+      for (let i = 0; i < cantidad; i++) {
+        do {
+          num = Math.floor(Math.random() * 10);
+        } while (nums.includes(num));
+        nums.push(num);
+      }
+      return nums;
+    }
+
+    window.onload = () => {
+        let nums = generarCincoNumerosAleatorios();
+        let div = document.createElement("div");
+        nums.forEach(num => {
+            div.append(num);
+        });
+        document.querySelector("body").append(div);
+    };
+  </script>
+</html>

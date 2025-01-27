@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej10</title>
+</head>
+<body>
+    <h1 style="background-color: white;">Texto</h1>
+    <button onClick="changeColor('red')">Rojo</button>
+    <button onClick="changeColor('green')">Green</button>
+    <button onClick="changeColor('blue')">Blue</button>
+</body>
+<script>
+    function changeColor(color){
+        document.querySelector("body").style.backgroundColor = color;
+        document.querySelector("h1").style.color=color;
+    }
+</script>
+</html>

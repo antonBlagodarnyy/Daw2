@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ej8</title>
+  </head>
+  
+  <style>
+    table, th, td{
+      border:1px solid black;
+      border-collapse: collapse;
+      text-align: center;
+    }
+  </style>
+
+  <body>
+    <form method="dialog">
+      <input type="number" id="numeros" name="numeros" />
+      <button onclick="verificarIban()">Verificar IBAN</button>
+    </form>
+    <div id="output"></div>
+  </body>
+
+  <script>
+    const digistEx = /^\d{12}$/;
+    const output = document.getElementById("output");
+
+    function verificarIban() {
+      let nums = document.getElementById("numeros").value;
+
+      nums.match(digistEx)
+        ? (output.innerHTML = tabla(nums, verificador(nums)))
+        : (output.textContent = `Input no valido`);
+    }
+
+    function verificador(nums) {
+      let acumulador = 0;
+      for (let i = 0; i < nums.length; i++) {
+        let num = parseInt(nums[i]);
+        if (i % 2 != 0) num = num * 3;
+        acumulador += num;
+      }
+
+      let resto = acumulador % 10;
+      let resultado = 10 - resto;
+
+      let verificador;
+      resultado == 10 ? (verificador = 0) : (verificador = resultado);
+      return verificador;
+    }
+
+    function tabla(nums, verificador) {
+      let tabla = `<table><thead><th colspan = 12>IBAN</th><th>Digito verificador</thead><tbody><tr>`;
+      for (let i = 0; i < nums.length; i++) {
+        const num = nums[i];
+        tabla += `<td>${num}</td>`;
+      }
+      tabla += `<td>${verificador}</td></tr></tbody></table>`;
+      return tabla;
+    }
+  </script>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ej11</title>
+  </head>
+  <body>
+    <div>
+      <img
+        id="myImg"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png"
+        style="width: 20%"
+      />
+    </div>
+    <div>
+      <button
+        id="1"
+        onclick="changeImage('1')"
+        style="
+          background-image: url(https://svgsilh.com/svg_v2/150790.svg);
+          background-size: 100% 100%;
+          width: 100px;
+          height: 100px;
+        "
+      ></button>
+      <button
+        id="2"
+        onclick="changeImage('2')"
+        style="
+          background-image: url(https://e7.pngegg.com/pngimages/414/624/png-clipart-brand-black-and-white-angle-number-2-text-monochrome.png);
+          background-size: 100% 100%;
+          width: 100px;
+          height: 100px;
+        "
+      ></button>
+      <button
+        id="3"
+        onclick="changeImage('3')"
+        style="
+          background-image: url(https://svgsilh.com/svg/33766.svg);
+          background-size: 100% 100%;
+          width: 100px;
+          height: 100px;
+        "
+      ></button>
+    </div>
+  </body>
+  <script>
+    function changeImage(id) {
+      document
+        .querySelector("img")
+        .setAttribute(
+          "src",
+          document.getElementById(id).style.backgroundImage.split('"')[1]
+        );
+    }
+  </script>
+</html>

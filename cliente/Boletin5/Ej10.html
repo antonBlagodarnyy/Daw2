@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ej10</title>
+  </head>
+  <body>
+    <h1>Texto a buscar y reemplazar</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <p>Curabitur vitae lorem ipsum, sed varius urna.</p>
+    <p>
+      Nulla facilisi. In lorem ipsum, cursus at tincidunt id, vehicula quis
+      lectus.
+    </p>
+    <p>
+      Vivamus auctor lorem ipsum a fringilla. Proin consequat eros nec lorem.
+    </p>
+    <input type="text" id="cadena" />
+    <button onclick="sustituir()">Buscar y sustituir</button>
+
+    <script>
+      function sustituir() {
+        let ps = document.querySelectorAll("p");
+
+        let cadena = document.getElementById("cadena").value;
+
+        for (const p of ps) {
+          p.innerHTML = p.innerHTML.replace(
+            cadena,
+            `<b>NO</b><span>${cadena.length}</span>`
+          );
+        }
+      }
+    </script>
+  </body>
+</html>

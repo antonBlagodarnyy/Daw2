@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ej9</title>
+  </head>
+  <body>
+    <h1>
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto, ab
+      accusantium! Magnam, autem velit sequi aperiam recusandae corporis
+      delectus, in praesentium minima beatae quam. Totam deleniti perferendis
+      tempore ipsam dolorum?
+    </h1>
+    <button onclick="cancelar()">Cancelar</button>
+  </body>
+
+  <style>
+    h1 {
+      width: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  </style>
+
+  <script>
+    document.querySelector("body").onload = () => {
+      cambiarColor = setTimeout(() => {
+        let color;
+        do {
+          color = prompt(`Introduzca un color`);
+          if (color == "") alert(`Debe introducir un color`);
+        } while (color == "");
+        document.querySelector("h1").style = `background-color:${color}`;
+      }, 4000);
+    };
+    function cancelar() {
+      clearTimeout(cambiarColor);
+    }
+  </script>
+</html>

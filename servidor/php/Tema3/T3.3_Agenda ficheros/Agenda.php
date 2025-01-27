@@ -49,7 +49,6 @@
             case isset($_POST['Importar']):
                 $_SESSION['agenda'] = unserialize( file_get_contents("data.php"));
                     echo "<p>Contactos importados con exito</p>";
-        
                 
                 break;
 
