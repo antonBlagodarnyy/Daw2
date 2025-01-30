@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ball inside circle</title>
+    <style>
+        * {
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas></canvas>
+</body>
+<script>
+    const canvas = document.querySelector("canvas");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const border = {
+        color: "black",
+        x: window.innerWidth / 2,
+        y: window.innerHeight / 2,
+        radius: 400,
+        width: 5,
+        draw: function () {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+            ctx.strokeStyle = this.color;
+            ctx.lineWidth = this.width;
+            ctx.stroke();
+        }
+    }
+
+
+
+    class Ball {
+        color = "lightgreen";
+        x = window.innerWidth / 2;
+        y = window.innerHeight / 2;
+        velocityX = (Math.random() * 10) - 5;
+        velocityY = (Math.random() * 10) - 5;
+        radius = 5;
+
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+            ctx.strokeStyle = "black"
+            ctx.fillStyle = this.color;
+            ctx.lineWidth = 2;
+            ctx.fill();
+            ctx.stroke();
+        }
+        update() {
+            this.draw();
+            // Move the ball
+            this.x += this.velocityX;
+            this.y += this.velocityY;
+
+            // Check collision with the circle boundary
+            const distX = this.x - border.x;
+            const distY = this.y - border.y;
+            const distance = Math.sqrt(distX ** 2 + distY ** 2);
+
+            if (distance + this.radius >= border.radius) {
+
+                // Ball is outside or on the circle's edge, reverse velocity
+                const normalX = distX / distance;
+                const normalY = distY / distance;
+
+                const dotProduct = this.velocityX * normalX + this.velocityY * normalY;
+
+                this.velocityX -= 2 * dotProduct * normalX;
+                this.velocityY -= 2 * dotProduct * normalY;
+
+                // Ensure ball stays inside the circle
+                const overlap = (distance + this.radius) - border.radius;
+                this.x -= normalX * overlap;
+                this.y -= normalY * overlap;
+            }
+        }
+    }
+    var balls1 = [];
+    var balls2 = []
+    let counter = 0;
+
+    animate();
+
+
+    function init1() {
+        for (let i = 0; i < 500; i++) {
+            balls1.push(new Ball())
+        }
+    }
+    function init2() {
+        for (let i = 0; i < 500; i++) {
+            balls2.push(new Ball())
+        }
+    }
+init1();
+    function animate() {
+
+        if (counter == 0) {
+            balls1 = [];
+            init2();
+
+        }
+        counter++;
+        if (counter == 200) {
+            balls2 = []
+            init1();
+            counter = 0;
+
+        }
+        
+
+
+        border.draw();
+
+        balls1.forEach((ball) => ball.update());
+        balls2.forEach((ball) => ball.update());
+        requestAnimationFrame(animate);
+    }
+
+</script>
+
+</html>
