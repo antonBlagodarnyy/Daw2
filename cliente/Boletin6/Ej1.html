@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ej1</title>
+  </head>
+  <body>
+    <ul></ul>
+ 
+  </body>
+  <script>
+    
+    const ul = document.querySelector("ul");
+    const body = document.querySelector("body");
+
+    document.onload = setTimeout(() => {
+        crearOutput();
+
+      let nums = [];
+      for (let i = 0; i < Math.floor(Math.random() * 20 + 1); i++) {
+        let li = document.createElement("li");
+        li.textContent = i;
+        li.setAttribute("data-palabra", prompt(`Introduzca una palabra`));
+        li.addEventListener("click",()=>{
+            
+            document.getElementById("output").textContent = li.innerText;
+            let atributo = li.getAttribute("data-palabra");
+            li.setAttribute("data-palabra",li.innerText);
+            li.innerText=atributo;
+        })
+        ul.insertAdjacentElement("beforeend",li);
+      }
+    }, 5000);
+
+function crearOutput(){
+    let div = document.createElement("div")
+    div.setAttribute("id","output");
+    body.appendChild(div);
+}
+
+  </script>
+</html>
