@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ej6</title>
+  </head>
+  <body>
+    <form method="dialog">
+      <input type="radio" id="habilitar" name="habilitar" value="habilitar" />
+      <label for="habilitar">Habilitar</label><br />
+      <input
+        type="radio"
+        id="desabilitar"
+        name="desabilitar"
+        value="desabilitar"
+      />
+      <label for="desabilitar">Desabilitar</label><br />
+
+      <input type="radio" id="asd" name="asd" value="asd" />
+      <label for="asd">asd</label><br />
+
+      <input type="radio" id="fgh" name="fgh" value="fgh" />
+      <label for="fgh">fgh</label><br />
+
+      <input type="radio" id="jkl" name="jkl" value="jkl" />
+      <label for="jkl">jkl</label><br />
+
+      <input type="radio" id="qwe" name="qwe" value="qwe" />
+      <label for="qwe">qwe</label><br />
+
+      <textarea id="input" rows="4" cols="50"></textarea>
+    </form>
+  </body>
+  <script>
+    class DependenciaCampos {
+      static toggleCampoDependencia(radioGroup, inputDependiente, condicion) {
+        radioGroup.forEach((radio) => {
+          radio.addEventListener("change", () => {
+            if (condicion(radio.value)) {
+              inputDependiente.remoteAttribute("disabled");
+            } else if(radio.value == "desabilitar"){
+              inputDependiente.setAttribute("disabled", true);
+            }
+          });
+        });
+      }
+    }
+
+    DependenciaCampos.toggleCampoDependencia(
+      document.querySelectorAll("input"),
+      document.querySelector("textarea"),
+      (valor) => valor == "habilitar"
+    );
+  </script>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ej10</title>
+  </head>
+  <body>
+    <form>
+      <label for="fecha1">Primera fecha</label>
+      <input type="date" id="fecha1" name="fecha1" />
+      <label for="fecha2">Segunda fecha</label>
+      <input type="date" id="fecha2" name="fecha2" />
+    </form>
+    <div id="output"></div>
+  </body>
+  <script>
+    const fecha1 = document.getElementById("fecha1");
+    const fecha2 = document.getElementById("fecha2");
+
+    const output = document.getElementById("output");
+
+    fecha1.addEventListener("change", () => {
+      ComparadorFechas.validarRango(fecha1, fecha2);
+    });
+
+    fecha2.addEventListener("change", () => {
+      ComparadorFechas.validarRango(fecha1, fecha2);
+    });
+
+    class ComparadorFechas {
+      static validarRango(fechaInicio, fechaFin) {
+        let date1 = new Date(fechaInicio.value).getTime();
+        let date2 = new Date(fechaFin.value).getTime();
+
+        date1 < date2 ?
+        output.innerText=`Las fechas son correctas.` :
+        output.innerHTML= `Error, la primera fecha debe de ser anterior a la segunda.`
+      }
+    }
+  </script>
+</html>

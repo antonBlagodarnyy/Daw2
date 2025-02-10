@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ej8</title>
+  </head>
+  <body>
+    <form>
+      <label for="contrasenia1">Contraseña 1:</label>
+      <input type="password" name="contrasenia1" id="contrasenia1" />
+      <label for="contrasenia2">Contraseña 2:</label>
+      <input type="password" name="contrasenia2" id="contrasenia2" />
+    </form>
+  </body>
+  <script>
+    const pass1 = document.getElementById("contrasenia1");
+    const pass2 = document.getElementById("contrasenia2");
+
+    function checkEquals(val1, val2) {
+      return val1.value == val2.value;
+    }
+
+    function compararPasswords(pass1, pass2, callback) {
+      callback(pass1, pass2)
+        ? (pass2.style.backgroundColor = "green")
+        : (pass2.style.backgroundColor = "red");
+    }
+
+    document.getElementById("contrasenia2").addEventListener("keyup", () => {
+      compararPasswords(pass1, pass2, checkEquals);
+    });
+  </script>
+</html>

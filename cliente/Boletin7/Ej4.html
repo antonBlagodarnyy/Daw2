@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ej4</title>
+
+  </head>
+  <body>
+    <form method="dialog">
+      <input type=" text" />
+    </form>
+    <span><img id="icono" /></span>
+  </body>
+
+  <script>
+    const emailRegEx =  /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+    const icono = document.getElementById("icono");
+    const input = document.querySelector("input");
+
+    input.addEventListener("input", () => {
+      validarConFeedback(input, emailRegEx, cambiarIcono);
+    });
+
+    function cambiarIcono(valido) {
+      valido
+        ? icono.setAttribute("src", "check.svg")
+        : icono.setAttribute("src", "close.svg");
+    }
+
+    function validarConFeedback(input, regex, callback) {
+      callback(regex.test(input.value));
+    }
+  </script>
+</html>

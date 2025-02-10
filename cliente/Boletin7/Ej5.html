@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej5</title>
+</head>
+<body>
+    <fieldset>
+        <input type="checkbox">asd</input>
+        <input type="checkbox">fgh</input>
+        <input type="checkbox">jkl</input>
+        <input type="checkbox">qwe</input>
+        <input type="checkbox">rty</input>
+        <input type="checkbox">uio</input>
+    </fieldset>
+</body>
+<script>
+    const checkboxes = document.querySelectorAll("input");
+    for (const checkbox of checkboxes) {
+        
+        checkbox.addEventListener("click",(event)=>{
+            limitarSeleccion(checkboxes,3)
+            event.target.checked=true;
+        });
+    }
+    function limitarSeleccion(checkboxes,max){
+        let arr = Array.from(checkboxes);
+    
+       if(arr.filter((checkbox)=>checkbox.checked == true).length>3) {
+        for (const checkbox of checkboxes) {
+            checkbox.checked = false;
+        }
+       }
+    }
+</script>
+</html>
