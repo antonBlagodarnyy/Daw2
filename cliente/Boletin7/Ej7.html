@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ej7</title>
+  </head>
+  <body>
+    <form method="dialog">
+      <input type="password" id="contrasenia" name="contrasenia" />
+    </form>
+    <div id="output"></div>
+  </body>
+  <script>
+    const password = document.querySelector("input");
+
+    //const contraseniaRegEx = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    const longitudMinima = /[A-Za-z\d]{8,}$/;
+    const unaMayuscula = /(?=.*[A-Z])/;
+    const unDigito = /(?=.*\d)/;
+
+    const reglas = [longitudMinima, unaMayuscula, unDigito];
+
+    function validarPassword(password, reglas) {
+      var errores = [];
+      if (!reglas[0].test(password))
+        errores.push(`La longitud minima es de 8 caracteres.\n`);
+      if (!reglas[1].test(password))
+        errores.push(`Debe de contener una mayuscula.\n`);
+      if (!reglas[2].test(password))
+        errores.push(`Debe de contener un digito.\n`);
+
+      return errores;
+    }
+
+    function imprimirErrores(errores) {
+      let output = document.createElement("p");
+
+      errores.map((error) => {
+        output.appendChild(document.createTextNode(error));
+      });
+
+      document.getElementById("output").innerHTML = output;
+    }
+
+    password.addEventListener("keyup", () => {
+      imprimirErrores(validarPassword(password, reglas));
+    });
+  </script>
+</html>

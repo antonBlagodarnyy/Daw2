@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ej2</title>
+  </head>
+  <body>
+    <form method="dialog">
+      <input type="text" minlength="5" />
+    </form>
+    <div id="mensaje"></div>
+  </body>
+  <script>
+    const input = document.querySelector("input");
+    let mensaje = document.getElementById("mensaje");
+    input.addEventListener("keyup", (event) => {
+      MensajeDinamico.actualizarMensaje(input, mensaje);
+    });
+
+    class MensajeDinamico {
+      static actualizarMensaje(input, mensaje) {
+        console.log(input.value);
+        input.value.length < 5
+          ? (mensaje.textContent = `Le quedan ${5 - input.value.length} caracteres.`)
+          : (mensaje.textContent = ``);
+      }
+    }
+  </script>
+</html>

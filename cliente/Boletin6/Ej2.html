@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ej2</title>
+  </head>
+  <body>
+    <form method="dialog">
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" />
+
+      <label for="email">Email</label>
+      <input type="text" id="email" />
+
+      <label for="anio">Año</label>
+      <input type="number" id="anio" />
+
+      <label for="sexo">Sexo</label>
+      <input type="text" id="sexo" />
+
+      <label for="isbn">ISBN</label>
+      <input type="text" id="isbn" />
+      <button>Aceptar</button>
+    </form>
+    <br />
+    <table>
+      <thead>
+        <tr>
+          <th>Campo</th>
+          <th>Comprobacion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Nombre</td>
+          <td id="nombreCasilla"></td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td id="emailCasilla"></td>
+        </tr>
+        <tr>
+          <td>Año</td>
+          <td id="anioCasilla"></td>
+        </tr>
+        <tr>
+          <td>Sexo</td>
+          <td id="sexoCasilla"></td>
+        </tr>
+        <tr>
+          <td>ISBN</td>
+          <td id="isbnCasilla"></td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+  <script>
+    const nombre = document.getElementById("nombre");
+    const nombreRegEx = /^([A-Z][a-z]*\s){2}[A-Z][a-z]*$/;
+
+    let nombreOutput = document.createElement("div");
+    nombreOutput.setAttribute("id", "nombreOutput");
+    document.getElementById("nombreCasilla").appendChild(nombreOutput);
+
+    const email = document.getElementById("email");
+    const emailRegEx = /^[A-Za-z0-9./_%+-]+@[a-zA-Z0-9.-]+[a-zA-Z]{2,}$/;
+
+    let emailOutput = document.createElement("div");
+    emailOutput.setAttribute("id", "emailOutput");
+    document.getElementById("emailCasilla").appendChild(emailOutput);
+
+    const anio = document.getElementById("anio");
+    const anioRegEx = /^(1[0-9][0-9][0-9]|20[1-2][1-5])$/;
+
+    let anioOutput = document.createElement("div");
+    anioOutput.setAttribute("id", "anioOutput");
+    document.getElementById("anioCasilla").appendChild(anioOutput);
+
+    const sexo = document.getElementById("sexo");
+    const sexoRegEx = /^H|M$/;
+
+    let sexoOutput = document.createElement("div");
+    sexoOutput.setAttribute("id", "sexoOutput");
+    document.getElementById("sexoCasilla").appendChild(sexoOutput);
+
+    const isbn = document.getElementById("isbn");
+    const isbnRegEx =
+      /^((978|979)-\d-\d{5}-\d{3}-\d$)|((978|979)\s\d\s\d{5}\s\d{3}\s\d$)/;
+
+    let isbnOutput = document.createElement("div");
+    isbnOutput.setAttribute("id", "isbnOutput");
+    document.getElementById("isbnCasilla").appendChild(isbnOutput);
+
+    document
+      .getElementById("nombre")
+      .addEventListener("change", () =>
+        comprobacion(nombre.value, nombreOutput, nombreRegEx)
+      );
+    document
+      .getElementById("email")
+      .addEventListener(
+        "change", () =>
+        comprobacion(email.value, emailOutput, emailRegEx)
+      );
+    document
+      .getElementById("anio")
+      .addEventListener(
+        "change", () =>
+        comprobacion(anio.value, anioOutput, anioRegEx)
+      );
+    document
+      .getElementById("sexo")
+      .addEventListener(
+        "change", () =>
+        comprobacion(sexo.value, sexoOutput, sexoRegEx)
+      );
+    document
+      .getElementById("isbn")
+      .addEventListener(
+        "change", () =>
+        comprobacion(isbn.value, isbnOutput, isbnRegEx)
+      );
+
+    function comprobacion(valorInput, output, regEx) {
+      console.log("hola");
+      if (valorInput == "") {
+        console.log(valorInput);
+        output.style.color = "red";
+        output.textContent = "Valor obligatorio";
+      } else if (valorInput.match(regEx)) {
+        output.style.color = "black";
+        output.textContent = valorInput;
+      } else {
+        output.style.color = "red";
+        output.textContent = "Valor incorrecto";
+      }
+    }
+  </script>
+</html>

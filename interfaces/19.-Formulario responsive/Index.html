@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Página con Cabecera y Formulario Adaptativo</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo"></div>
+      <div class="header-text">Descripción de la Empresa</div>
+      <nav>
+        <a href="#">Inicio</a>
+        <a href="#">Servicios</a>
+        <a href="#">Contacto</a>
+      </nav>
+    </header>
+
+    <div class="form-container">
+      <fieldset>
+        <div class="form-header">Instrucciones</div>
+        <div class="form-instructions">
+          Por favor, complete todos los campos del formulario con información
+          precias. Algunos campos tienen opciones desplegables, seleccione la
+          más adecuada. También puede usar el selector de fechas para ingresar
+          una fecha específica.
+        </div>
+      </fieldset>
+      <form>
+        <div class="form-group">
+          <label for="nombre">Nombre Completo</label>
+          <input type="text" id="nombre" name="nombre" required />
+        </div>
+
+        <div class="form-group">
+          <label for="correo">Correo Electrónico</label>
+          <input type="email" id="correo" name="correo" required />
+        </div>
+
+        <div class="form-group">
+          <label for="fecha">Fecha de Nacimiento</label>
+          <input type="date" id="fecha" name="fecha" />
+        </div>
+
+        <div class="form-group">
+          <label for="pais">País</label>
+          <select id="pais" name="pais">
+            <option value="">Seleccione...</option>
+            <option value="mx">México</option>
+            <option value="ar">Argentina</option>
+            <option value="es">España</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="foto">Fotografía</label>
+          <input
+            type="file"
+            id="foto"
+            name="foto"
+            accept="image/*"
+            onchange="previewImage(event)"
+          />
+          <img
+            id="preview"
+            class="preview-img"
+            src="#"
+            alt="Vista previa"
+            style="display: none"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="cv">Cargar CV</label>
+          <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx" />
+        </div>
+
+        <div class="form-group">
+          <label for="telefono">Teléfono</label>
+          <input type="tel" id="telefono" name="telefono" />
+        </div>
+
+        <div class="form-group">
+          <label for="contrasena">Contraseña</label>
+          <input type="password" id="contrasena" name="contrasena" required />
+        </div>
+
+        <div class="form-group full-width">
+          <label for="comentarios">Comentarios</label>
+          <textarea id="comentarios" name="comentarios" rows="4"></textarea>
+        </div>
+
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
+
+    <script>
+      function previewImage(event) {
+        const file = event.target.files[0];
+        const preview = document.getElementById("preview");
+        if (file) {
+          preview.src = URL.createObjectURL(file);
+          preview.style.display = "block";
+        } else {
+          preview.style.display = "none";
+        }
+      }
+    </script>
+  </body>
+</html>

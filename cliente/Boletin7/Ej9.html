@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ej9</title>
+  </head>
+  <body>
+    <form>
+      <textarea maxlength="200" cols="50" rows="20"></textarea>
+    </form>
+    <div id="contador"></div>
+  </body>
+  <script>
+    const textArea = document.querySelector("textarea");
+    const contadorElement = document.querySelector("contador");
+
+    textArea.addEventListener("input", () => {
+      actualizarContador(textArea, contador);
+    });
+
+    function actualizarContador(textArea, contadorElement) {
+        //Calculamos la cantidad de caracteres con reduce
+      arr = Array.from(textArea.value);
+      let contador = arr.reduce((counter, char) => {
+        counter++;
+        return counter;
+      }, 0);
+
+      //Mostramos el contador por pantalla
+      contadorElement.textContent = contador;
+
+      //Cambiamos el color del texto
+      switch (true) {
+        case contador < 150:
+          textArea.style.color = "green";
+          break;
+        case contador > 150 && contador < 190:
+          textArea.style.color = "orange";
+          break;
+        case contador > 190:
+          textArea.style.color = "red";
+          break;
+        default:
+          break;
+      }
+    }
+  </script>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ej1</title>
+  </head>
+  <body>
+    <form method="dialog">
+      <label for="texto1">Texto 1</label>
+      <input type="text" name="texto2" />
+
+      <label for="texto2">Texto 2</label>
+      <input type="text" name="texto1" />
+
+      <label for="number1">Number 1</label>
+      <input type="number" name="number1" />
+
+      <label for="number2">Number 2</label>
+      <input type="number" name="number2" />
+    </form>
+  </body>
+  <script>
+    //Selecciono tanto los inputs como el formulario
+    const inputs = document.querySelectorAll("input");
+    const form = document.querySelector("form");
+
+    //A cada input le agrego el evento blur
+    for (const input of inputs) {
+      input.addEventListener("blur", (event) => {
+        //Le paso al validador los hijos de form(tanto labels como inputs) y los recorro
+        for (const child of Validador.validarCamposVacios(form.children)) {
+            //Hago append de cada hijo. Como los elementos ya existen dentro del node, no los clona, los mueve.
+          form.appendChild(child);
+        }
+      });
+    }
+
+    class Validador {
+      static validarCamposVacios(formChildren) {
+        let camposValidados = [];
+        //Recorro los miembros de la htmlCollection
+        for (const child of formChildren) {
+            //Y en funcion de su valor aplico un color
+          if (child.value == "") child.style.borderColor = "red";
+          else child.style.borderColor = "black";
+          
+          camposValidados.push(child);
+        }
+
+        return camposValidados;
+      }
+    }
+  </script>
+</html>
