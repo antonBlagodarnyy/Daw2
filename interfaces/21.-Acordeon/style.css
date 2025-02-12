@@ -1,0 +1,33 @@
+.accContenido {
+    display: none;
+}
+
+div:not(.accItem) {
+    border: none;
+}
+
+.accItem {
+    border: 1px solid black;
+}
+
+.accCabecera {
+    text-decoration: none;
+    display: block;
+}
+
+.accCabecera:hover {
+    background-color: yellow;
+
+}
+
+/* div.accItem:nth-child(2)>div:nth-child(2)>p:nth-child(1) {
+    background-color: yellow;
+}
+ */
+.accItem:hover>.accContenido {
+    display: block;
+}
+
+.accItem > .accContenido{
+    display:inherit;
+}

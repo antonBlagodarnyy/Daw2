@@ -1,0 +1,68 @@
+li {
+    color: blue;
+}
+
+li:hocer {
+    color: green;
+    background-color: aquamarine;
+}
+
+li:first-child {
+    color: red;
+}
+
+li:nth-child(even) {
+    color: greenyellow;
+}
+
+li:nth-child(odd) {
+    background-color: orange;
+}
+
+body>:first-child {
+    color: purple;
+}
+
+ul {
+    background-color: wheat;
+}
+
+ul:first-of-type {
+    background-color: turquoise;
+}
+
+button:nth-of-type(2) {
+    background-color: yellow;
+}
+
+button:nth-of-type(3) {
+    background-color: yellow;
+}
+
+button:last-of-type {
+    background-color: turquoise;
+}
+
+:only-child {
+    color: violet;
+}
+
+button:only-of-type {
+    color: burlywood;
+}
+
+div:empty {
+    color: green;
+}
+
+:lang(it) {
+    font-style: italic;
+}
+
+:lang(en) {
+    font-weight: bold;
+}
+
+p:not(.importante) {
+    font-size: 14pt;
+}

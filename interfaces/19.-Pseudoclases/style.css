@@ -1,0 +1,30 @@
+a {
+    color: blue;
+    text-decoration: none;
+}
+
+a:hover {
+    text-transform: uppercase;
+    color: darkblue;
+    text-decoration: underline;
+    background-color: yellow;
+}
+
+a:visited {
+    color: violet;
+}
+
+a:active {
+    color: cadetblue;
+    background-color: yellowgreen;
+}
+
+input:hover {
+    background-color: rgb(213, 60, 252);
+}
+
+button:hover {
+    background-color: rgb(186, 142, 226);
+    width: 400px;
+    height: 400px;
+}

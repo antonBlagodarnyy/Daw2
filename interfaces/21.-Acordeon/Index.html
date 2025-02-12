@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acordeon</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Acordeon css</h1>
+
+    <div class="accItem">
+        <a href="#" class="accCabecera" onclick="toggleSelected(this)">Cabecera 1</a>
+        <div class="accContenido">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit maxime qui laboriosam minus consequuntur
+                atque
+                quam nihil sunt. Accusamus eligendi quae id facilis magni perferendis voluptatem velit corrupti sit
+                quia!
+            </p>
+        </div>
+    </div>
+
+    <div class="accItem">
+        <a href="#" class="accCabecera">Cabecera 2</a>
+        <div class="accContenido">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit maxime qui laboriosam minus consequuntur
+                atque
+                quam nihil sunt. Accusamus eligendi quae id facilis magni perferendis voluptatem velit corrupti sit
+                quia!
+            </p>
+        </div>
+    </div>
+
+    <div class="accItem">
+        <a href="#" class="accCabecera">Cabecera 3</a>
+        <div class="accContenido">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit maxime qui laboriosam minus consequuntur
+                atque
+                quam nihil sunt. Accusamus eligendi quae id facilis magni perferendis voluptatem velit corrupti sit
+                quia!
+            </p>
+        </div>
+    </div>
+</body>
+<script>
+    function toggleSelected(element) {
+        var accItem = element.parentNode;
+        if (accItem.className == "accItem") {
+            accItem.className = "accItem accItemOpen";
+        } else {
+            accItem.className = "accItem";
+        }
+    }
+</script>
+
+</html>
