@@ -1,0 +1,41 @@
+input:focus{
+    background-color: aquamarine;
+}
+input:invalid {
+    border-color: red;
+ }
+ input:valid {
+    border-color: green;
+ }
+ 
+ input:in-range{
+    background-color: yellow;
+ }
+ input:indeterminate {
+    box-shadow:0 0 5px 3px salmon;
+ }
+
+ input:indeterminate + span{
+    background-color: salmon;
+ }
+
+ :checked{
+    box-shadow: 0 0 5px 3px green;
+    accent-color: green;
+ }
+
+ :disabled{
+    background-color: grey;
+
+ }
+
+ :enabled{
+    background-color: yellowgreen;
+ }
+ :required{
+    box-shadow: 0 0 5px 3px red;
+ }
+
+ input:default{
+    box-shadow: 0 0 5px 3px rgb(255, 153, 0);
+ }
