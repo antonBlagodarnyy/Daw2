@@ -9,7 +9,7 @@ if(!isset($_COOKIE['enviado'])){
 session_start();
 $usuario = $_SESSION['usuario'];
 //check-hacer que si esta 10 segundos sin mandar mensajes se salga del foro
-if (file_get_contents("./foro/mensajes.txt")) {
+if (file_exists("./foro/mensajes.txt") && file_get_contents("./foro/mensajes.txt")) {
     $mensajes = unserialize(file_get_contents("./foro/mensajes.txt"));
 } else {
     $mensajes = [];

@@ -38,7 +38,7 @@
         radioGroup.forEach((radio) => {
           radio.addEventListener("change", () => {
             if (condicion(radio.value)) {
-              inputDependiente.remoteAttribute("disabled");
+              inputDependiente.removeAttribute("disabled");
             } else if(radio.value == "desabilitar"){
               inputDependiente.setAttribute("disabled", true);
             }
