@@ -16,7 +16,7 @@
 
     //const contraseniaRegEx = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
     const longitudMinima = /[A-Za-z\d]{8,}$/;
-    const unaMayuscula = /(?=.*[A-Z])/;
+    const unaMayuscula = /(?=.[A-Z])/;
     const unDigito = /(?=.*\d)/;
 
     const reglas = [longitudMinima, unaMayuscula, unDigito];
@@ -40,7 +40,7 @@
         output.appendChild(document.createTextNode(error));
       });
 
-      document.getElementById("output").innerHTML = output;
+      document.getElementById("output").innerHTML = output.textContent;
     }
 
     password.addEventListener("keyup", () => {

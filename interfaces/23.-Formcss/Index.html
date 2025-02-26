@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <form action="">
+        <div style="width: 300px; height: 400px">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" required pattern="[A-Za-z]{5,20}"><br>
+            <label for="email">Email: </label>
+            <input type="email" id="email" name="email"><br>
+            <input type="text" required pattern="[0-9]{8}[A-Za-z]" name="dni" placeholder="dni"><br />
+            <label for="edad">Edad: </label>
+            <input type="number" id="edad" name="edad" min="18" max="99">
+            <input type="radio" id="sexo" name="sexo" value="hombre" required><span>Hombre</span>
+            <input type="radio" id="sexo" name="sexo" value="mujer"><span>Mujer</span><br>
+            <label for="nacionalidad">Nacionalidad </label>
+            <input type="radio" id="nacionalidad" name="nacionalidad" value="espanola" checked>Española
+            <input type="radio" id="nacionalidad" name="nacionalidad" value="francesa">Francesa
+            <input type="radio" id="nacionalidad" name="nacionalidad" value="italiana">Italiana
+            <input type="radio" id="nacionalidad" name="nacionalidad" value="inglesa">Inglesa
+            <br>
+            <textarea name="comentario" cols="30" rows="5" disabled></textarea> 
+            <button type="reset">Limpiar</button>
+            <button type="submit" value="Enviar">Enviar</button>
+        </div>
+    </form>
+</body>
+
+</html>

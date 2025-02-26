@@ -1,0 +1,25 @@
+::first-letter {
+    font-size: 300%;
+    font-weight: bold;
+}
+
+::first-line {
+    font-size: 150%;
+    font-style: italic;
+}
+
+p::before {
+    content: "#";
+}
+
+div>p {
+    color: red;
+}
+
+div p {
+    background-color: yellowgreen;
+}
+
+section~span {
+    color: blue;
+}

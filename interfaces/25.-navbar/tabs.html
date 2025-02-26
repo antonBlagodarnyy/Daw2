@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordion CSS</title>
+    <link rel="stylesheet" type="text/css" href="tabs.css">
+
+</head>
+<script>
+    function activateLink(pestania) {
+        for (const pestanias of document.querySelectorAll("a")) {
+            pestanias.classList.remove("activated");
+        }
+        pestania.classList.add("activated")
+    }
+</script>
+
+<body>
+    <h1>Tabs CSS</h1>
+
+    <a href="#tab01" class="activated" onclick="activateLink(this)">Tab 1</a>
+    <a href="#tab02" onclick="activateLink(this)">Tab 2</a>
+    <a href="#tab03" onclick="activateLink(this)">Tab 3</a>
+    <a href="#tab04" onclick="activateLink(this)">Tab 4</a>
+    <br>
+
+    <div id="tab01" class="accContent ">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum ex, hic inventore placeat labore ipsum
+            sapiente! Consequatur ducimus, facere voluptates et id omnis cupiditate numquam accusantium soluta
+            distinctio eveniet blanditiis dolore magnam, alias voluptas repellendus, repellat dicta fugiat at dolorem
+            velit quod mollitia non neque! Magnam dignissimos eveniet laboriosam laborum distinctio non debitis cum
+            tenetur sed veritatis! Modi, nisi. Corporis, natus libero officiis enim ut quo dicta voluptatem alias amet
+            ipsum deserunt voluptas aut recusandae aspernatur delectus eos magni pariatur iure explicabo dolores minima
+            tempore quae veniam. Deleniti natus laboriosam atque expedita quasi sit, suscipit illo inventore esse
+            temporibus eligendi. Odit quidem officiis voluptatum culpa libero eius inventore recusandae saepe,
+            repellendus minima eaque iusto, nihil magnam beatae ullam molestias, corrupti praesentium ipsa! Natus,
+            veniam? Facere eligendi asperiores laudantium, dolores dolor fugiat nesciunt distinctio nobis magni rem
+            voluptatum adipisci placeat rerum ea eos consequuntur illum perferendis! Nesciunt fugit itaque, dolore odio
+            veritatis molestias minima cum? Expedita dolor ducimus vel ut deleniti tenetur numquam iusto eius aut.
+            Velit, eveniet debitis quos ea ducimus officia id tenetur facilis dignissimos quasi. Quo obcaecati sunt
+            veritatis. Libero nisi totam esse expedita iusto nam ea. Suscipit, recusandae! Minus sapiente unde animi
+            fugiat explicabo? Facere illum fugiat ullam recusandae! Atque sunt rerum dolores fuga libero hic aut
+            explicabo rem autem eius illum pariatur corporis in, et consequatur ab odio. Cupiditate rerum consectetur
+            culpa voluptatum eos. Est iusto sit eum saepe sint quod aliquid asperiores fugiat explicabo sequi dolorem
+            facere placeat ab, at enim id maiores recusandae. Possimus aspernatur voluptas facere unde, eos dolor
+            deserunt, atque at pariatur reiciendis placeat eligendi. Qui sapiente repudiandae recusandae consectetur
+            voluptatem. Distinctio a nulla saepe incidunt aspernatur voluptatum nobis tempora, nihil nemo debitis
+            ducimus explicabo, quae error suscipit voluptatem minus vitae sit quis ea exercitationem eligendi veritatis?
+            Ipsum, dolorem modi sapiente maiores, itaque, fugiat esse magni libero sed tenetur dignissimos iusto nobis
+            praesentium doloribus nam repellat aperiam aliquam impedit ipsa alias animi quibusdam non fugit eligendi!
+            Laborum nostrum eius non aliquam eligendi similique? Consequatur nihil commodi ad eum. Quos perferendis,
+            quis ex suscipit placeat similique optio porro illum et laudantium, culpa assumenda esse architecto?
+            Repellat consectetur, neque asperiores numquam expedita doloribus velit voluptates excepturi esse assumenda,
+            fuga soluta atque qui pariatur amet sed sit voluptatibus ex voluptatum porro consequatur provident libero
+            accusamus autem. Aperiam dolorum magnam molestias fuga ipsa accusantium delectus ab odit maiores velit!
+            Perferendis quisquam iure iusto corporis obcaecati nobis sequi animi cumque doloremque hic voluptates ab
+            natus error quidem quod nam officiis, enim, minus facilis dicta. Mollitia pariatur cupiditate expedita
+            voluptate blanditiis odit eligendi facere eius repellendus quasi recusandae nemo optio delectus aperiam
+            veritatis, incidunt debitis provident impedit. Eum, corrupti quae possimus ipsa repellendus voluptate
+            ratione delectus. Ut eveniet, molestias eum placeat mollitia quidem dolore laboriosam soluta id repellendus
+            magni consequuntur esse quibusdam fuga quia? Deserunt sequi minima quibusdam animi fuga ea quidem neque
+            provident rerum officia iste voluptatum architecto sunt, nobis ab eius sint adipisci impedit earum ad,
+            facere soluta a perspiciatis possimus. Commodi illum molestiae sed quis.</p>
+    </div>
+
+    <div id="tab02" class="accContent">
+        <div class="container">
+            <form class="form1">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" required placeholder="Nombre" pattern="[A-Za-z]{5,20}"><br>
+                <label for="email">Email: </label>
+                <input type="email" id="email" name="email"><br>
+                <label for="email">DNI: </label>
+                <input type="text" required pattern="[0-9]{8}[A-Za-z]" name="dni" placeholder="Dni"><br />
+                <button type="reset">Cancel</button>
+                <button type="submit" value="Enviar">Ok</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="tab03" class="accContent">
+        <form>
+            <div class="form2">
+                <div class="container2">
+                    <label for="edad">Edad: </label>
+                    <input type="number" id="edad" name="edad" min="18" max="99">
+                </div>
+                <div class="container2">
+                    <label for="sexo">Sexo:</label>
+                    <div style="margin-top: 10px;">
+                        <input type="radio" id="sexo" name="sexo" value="hombre" required><span>Hombre</span>
+                        </div>
+                        <div>
+                        <input type="radio" id="sexo" name="sexo" value="mujer"><span>Mujer</span><br>
+                   </div>
+
+                </div>
+                <div class="container2">
+                    <label for="nacionalidad">Nacionalidad: </label>
+                    <div style="margin-top: 10px;">
+                        <input type="radio" id="nacionalidad" name="nacionalidad" value="espanola" checked>Española
+                    </div>
+                    <div><input type="radio" id="nacionalidad" name="nacionalidad" value="francesa">Francesa
+                    </div>
+                    <div><input type="radio" id="nacionalidad" name="nacionalidad" value="italiana">Italiana
+                    </div>
+                    <div>
+                        <input type="radio" id="nacionalidad" name="nacionalidad" value="inglesa">Inglesa
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="buttons">
+            <button>Cancel</button>
+            <button>Ok</button>
+        </div>
+    </div>
+
+    <div id="tab04" class="accContent">
+        <div class="form2">
+            <div style="width: 30%"><iframe width="100%" height="300" frameborder="0" scrolling="no" marginheight="0"
+                    marginwidth="0"
+                    src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=1%20Grafton%20Street,%20Dublin,%20Ireland+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a
+                        href="https://www.gps.ie/">cat gps tracker</a></iframe></div>
+
+            <textarea name="comentario" cols="30" rows="5" disabled></textarea>
+        </div>
+        <div class="buttons">
+            <button>Cancel</button>
+            <button>Ok</button>
+        </div>
+    </div>
+</body>
+
+</html>
