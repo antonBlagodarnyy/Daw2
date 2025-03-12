@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<!--Dado el siguiente codigo html y sin modificiarlo implementa la funcionalidad:
+Al pulsar en el boton añadir se inserta una tarea en la lista ul
+Por defecto las tareas no completadas
+Si se pulsa en una tarea se mostrara un mensaje al usuario para confirmar que quiere marcarla como completada
+Se asignara una tarea el estilo correspondiente a las tareas completadas
+Pulsando el boton correspondiente se eliminaran todas las tareas completadas
+Si el usuario introduce un num en el campo correpondiete se eliminara la tarea iesima
+Si el numero introducido supera las tareas de la lista se avisara al usuiario y no se eliminara nada
+-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Tareas</title>
+    <style>
+        /* Estilos básicos */
+        li {
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        button {
+            margin-left: 10px;
+            padding: 5px;
+        }
+
+        /* Estilo para tareas completadas */
+        .completed {
+            text-decoration: line-through;
+            color: grey;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Lista de Tareas</h1>
+
+    <form>
+        <input type="text" placeholder="Añadir tarea" required>
+        <button type="button" onclick="addTask()">Añadir</button>
+    </form>
+
+    <ul></ul>
+    <button onclick="clearCompletedTasks()">Eliminar tareas completadas</button>
+    <input type="text" onmouseup="deleteTask()" placeholder="Tarea a eliminar..." required>
+    <script src="script.js"></script>
+</body>
+
+</html>

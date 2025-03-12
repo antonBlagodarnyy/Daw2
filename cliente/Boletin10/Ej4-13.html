@@ -1,0 +1,132 @@
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicios con event en JavaScript</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+      .contenedor {
+        margin: 20px auto;
+        padding: 20px;
+        border: 2px solid #333;
+        width: 80%;
+        max-width: 500px;
+      }
+      button {
+        margin: 5px;
+        padding: 10px;
+        cursor: pointer;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+      li {
+        padding: 5px;
+        margin: 3px;
+        background: lightgray;
+        cursor: pointer;
+      }
+      #area-mouse {
+        width: 300px;
+        height: 150px;
+        border: 2px dashed #333;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+      }
+    </style>
+
+    <script src="script.js" async></script>
+  </head>
+  <body>
+    <h1>Ejercicios con Eventos en JavaScript</h1>
+
+    <div class="contenedor" id="contenedor-botones">
+      <h2>Botones de colores</h2>
+      <button>Botón 1</button>
+      <button>Botón 2</button>
+      <button>Botón 3</button>
+    </div>
+
+    <div class="contenedor">
+      <h2>Escribe algo</h2>
+      <input
+        type="text"
+        id="campo-texto"
+        placeholder="Escribe y presiona Enter"
+      />
+      <p id="info-tecla">Tecla presionada:</p>
+    </div>
+
+    <div class="contenedor" id="listas">
+      <h2>Listas interactivas</h2>
+      <ul id="lista-1">
+        <li>Item 1A</li>
+        <li>Item 1B</li>
+      </ul>
+      <ul id="lista-2">
+        <li>Item 2A</li>
+        <li>Item 2B</li>
+      </ul>
+      <p id="resultado-lista">Lista seleccionada:</p>
+    </div>
+
+    <div class="contenedor" id="textos">
+      <h2>Clics en los párrafos</h2>
+      <p data-contador="0">Párrafo 1</p>
+      <p data-contador="0">Párrafo 2</p>
+      <p data-contador="0">Párrafo 3</p>
+    </div>
+
+    <div class="contenedor">
+      <h2>Posición del Mouse</h2>
+      <div id="area-mouse">Mueve el mouse aquí</div>
+      <p id="posicion-mouse">X: 0, Y: 0</p>
+    </div>
+
+    <div class="contenedor">
+      <h2>Lista dinámica</h2>
+      <ul id="lista-dinamica"></ul>
+    </div>
+
+    <div class="contenedor">
+      <h2>Lista resaltable</h2>
+      <ul id="lista-resaltable">
+        <li>Elemento A</li>
+        <li>Elemento B</li>
+        <li>Elemento C</li>
+      </ul>
+    </div>
+
+    <div class="contenedor">
+      <h2>Haz doble clic para eliminar</h2>
+      <ul id="lista-eliminable">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+      </ul>
+    </div>
+
+    <div class="contenedor">
+      <h2>Reordenar elementos (Arrastrar y Soltar)</h2>
+      <ul id="lista-drag">
+        <li draggable="true">Arrastrable 1</li>
+        <li draggable="true">Arrastrable 2</li>
+        <li draggable="true">Arrastrable 3</li>
+        <li draggable="true">Arrastrable 4</li>
+        <li draggable="true">Arrastrable 5</li>
+        <li draggable="true">Arrastrable 6</li>
+        <li draggable="true">Arrastrable 7</li>
+      </ul>
+    </div>
+
+    <div class="contenedor">
+      <h2>Presiona R, G o B para cambiar el fondo</h2>
+    </div>
+  </body>
+</html>

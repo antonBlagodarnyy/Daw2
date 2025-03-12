@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inicio</title>
+    <style>
+      .active {
+        background-color: lightblue;
+      }
+    </style>
+  </head>
+  <body>
+    <button name="eventos" id="eventos">Eventos</button>
+    <p>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error nisi
+      mollitia illo rem veritatis. Eos nesciunt, sit modi blanditiis
+      necessitatibus veniam corporis impedit accusamus ipsam cum repudiandae qui
+      placeat vel.
+    </p>
+    <button name="eliminarEvento" id="eliminarEvento">Eliminar Eventos</button>
+  </body>
+  <script>
+    const body = document.querySelector("body");
+    const eventos = document.getElementById("eventos");
+    const p = document.querySelector("p");
+    const eliminarEvento = document.getElementById("eliminarEvento");
+
+    eventos.addEventListener("click", () => {
+      p.addEventListener("click", aniadirClick);
+      p.addEventListener("mouseover", aniadirMouseOver);
+      p.addEventListener("mouseout", aniadirMouseOut);
+      eventos.classList.add("active");
+    });
+
+    function aniadirClick() {
+      let output = document.createElement("p");
+      output.innerText = "Evento click";
+      body.append(output);
+    }
+    function aniadirMouseOver() {
+      let output = document.createElement("p");
+      output.innerText = "Evento mouseover";
+      body.append(output);
+    }
+    function aniadirMouseOut() {
+      let output = document.createElement("p");
+      output.innerText = "Evento mouseout";
+      body.append(output);
+    }
+    eliminarEvento.addEventListener("click", () => {
+      p.removeEventListener("click", aniadirClick);
+      p.removeEventListener("mouseover", aniadirMouseOver);
+      p.removeEventListener("mouseout", aniadirMouseOut);
+      eventos.classList.remove("active");
+    });
+  </script>
+</html>

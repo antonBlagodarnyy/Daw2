@@ -3,8 +3,15 @@ require_once("clases.php");
 
 session_start();
 
+if (!file_exists("./credenciales")) {
+    mkdir("credenciales");
 
-if (file_get_contents("./credenciales/usuarios.txt")) {
+}
+if (!file_exists("./foro")) {
+    mkdir("foro");
+}
+
+if (file_exists("./credenciales/usuarios.txt") && file_get_contents("./credenciales/usuarios.txt")) {
     $usuarios = unserialize(file_get_contents("./credenciales/usuarios.txt"));
 } else {
     $usuarios = [];
