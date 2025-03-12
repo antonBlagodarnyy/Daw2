@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.iconCollapse {
+    transform: rotate(-90deg);
+    width: 5vh;
+    height: 5vh;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: blue;
+    padding: 5vh;
+    align-self: stretch;
+
+}
+
+.sidebarCollapsed{
+    width:1vh;
+}
+
+.sidebarCollapsed a{
+    visibility: hidden;
+} 
