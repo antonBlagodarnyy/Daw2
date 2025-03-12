@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inicio</title>
+  </head>
+  <style>
+    .claro{
+        background-color: lightblue;
+    }
+    .oscuro{
+        background-color: blue;
+        color: antiquewhite;
+    }
+  </style>
+  <body></body>
+  <script>
+    function getCookieValue(name) {
+      const regex = new RegExp(`(^| )${name}=([^;]+)`);
+      const match = document.cookie.match(regex);
+      if (match) {
+        return match[2];
+      }
+    }
+
+    const body = document.querySelector("body");
+    const header = document.createElement("h1");
+    header.innerText = `Bienvenido ${getCookieValue("nombre")}`;
+    const id = document.createElement("h2");
+    id.innerText = `Identificador de la sesion: ${getCookieValue("id")}`;
+   
+    body.append(header);
+    body.append(id);
+
+    body.classList.add(getCookieValue("tema"));
+  </script>
+</html>

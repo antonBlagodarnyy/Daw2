@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ej2.1</title>
+  </head>
+  <body>
+    <button id="bio">Bio</button>
+    <button id="saludo">Saludo</button>
+  </body>
+  <script>
+    var persona = JSON.parse(localStorage.getItem("persona"));
+
+    if (persona) {
+      persona.bio = new Function(`return ${persona.bio}`)();
+      persona.saludo = new Function(`return ${persona.saludo}`)();
+    }
+    
+
+    document.getElementById("bio").addEventListener("click", () => {
+      persona.bio();
+    });
+    document.getElementById("saludo").addEventListener("click", () => {
+      persona.saludo();
+    });
+  </script>
+</html>
