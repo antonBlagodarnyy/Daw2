@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Query</title>
+</head>
+<style>
+    .container{
+        width:100%;
+        height:100vh;
+        background-image: url('img/imagen.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+    @media (max-width: 780px){
+        .container{
+            background-image: url('img/imagen2.jpg');
+        }
+    }
+</style>
+<body>
+    <div class="container"></div>
+</body>
+</html>

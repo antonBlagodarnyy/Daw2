@@ -1,0 +1,29 @@
+.form-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.picture{
+    width:100%;
+    height: 1000px;
+    background-image: url("big.jpg");
+}
+.container{
+
+    width: 45%;
+}
+input {
+    width: 100%;
+}
+@media( max-width:1000px){
+    .form-container{
+        flex-direction: column;
+    }
+    .container{
+        width: 95%;
+    }
+    .picture{
+        height:100px;
+        background-image: url("small.jpg");
+    }
+}
