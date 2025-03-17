@@ -2,16 +2,16 @@
 require_once(__DIR__ . "/../controller/valoracionesController.php");
 require_once(__DIR__ . "/../model/receta.php");
 
-function guardarValoracion(
+function guardarComentario(
     $usuarioId,
     $recetaId,
     $valoracionActual,
     $puntuacionNueva,
     $comentarioNuevo,
-    $favoritoNuevo
+    
 ) {
     $output = "";
-    if (!empty($comentarioNuevo) && !empty($puntuacionNueva) && !empty($favoritoNuevo)) {
+    if (!empty($comentarioNuevo) && !empty($puntuacionNueva) ) {
         //Si ya existia una valoracion
         if (isset($valoracionActual['comentario']) || isset($valoracionActual['puntuacion'])) {
             if ($puntuacionNueva > 0 && $puntuacionNueva <= 5) //Comprobamos restricciones
@@ -26,23 +26,28 @@ function guardarValoracion(
                     $output = "Valoracion creada!\n";
                 }
         }
+    } else $output = "No se ha actualizado el comentario";
+    return $output;
+}
 
-        //Si ya estaba marcado
-        if ($valoracionActual['favorito']) {
-            if (!$favoritoNuevo) { //Delete de la columna
-                if (deleteFavorito($usuarioId, $recetaId)) {
-                    $output .= "Se ha desmarcado la receta de los favoritos.";
-                }
-            }
-            //Si no estaba marcado
-        } else {
-            if ($favoritoNuevo) { //Insert de la columna
-                if (createFavorito($usuarioId, $recetaId)) {
-                    $output .= "Receta agregada a favoritos.";
-                }
+function guardarFavorito(int $usuarioId, int $recetaId, bool $favoritoActual, bool $favoritoNuevo)
+{
+    $output = "";
+    //Si ya estaba marcado
+    if ($favoritoActual) {
+        if (!$favoritoNuevo) { //Delete de la columna
+            if (deleteFavorito($usuarioId, $recetaId)) {
+                $output = "Se ha desmarcado la receta de los favoritos.";
             }
         }
-    } else $output = "Rellene todos los campos del formulario";
+        //Si no estaba marcado
+    } else {
+        if ($favoritoNuevo) { //Insert de la columna
+            if (createFavorito($usuarioId, $recetaId)) {
+                $output = "Receta agregada a favoritos.";
+            }
+        }
+    }
     return $output;
 }
 

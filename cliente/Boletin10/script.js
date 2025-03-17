@@ -23,8 +23,10 @@ const contenedorListas = document.getElementById("listas");
 const listas = contenedorListas.querySelectorAll("ul");
 for (const lista of listas) {
   lista.addEventListener("click", (e) => {
-    document.getElementById("resultado-lista").textContent =
-      e.currentTarget.getAttribute("id");
+    document.getElementById("resultado-lista").textContent = `
+      Lista: ${e.currentTarget.getAttribute("id")} Elemento: ${
+      e.target.textContent
+    }`;
   });
 }
 
@@ -98,57 +100,56 @@ const listaDrag = document.getElementById("lista-drag");
 //dragConNextElementSibling();
 dragConMousePosition();
 
-function dragConNextElementSibling(){
-    listaDrag.addEventListener("dragstart", (e) => {
-  e.target.setAttribute("id", "dragging");
-});
+function dragConNextElementSibling() {
+  listaDrag.addEventListener("dragstart", (e) => {
+    e.target.setAttribute("id", "dragging");
+  });
 
-listaDrag.addEventListener("dragover", (e) => {
-  e.preventDefault();
-});
+  listaDrag.addEventListener("dragover", (e) => {
+    e.preventDefault();
+  });
 
-listaDrag.addEventListener("drop", (e) => {
-  let insertable = document.getElementById("dragging");
+  listaDrag.addEventListener("drop", (e) => {
+    let insertable = document.getElementById("dragging");
 
-  if (e.target.nodeName == "LI") {
-    let position;
-    e.target.nextElementSibling == undefined
-      ? (position = "afterend")
-      : (position = "beforebegin");
+    if (e.target.nodeName == "LI") {
+      let position;
+      e.target.nextElementSibling == undefined
+        ? (position = "afterend")
+        : (position = "beforebegin");
 
-    e.target.insertAdjacentElement(position, insertable);
-  }
-  insertable.removeAttribute("id");
-});
+      e.target.insertAdjacentElement(position, insertable);
+    }
+    insertable.removeAttribute("id");
+  });
 }
 
-function dragConMousePosition(){
-    listaDrag.addEventListener("dragstart", (e) => {
-        e.target.setAttribute("id", "dragging");
-      });
-      
-      listaDrag.addEventListener("dragover", (e) => {
-        e.preventDefault();
-      });
-      
-      listaDrag.addEventListener("drop", (e) => {
-        let insertable = document.getElementById("dragging");
-      
-        if (e.target.nodeName == "LI") {
-            
-          let position;
-          e.clientY > getCenterY(e.target.getBoundingClientRect())
-            ? (position = "afterend")
-            : (position = "beforebegin");
+function dragConMousePosition() {
+  listaDrag.addEventListener("dragstart", (e) => {
+    e.target.setAttribute("id", "dragging");
+  });
 
-          e.target.insertAdjacentElement(position, insertable);
-        }
-        insertable.removeAttribute("id");
-      });
+  listaDrag.addEventListener("dragover", (e) => {
+    e.preventDefault();
+  });
+
+  listaDrag.addEventListener("drop", (e) => {
+    let insertable = document.getElementById("dragging");
+
+    if (e.target.nodeName == "LI") {
+      let position;
+      e.clientY > getCenterY(e.target.getBoundingClientRect())
+        ? (position = "afterend")
+        : (position = "beforebegin");
+
+      e.target.insertAdjacentElement(position, insertable);
+    }
+    insertable.removeAttribute("id");
+  });
 }
-function getCenterY(coords){
-    let centerY = coords.y + (coords.bottom - coords.y) / 2;
-    return centerY;
+function getCenterY(coords) {
+  let centerY = coords.y + (coords.bottom - coords.y) / 2;
+  return centerY;
 }
 
 //Ej13

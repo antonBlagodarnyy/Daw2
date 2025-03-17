@@ -19,19 +19,25 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             break;
         case isset($_POST['guardar']):
             //Guardamos la valoracion
-            $output = guardarValoracion(
+            $output = guardarComentario(
                 $usuario['id'],
                 $receta->getId(),
                 $valoracion,
                 floatval($_POST['puntuacion']),
-                $_POST['comentario'],
+                $_POST['comentario']
+            );
+
+            $output .= " " . guardarFavorito(
+                $usuario['id'],
+                $receta->getId(),
+                $valoracion['favorito'],
                 isset($_POST['favorito'])
             );
 
             //Actualizamos los valores de la receta actual
             $_SESSION['receta'] = serialize(obtenerReceta($receta->getId()));
             $receta = unserialize($_SESSION['receta']);
-
+            $valoracion = getValoracion($usuario['id'], $receta);
             break;
 
         default:

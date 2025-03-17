@@ -10,6 +10,7 @@
         function toggleSidebar() {
             let sidebar = document.querySelector('.sidebar');
             sidebar.classList.toggle('sidebarCollapsed');
+            
             let icon = document.querySelector('#iconCollapseExpand');
             if (sidebar.classList.contains('sidebarCollapsed')) {
                 icon.classList.remove('iconCollapse');

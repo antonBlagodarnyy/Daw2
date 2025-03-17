@@ -9,21 +9,57 @@
     width: 5vh;
     height: 5vh;
 }
+.iconExpand{
+    transform: rotate(90deg);
+    width: 5vh;
+    height: 5vh;
+}
 
 .sidebar {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    background-color: blue;
-    padding: 5vh;
+    justify-content: space-around;
+    background-color: rgb(120, 120, 238);
+    padding: 8vh;
+    width:8vh;
     align-self: stretch;
-
+    transition: padding  2s ease, width 2s ease;
+  
 }
 
+
+
 .sidebarCollapsed{
-    width:1vh;
+    padding: 0.5vh;
+    width:0.5vh;
 }
 
 .sidebarCollapsed a{
     visibility: hidden;
+    
 } 
+a{
+    
+    font-style: bold;
+    font-size: larger;
+    text-decoration: none;
+    color:black;
+}
+a:visited{
+    text-decoration: none;
+    color: black;
+}
+
+@media(max-width:1000px){
+    .container{
+        flex-direction: column;
+    }
+    .sidebar{
+        flex-direction: row;
+        width:100%;
+        transition: padding 0s;
+    }
+    #iconCollapseExpand{
+        visibility: hidden;
+    }
+}
