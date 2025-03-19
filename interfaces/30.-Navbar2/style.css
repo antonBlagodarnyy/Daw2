@@ -16,26 +16,32 @@
 }
 
 .sidebar {
+
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     background-color: rgb(120, 120, 238);
-    padding: 8vh;
+    padding: 5vh;
+    
     width:8vh;
     align-self: stretch;
     transition: padding  2s ease, width 2s ease;
   
 }
 
+.sidebar a {
+    opacity: 100;
+    transition:opacity 1s;
 
-
+}
 .sidebarCollapsed{
-    padding: 0.5vh;
+    padding: 1vh;
     width:0.5vh;
 }
 
 .sidebarCollapsed a{
-    visibility: hidden;
+    
+    opacity: 0;
     
 } 
 a{
@@ -50,7 +56,7 @@ a:visited{
     color: black;
 }
 
-@media(max-width:1000px){
+@media(max-width:1000px), (max-height: 600px){
     .container{
         flex-direction: column;
     }
