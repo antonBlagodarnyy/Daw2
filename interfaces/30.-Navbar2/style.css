@@ -1,15 +1,35 @@
+body{
+    margin:0;
+}
 .container {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: top;
+    align-items: top;
+}
+
+.content{
+    padding:3vh;
+}
+
+.links{
+    position: sticky;
+    top: 1vh;
+}
+
+#iconCollapseExpand{
+position: sticky;
+top:1vh;
 }
 
 .iconCollapse {
+    transition: transform 1s;
     transform: rotate(-90deg);
     width: 5vh;
     height: 5vh;
 }
+
 .iconExpand{
+    transition: transform 1s;
     transform: rotate(90deg);
     width: 5vh;
     height: 5vh;
@@ -18,28 +38,29 @@
 .sidebar {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: top;
     background-color: rgb(120, 120, 238);
-    padding: 8vh;
+    padding: 5vh;
     width:8vh;
     align-self: stretch;
     transition: padding  2s ease, width 2s ease;
-  
 }
 
-
+.sidebar a {
+    opacity: 100;
+    transition:opacity 1s;
+}
 
 .sidebarCollapsed{
-    padding: 0.5vh;
+    padding: 1vh;
     width:0.5vh;
 }
 
 .sidebarCollapsed a{
-    visibility: hidden;
     
+    opacity: 0;
 } 
 a{
-    
     font-style: bold;
     font-size: larger;
     text-decoration: none;
@@ -50,16 +71,26 @@ a:visited{
     color: black;
 }
 
-@media(max-width:1000px){
+@media(max-width:1000px), (max-height: 600px){
     .container{
         flex-direction: column;
     }
     .sidebar{
-        flex-direction: row;
+        
         width:100%;
         transition: padding 0s;
     }
     #iconCollapseExpand{
         visibility: hidden;
     }
+    .sidebarCollapsed{
+        padding: 5vh;
+        width:100%;
+    }
+    
+    .sidebarCollapsed a{
+        
+        opacity: 100;
+        
+    } 
 }
