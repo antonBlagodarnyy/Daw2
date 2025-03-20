@@ -25,7 +25,7 @@
     </form>
     <?php
     switch (true) {
-        case isset($_POST('leer')):
+        case isset($_POST['leer']):
             if (!empty($personas)) {
                 echo "<p>La agenda contiene los siguientes nombres:</p>";
                 echo "<ul>";
