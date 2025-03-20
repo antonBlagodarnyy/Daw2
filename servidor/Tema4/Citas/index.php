@@ -4,7 +4,7 @@ require_once("funciones.php");
 // Obtener la cita más valorada
 $citaMas = obtener_cita_destacada();
 
-
+var_dump($citaMas);
 $error = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Botón de registro
