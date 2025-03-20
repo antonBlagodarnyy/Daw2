@@ -21,3 +21,19 @@ function obtenerCitas()
 
     return ['mensaje' => $mensaje, 'citas' => $citas];
 }
+function obtenerPuntosCita($cita_id)
+{
+    $puntos = fetchPuntosCita($cita_id);
+    if ($puntos) {
+        $mensaje = 'Datos recogidos con exito';
+    } else {
+        $mensaje = 'No se recogieron puntos';
+    }
+    return ['mensaje' => $mensaje, 'puntos' => $puntos];
+}
+
+function obtenerLike($citaId, $usuario_id)
+{
+
+    return ['like' => fetchLike($usuario_id, $citaId), 'mensaje' => 'Like recogido con exito.'];
+}

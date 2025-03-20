@@ -1,5 +1,6 @@
 <?php
 require_once(__DIR__ . '/service/citas.service.php');
+require_once("funciones.php");
 
 session_start();
 if (!isset($_SESSION['usuario'])) header('Location: index.php');
@@ -21,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['like'])) {
         $cita_id = $_POST['like'];
 
-        // meGusta($_SESSION['usuario_id'], $cita_id);
+        meGusta($_SESSION['usuario']['id'], $cita_id);
 
         header("Location: " . $_SERVER['PHP_SELF']);
         exit();
@@ -30,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Procesar dislikes
     if (isset($_POST['dislike'])) {
         $cita_id = $_POST['dislike'];
-        noMeGusta($_SESSION['usuario_id'], $cita_id);
+        noMeGusta($_SESSION['usuario']['id'], $cita_id);
 
         header("Location: " . $_SERVER['PHP_SELF']);
         exit();
@@ -87,12 +88,17 @@ $citas = obtenerCitas();
             </thead>
             <tbody>
                 <?php foreach ($citas['citas'] as $cita): ?>
+
                     <tr>
-                        <td><?=$cita['texto']?></td>
-                        <td><?=$cita['autor']?></td>
-                        <td><?=$cita['texto']?></td>
-                        <td></td>
+                        <td><?= $cita['texto'] ?></td>
+                        <td><?= $cita['autor'] ?></td>
+                        <td><?= $cita['texto'] ?></td>
+                        <td><?= obtenerPuntosCita($cita['id'])['puntos'] ? obtenerPuntosCita($cita['id'])['puntos']  : '0' ?></td>
                         <td>
+                            <?php
+                            $miPuntuacion = obtenerLike($cita['id'], $_SESSION['usuario']['id'])['like'];
+
+                            ?>
                             <form method="POST">
                                 <button type="submit" name="like" value="<?php echo $cita['id'] ?>" class="<?php echo $miPuntuacion == 1 ? 'verde' : '' ?>">Me gusta</button>
                                 <button type="submit" name="dislike" value="<?php echo $cita['id'] ?>" class="<?php echo $miPuntuacion == -1 ? 'rojo' : '' ?>">No me gusta</button>
