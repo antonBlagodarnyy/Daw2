@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triangulos</title>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+</body>
+<script>
+    const canvas = document.getElementById("canvas");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const ctx = canvas.getContext("2d");
+
+    class Triangle {
+        center = { x: canvas.width / 2, y: canvas.height / 2 };
+        vertice = {
+            top: { x: this.center.x, y: this.center.y - 200 },
+            right: { x: this.center.x + 200, y: this.center.y + 200 },
+            left: { x: this.center.x - 200, y: this.center.y + 200 },
+        }
+    }
+
+    const triangle = new Triangle();
+
+    function draw() {
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        
+        ctx.beginPath();
+        ctx.moveTo(triangle.vertice.top.x, triangle.vertice.top.y);
+        ctx.lineTo(triangle.vertice.right.x, triangle.vertice.right.y);
+        ctx.lineTo(triangle.vertice.left.x, triangle.vertice.left.y);
+        ctx.lineTo(triangle.vertice.top.x, triangle.vertice.top.y);
+        ctx.stroke();
+        
+        window.requestAnimationFrame(draw);
+    }
+
+    window.requestAnimationFrame(draw);
+</script>
+
+</html>

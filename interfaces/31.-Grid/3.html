@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio</title>
+</head>
+<style>
+    .container {
+        height: 500px;
+        background-color: orange;
+        display: grid;
+        grid-template-areas: 
+        "sidebarLeft header header header"
+        "sidebarLeft contentMain contentMain sidebarRight"
+        "sidebarLeft contentMain contentMain sidebarRight"
+        "sidebarLeft contentSec1 contentSec1 sidebarRight"
+        "sidebarLeft contentSec2 contentSec2 sidebarRight"
+        "sidebarLeft footer footer footer";
+        grid-gap:20px;
+    }
+    .item{
+        background-color: blue;
+        border: 1px solid black;
+    }
+    .header{
+        grid-area: header;
+    }
+    .sidebarLeft{
+        grid-area: sidebarLeft;
+    }
+    .contentMain{
+        grid-area: contentMain;
+    }
+    .contentSec1{
+        grid-area:contentSec1;
+    }
+    .contentSec2{
+        grid-area:contentSec2;
+    }
+    .sidebarRight{
+        grid-area:sidebarRight;
+    }
+    .footer{
+        grid-area:footer;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="header item"></div>
+        <div class="sidebarLeft item"></div>
+        <div class="contentMain item"></div>
+        <div class="contentSec1 item"></div>
+        <div class="contentSec2 item"></div>
+        <div class="sidebarRight item"></div>
+        <div class="footer item"></div>
+    </div>
+</body>
+
+</html>
