@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4</title>
+    <style>
+        .container {
+            height: 100vh;
+            display: grid;
+            background-color: orange;
+            grid-template-columns: [first] 1fr [second] 1fr [third] 1fr [forth] 1fr [fifth];
+            grid-template-rows: [first] 2fr [second] 1fr [third] 3fr [forth] 3fr [fifth] 2fr [sixth];
+            grid-gap: 20px;
+        }
+
+        .item {
+            background-color: #1eaafc;
+            background-image: linear-gradient(130deg, #6c52d9, #1eaafc 85%, #3edfd7);
+            -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, .19), 0 6px 6px rgba(0, 0, 0, .23);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, .19), 0 6px 6px rgba(0, 0, 0, .23);
+            color: #fff;
+            border-radius: 4px;
+            border: 6px solid #171717;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .header {
+            grid-column: first/fifth;
+            grid-row: first;
+        }
+
+        .finder {
+            grid-column: first/third;
+            grid-row: second;
+        }
+
+        .navigator {
+            grid-column: third/fifth;
+            grid-row: second;
+        }
+        .content1{
+            grid-column: first/second;
+            grid-row:third/forth
+        }
+        .content2{
+            grid-column: second/third;
+            grid-row:third/forth
+        }
+        .content3{
+            grid-column: third/forth;
+            grid-row:third/forth
+        }
+        .content4{
+            grid-column: forth/fifth;
+            grid-row:third/forth;
+        }
+        .content5{
+            grid-column: first/second;
+            grid-row: forth/fifth;
+        }
+        .content6{
+            grid-column: second/third;
+            grid-row: forth/fifth;
+        }
+        .content7{
+            grid-column: third/forth;
+            grid-row: forth/fifth;   
+        }
+        .content8{
+            grid-column: forth/fifth;
+            grid-row: forth/fifth;   
+        }
+        .footer{
+            grid-column: first/fifth;
+            grid-row: fifth/sixth;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header item">Header</div>
+        <div class="finder item">finder</div>
+        <div class="navigator item">navigator</div>
+        <div class="content1 item">content1</div>
+        <div class="content2 item">content2</div>
+        <div class="content3 item">content3</div>
+        <div class="content4 item">content4</div>
+        <div class="content5 item">content5</div>
+        <div class="content6 item">content6</div>
+        <div class="content7 item">content7</div>
+        <div class="content8 item">content8</div>
+        <div class="footer item">footer</div>
+    </div>
+</body>
+
+</html>
