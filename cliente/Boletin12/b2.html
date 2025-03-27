@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Tareas</title>
+    <!-- Agregar Bootstrap desde el CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <style>
+        body {
+            padding: 20px;
+        }
+        .completed {
+            text-decoration: line-through;
+            color: #888;
+        }
+        .task-container {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .task-container h2 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="my-4 text-center">Gestor de Tareas</h1>
+
+        <!-- Formulario para agregar tarea -->
+        <div class="mb-4">
+            <input type="text" id="task-input" class="form-control" placeholder="Escribe una tarea...">
+            <button id="add-task-btn" class="btn btn-success w-100 mt-2">Agregar Tarea</button>
+        </div>
+
+        <!-- Contenedor de tareas -->
+        <div id="task-list-container"></div>
+    </div>
+
+    <!-- Agregar Bootstrap JS al final del archivo -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <!--
+    Requerimientos:
+    Agregar tareas: Los estudiantes deben permitir que el usuario agregue nuevas tareas mediante un campo de entrada y un botón. 
+    Cada tarea debe mostrarse con un botón para marcarla como completada y otro para eliminarla.
+
+    Marcar como completada: Los estudiantes deben permitir que, al hacer clic en un botón de "marcar como completada", 
+    la tarea se muestre con un estilo tachado. Esta acción debe persistir entre recargas de la página, por lo que deben almacenarla en localStorage.
+
+    Eliminar tareas: Los estudiantes deben permitir que al hacer clic en el botón de "eliminar", la tarea se elimine de la lista y también se borre de localStorage.
+
+    Persistencia en localStorage: Todas las tareas, incluidas las completadas, deben guardarse en localStorage. 
+    Al recargar la página, las tareas deben aparecer correctamente, con su estado (completada o no) preservado.
+
+    Uso de funciones de orden superior: Los estudiantes deben usar funciones como .map(), .filter() y .forEach() para manipular el array de tareas.
+    
+    Cada tarea se representará mediante un div con las clases: d-flex justify-content-between align-items-center p-2 mb-2 border border-secondary rounded
+    En su interior tendremos un span con la clase: flex-grow-1
+    El span tendrá un elemento hermano div.
+    Este elemento div actuará como contenedor de dos botones. El primero para marcar como completada (clases: btn btn-info btn-sm complete-btn mx-1) y el segundo para eliminar la tarea
+    clases: btn btn-danger btn-sm remove-btn mx-1
+    
+    Las funciones manejadoras de los botones se deben gestionar desde su contenedor. 
+    -->
+</body>
+</html>
