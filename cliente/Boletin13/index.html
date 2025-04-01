@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CHUCK!</title>
+    <style>
+      .container {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+      }
+      .main {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+      .jokeContainer {
+        padding: 5vh;
+        display: flex;
+        flex-direction: column;
+      }
+      .jokeContainer > * {
+        margin: 2vh;
+      }
+      button {
+        padding: 2vh;
+      }
+      select {
+        padding: 2vh;
+      }
+      input {
+        padding: 2vh;
+      }
+      img {
+        width: 50vh;
+      }
+      @media (max-width: 800px) {
+        body {
+          overflow: auto;
+        }
+        .main {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <img src="chuck.png" id="image" alt="joke" />
+      </div>
+      <div class="main">
+        <div class="jokeContainer">
+          <button id="randomBtn">Get random joke</button>
+          <p id="randomJoke"></p>
+        </div>
+        <div class="jokeContainer">
+          <div class="jokeForm">
+            <select id="categorySelect"></select>
+            <button id="categoryBtn">Get joke by category</button>
+          </div>
+          <p id="categoryJoke"></p>
+        </div>
+        <div class="jokeContainer">
+          <div class="jokeForm">
+            <input type="text" id="textSearch" />
+            <button id="textBtn">Get joke by text search</button>
+          </div>
+          <p id="textJoke"></p>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    const url = "https://api.chucknorris.io/jokes/";
+    //Get elements from DOM
+    const img = document.getElementById("image");
+
+    const randomBtn = document.getElementById("randomBtn");
+    const randomJoke = document.getElementById("randomJoke");
+
+    const categorySelect = document.getElementById("categorySelect");
+    const categoryBtn = document.getElementById("categoryBtn");
+    const categoryJoke = document.getElementById("categoryJoke");
+
+    const textBtn = document.getElementById("textBtn");
+    const textSearch = document.getElementById("textSearch");
+    const textJoke = document.getElementById("textJoke");
+
+    //Random joke
+    randomBtn.addEventListener("click", () => {
+      fetch(url + "random").then((response) => {
+        response.json().then((result) => {
+          randomJoke.textContent = result.value;
+        });
+      });
+    });
+
+    //Category joke
+    fetch(url + "categories").then((res) =>
+      res.json().then((result) => {
+        for (const category of result) {
+          let option = document.createElement("option");
+          option.textContent = category;
+          option.value = category;
+          categorySelect.append(option);
+        }
+      })
+    );
+
+    categoryBtn.addEventListener("click", () => {
+      fetch(url + `random?category=${categorySelect.value}`).then((res) => {
+        res.json().then((result) => {
+          categoryJoke.textContent = result.value;
+        });
+      });
+    });
+
+    //TextJoke
+    textBtn.addEventListener("click", () => {
+      fetch(url + `search?query=${textSearch.value}`).then((res) => {
+        res.json().then((result) => {
+          textJoke.textContent = result.result[0].value;
+          console.log(result);
+        });
+      });
+    });
+  </script>
+</html>

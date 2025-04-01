@@ -4,14 +4,21 @@ const taskInput = document.getElementById("task-input");
 
 var tareas;
 
-
-
 localStorage.getItem("tareas")
   ? (tareas = JSON.parse(localStorage.getItem("tareas")))
   : (tareas = []);
 
-console.log(tareas);
+  for (const tarea of tareas) {
+    pintarTarea(tarea);
+  }
 
+  addTaskButton.addEventListener("click", () => {
+    let tarea = crearTarea();
+    pintarTarea(tarea);
+    guardarTarea(tarea);
+  });
+
+  
 function crearTarea() {
   return {
     contenido: taskInput.value,
@@ -34,18 +41,21 @@ function pintarTarea(tarea) {
   span.textContent = tarea.contenido;
 
   const divBotones = document.createElement("div");
+  divBotones.addEventListener("click", (e) => {
+    interactuar(tarea, e);
+  });
 
   const completada = document.createElement("button");
-  completada.addEventListener("click", () => {
+  /*   completada.addEventListener("click", () => {
     marcarTarea(tarea);
-  });
+  }); */
   completada.textContent = "Completar";
   completada.setAttribute("class", "btn btn-info btn-sm complete-btn mx-1");
 
   const eliminar = document.createElement("button");
-  eliminar.addEventListener("click", () => {
+  /*   eliminar.addEventListener("click", () => {
     eliminarTarea(tarea);
-  });
+  }); */
   eliminar.textContent = "Eliminar";
   eliminar.setAttribute("class", "btn btn-danger btn-sm remove-btn mx-1");
 
@@ -80,16 +90,17 @@ function marcarTarea(tarea) {
         : (e.style.textDecoration = "");
     }
   });
-  localStorage.setItem("tareas",JSON.stringify(tareas))
+  localStorage.setItem("tareas", JSON.stringify(tareas));
 }
 
-addTaskButton.addEventListener("click", () => {
-  let tarea = crearTarea();
-  pintarTarea(tarea);
-  guardarTarea(tarea);
-});
 
-for (const tarea of tareas) {
-  pintarTarea(tarea);
+function interactuar(tarea, e) {
+  if (e.target.tagName == "BUTTON") {
+    if (e.target.getAttribute("class").match(/complete-btn/)) {
+      marcarTarea(tarea);
+    }
+    if (e.target.getAttribute("class").match(/remove-btn/)) {
+      eliminarTarea(tarea);
+    }
+  }
 }
-
