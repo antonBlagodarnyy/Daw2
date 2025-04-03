@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .active .green {
+      background-color: green;
+    }
+    .active .yellow {
+      background-color: yellow;
+    }
+    .active .red {
+      background-color: red;
+    }
+  </style>
+  <body>
+    <button id="iniciar">Iniciar</button>
+    <div class="semaforo">
+      <div class="green" id="green">C</div>
+      <div class="yellow" id="yellow">C</div>
+      <div class="red" id="red">C</div>
+    </div>
+  </body>
+  <script>
+    const btnIniciar = document.getElementById("iniciar");
+    let counter = 0;
+    let intervalActive;
+    btnIniciar.addEventListener("click", () => {
+      intervalActive = setInterval(() => {
+        counter++;
+        if (counter == 3000) {
+        }
+      }, 7000);
+    });
+  </script>
+</html>

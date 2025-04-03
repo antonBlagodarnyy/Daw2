@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista interactiva</title>
+  </head>
+  <style>
+    .active {
+      background-color: aquamarine;
+    }
+    .favorits {
+      font-weight: bold;
+      color: gold;
+    }
+  </style>
+  <body>
+    <script>
+      var nombres = [];
+      var nombresEliminados = [];
+      const body = document.querySelector("body");
+
+      const input = document.createElement("input");
+      input.setAttribute("type", "text");
+
+      const agregarBtn = document.createElement("button");
+      agregarBtn.textContent = "Agregar nombre";
+      agregarBtn.addEventListener("click", () => {
+        agregarANombres(input.value);
+        pintarLista();
+      });
+
+      const eliminarFavsBtn = document.createElement("button");
+      eliminarFavsBtn.textContent = "Eliminar favs";
+      eliminarFavsBtn.addEventListener("click", eliminarFavs);
+
+      const restaurarBtn = document.createElement("button");
+      restaurarBtn.textContent = "Restaurar eliminados";
+      restaurarBtn.addEventListener("click", restaurarEliminados);
+
+      body.append(input, agregarBtn, eliminarFavsBtn, restaurarBtn);
+
+      function agregarANombres(name) {
+        if (
+          name.match(/[A-Z|a-z]{3}/) &&
+          !nombres.find((n) => n.name == name)
+        ) {
+          nombres.push({ name: name, favorit: false });
+        }
+      }
+
+      function pintarLista() {
+        let lista;
+        if (document.querySelector("ul")) {
+          lista = document.querySelector("ul");
+        } else {
+          lista = document.createElement("ul");
+        }
+        lista.innerText = "";
+        for (const nombre of nombres) {
+          lista.append(pintarNombre(nombre));
+        }
+        body.append(lista);
+      }
+
+      function pintarNombre(nombre) {
+        let li = document.createElement("li");
+
+        let spanText = document.createElement("span");
+        spanText.textContent = nombre.name;
+        if (nombre.favorit) spanText.setAttribute("class", "favorits");
+        spanText.addEventListener("dblclick", () => {
+          nombre.favorit = !nombre.favorit;
+          spanText.classList.toggle("favorits");
+        });
+
+        let btnContainer = document.createElement("div");
+
+        let colorBtn = document.createElement("button");
+        colorBtn.textContent = "Cambiar color del nombre";
+        colorBtn.addEventListener("mouseenter", () => {
+          spanText.classList.add("active");
+        });
+        colorBtn.addEventListener("mouseout", () => {
+          spanText.classList.remove("active");
+        });
+
+        let removeBtn = document.createElement("button");
+        removeBtn.textContent = "Eliminar nombre";
+        removeBtn.addEventListener("click", () => {
+          li.remove();
+          nombresEliminados.push(nombre);
+          nombres.splice(nombres.indexOf(nombre), 1);
+        });
+
+        btnContainer.append(colorBtn, removeBtn);
+
+        li.append(spanText, btnContainer);
+        return li;
+      }
+
+      function eliminarFavs() {
+        nombresEliminados.push(...nombres.filter((n) => n.favorit));
+        nombres = nombres.filter((n) => !n.favorit);
+        pintarLista();
+      }
+  
+      function restaurarEliminados() {
+        nombres.push(...nombresEliminados);
+        nombresEliminados = [];
+        pintarLista();
+      }
+    </script>
+  </body>
+</html>
