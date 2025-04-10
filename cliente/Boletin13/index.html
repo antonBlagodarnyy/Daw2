@@ -90,13 +90,20 @@
     const textJoke = document.getElementById("textJoke");
 
     //Random joke
-    randomBtn.addEventListener("click", () => {
-      fetch(url + "random").then((response) => {
+    randomBtn.addEventListener(
+      "click",
+      getRandomJoke
+      /*()=>{ fetch(url + "random").then((response) => {
         response.json().then((result) => {
           randomJoke.textContent = result.value;
-        });
-      });
-    });
+        });}
+      }); */
+    );
+    async function getRandomJoke() {
+      const response = await fetch(url + "random");
+      const result = await response.json();
+      randomJoke.textContent = result.value;
+    }
 
     //Category joke
     fetch(url + "categories").then((res) =>
