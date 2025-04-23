@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const url = "https://jsonplaceholder.typicode.com/";
+
+      //Pillamos el body
+      const body = document.querySelector("body");
+
+      //Creacion del select de usuarios
+      const userSelectDiv = document.createElement("div");
+      const userSelect = document.createElement("select");
+      userSelect.append(document.createElement("option"))
+
+      fetchUsers();
+
+      body.append(userSelect);
+
+      //Creacion de los posts
+      async function fetchUsers() {
+        const response = await fetch(url + "users");
+        const result = await response.json();
+
+        userSelect.addEventListener("change", (e) => {
+          
+          fetchPosts(e.target.getAttribute("data-id"));
+        });
+
+        for (const user of result) {
+          let userO = document.createElement("option");
+          userO.setAttribute("data-id", user.id);
+          userO.textContent = user.name;
+          userSelect.append(userO);
+        }
+      }
+ 
+
+      async function fetchPosts(userId) {
+        const response = await fetch(url + "posts?userId=" + userId);
+        const result = await response.json();
+
+      }
+    </script>
+  </body>
+</html>
